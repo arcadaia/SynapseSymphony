@@ -3,16 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team - Synapse Symphony</title>
+  <title>Team | Synapse Symphony</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #0f1113; color: #f1f1f1; }
-    nav { background-color: #1a1c1f; padding: 1rem 2rem; display: flex; justify-content: space-between; }
+    body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #032B47; color: #f1f1f1; }
+    nav { background-color: #021a2c; padding: 1rem 2rem; display: flex; justify-content: space-between; }
     nav .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; }
     nav ul { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; }
     nav ul li a { text-decoration: none; color: #ccc; }
     nav ul li a:hover { color: #fff; }
-    section { padding: 4rem 2rem; max-width: 900px; margin: auto; }
+    section {
+      background: url('bg.jpg') center/cover no-repeat;
+      padding: 4rem 2rem;
+      border-top: 4px solid #1486B6;
+      border-bottom: 4px solid #1486B6;
+      text-align: center;
+    }
+    h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem; }
+    p.intro { font-size: 1.1rem; margin-bottom: 2rem; color: #ddd; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .member {
+      background-color: #021a2c;
+      border: 3px solid #1486B6;
+      padding: 1rem;
+      border-radius: 6px;
+      width: 200px;
+    }
+    .member img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .member h3 { margin-top: 1rem; color: #ffffff; font-size: 1.2rem; }
+    .member p.role { margin: 0.2rem 0; font-size: 0.95rem; color: #88c3e0; }
+    .member p.bio { font-size: 0.85rem; color: #aacde6; }
+    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #88b2ca; background-color: #021a2c; }
   </style>
 </head>
 <body>
@@ -27,46 +59,47 @@
     </ul>
   </nav>
   <section>
-    <h1 style="text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem;">Meet The Team</h1>
-    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">[Introduce your core contributors here. Add their names, roles, and a brief note beneath their image.]</p>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; padding: 0 2rem; justify-items: center;">
-      <div style="text-align: center; width: 200px; background-color: #021a2c; border: 3px solid #1486B6; padding: 1rem; border-radius: 6px;">
-        <img src="placeholder.jpg" alt="Member 1" style="width: 100%; height: auto;">
-        <h3 style="margin-top: 1rem; color: #ffffff;">[Name]</h3>
-        <p style="margin: 0.2rem 0; font-size: 0.95rem; color: #88c3e0;">[Role/Title]</p>
-        <p style="font-size: 0.85rem; color: #aacde6;">[Short bio or description about this person and their focus or role in the project.]</p>
+    <h1>Meet The Team</h1>
+    <p class="intro">[Introduce your core contributors here. Add their names, roles, and a brief note beneath their image.]</p>
+    <div class="team-grid">
+      <div class="member">
+        <img src="placeholder.jpg" alt="Member 1">
+        <h3>[Name]</h3>
+        <p class="role">[Role/Title]</p>
+        <p class="bio">[Short bio or description about this person and their focus or role in the project.]</p>
       </div>
-      <div style="text-align: center; width: 200px; background-color: #021a2c; border: 3px solid #1486B6; padding: 1rem; border-radius: 6px;">
-        <img src="placeholder.jpg" alt="Member 2" style="width: 100%; height: auto;">
-        <h3 style="margin-top: 1rem; color: #ffffff;">[Name]</h3>
-        <p style="margin: 0.2rem 0; font-size: 0.95rem; color: #88c3e0;">[Role/Title]</p>
-        <p style="font-size: 0.85rem; color: #aacde6;">[Short bio or description about this person and their focus or role in the project.]</p>
+      <div class="member">
+        <img src="placeholder.jpg" alt="Member 2">
+        <h3>[Name]</h3>
+        <p class="role">[Role/Title]</p>
+        <p class="bio">[Short bio or description about this person and their focus or role in the project.]</p>
       </div>
-      <div style="text-align: center; width: 200px; background-color: #021a2c; border: 3px solid #1486B6; padding: 1rem; border-radius: 6px;">
-        <img src="placeholder.jpg" alt="Member 3" style="width: 100%; height: auto;">
-        <h3 style="margin-top: 1rem; color: #ffffff;">[Name]</h3>
-        <p style="margin: 0.2rem 0; font-size: 0.95rem; color: #88c3e0;">[Role/Title]</p>
-        <p style="font-size: 0.85rem; color: #aacde6;">[Short bio or description about this person and their focus or role in the project.]</p>
+      <div class="member">
+        <img src="placeholder.jpg" alt="Member 3">
+        <h3>[Name]</h3>
+        <p class="role">[Role/Title]</p>
+        <p class="bio">[Short bio or description about this person and their focus or role in the project.]</p>
       </div>
-      <div style="text-align: center; width: 200px; background-color: #021a2c; border: 3px solid #1486B6; padding: 1rem; border-radius: 6px;">
-        <img src="placeholder.jpg" alt="Member 4" style="width: 100%; height: auto;">
-        <h3 style="margin-top: 1rem; color: #ffffff;">[Name]</h3>
-        <p style="margin: 0.2rem 0; font-size: 0.95rem; color: #88c3e0;">[Role/Title]</p>
-        <p style="font-size: 0.85rem; color: #aacde6;">[Short bio or description about this person and their focus or role in the project.]</p>
+      <div class="member">
+        <img src="placeholder.jpg" alt="Member 4">
+        <h3>[Name]</h3>
+        <p class="role">[Role/Title]</p>
+        <p class="bio">[Short bio or description about this person and their focus or role in the project.]</p>
       </div>
-      <div style="text-align: center; width: 200px; background-color: #021a2c; border: 3px solid #1486B6; padding: 1rem; border-radius: 6px;">
-        <img src="placeholder.jpg" alt="Member 5" style="width: 100%; height: auto;">
-        <h3 style="margin-top: 1rem; color: #ffffff;">[Name]</h3>
-        <p style="margin: 0.2rem 0; font-size: 0.95rem; color: #88c3e0;">[Role/Title]</p>
-        <p style="font-size: 0.85rem; color: #aacde6;">[Short bio or description about this person and their focus or role in the project.]</p>
+      <div class="member">
+        <img src="placeholder.jpg" alt="Member 5">
+        <h3>[Name]</h3>
+        <p class="role">[Role/Title]</p>
+        <p class="bio">[Short bio or description about this person and their focus or role in the project.]</p>
       </div>
-      <div style="text-align: center; width: 200px; background-color: #021a2c; border: 3px solid #1486B6; padding: 1rem; border-radius: 6px;">
-        <img src="placeholder.jpg" alt="Member 6" style="width: 100%; height: auto;">
-        <h3 style="margin-top: 1rem; color: #ffffff;">[Name]</h3>
-        <p style="margin: 0.2rem 0; font-size: 0.95rem; color: #88c3e0;">[Role/Title]</p>
-        <p style="font-size: 0.85rem; color: #aacde6;">[Short bio or description about this person and their focus or role in the project.]</p>
+      <div class="member">
+        <img src="placeholder.jpg" alt="Member 6">
+        <h3>[Name]</h3>
+        <p class="role">[Role/Title]</p>
+        <p class="bio">[Short bio or description about this person and their focus or role in the project.]</p>
       </div>
+    </div>
   </section>
-</div>
+  <footer>&copy; 2025 Synapse Symphony. All rights reserved.</footer>
 </body>
 </html>
