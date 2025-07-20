@@ -1,0 +1,35 @@
+/* Coolors Exported Palette - https://coolors.co/10749e-1486b6-126487-1eabd0-032b47 */
+
+- Tailwind
+
+{ 'cerulean': { DEFAULT: '#10749E', 100: '#031720', 200: '#062e3f', 300: '#09455f', 400: '#0c5c7e', 500: '#10749e', 600: '#16a0db', 700: '#47bbed', 800: '#84d2f3', 900: '#c2e8f9' }, 'blue_(ncs)': { DEFAULT: '#1486B6', 100: '#041b25', 200: '#083649', 300: '#0c516e', 400: '#106c93', 500: '#1486b6', 600: '#23ace7', 700: '#5ac1ed', 800: '#91d5f3', 900: '#c8eaf9' }, 'lapis_lazuli': { DEFAULT: '#126487', 100: '#04141b', 200: '#072836', 300: '#0b3c51', 400: '#0f506c', 500: '#126487', 600: '#1b92c5', 700: '#43b4e5', 800: '#81cdee', 900: '#c0e6f6' }, 'pacific_cyan': { DEFAULT: '#1EABD0', 100: '#06232a', 200: '#0c4654', 300: '#12687e', 400: '#188ba8', 500: '#1eabd0', 600: '#42c4e4', 700: '#71d2eb', 800: '#a0e1f1', 900: '#d0f0f8' }, 'prussian_blue': { DEFAULT: '#032B47', 100: '#01090f', 200: '#01121d', 300: '#021a2c', 400: '#02233b', 500: '#032b47', 600: '#075e9d', 700: '#0a90f0', 800: '#59b6f8', 900: '#acdafc' } }
+
+- CSV
+
+10749E,1486B6,126487,1EABD0,032B47
+
+- With #
+
+#10749E, #1486B6, #126487, #1EABD0, #032B47
+
+- Array
+
+["10749E","1486B6","126487","1EABD0","032B47"]
+
+- Object
+
+{"Cerulean":"10749E","Blue (NCS)":"1486B6","Lapis Lazuli":"126487","Pacific cyan":"1EABD0","Prussian blue":"032B47"}
+
+- Extended Array
+
+[{"name":"Cerulean","hex":"10749E","rgb":[16,116,158],"cmyk":[90,27,0,38],"hsb":[198,90,62],"hsl":[198,82,34],"lab":[46,-11,-30]},{"name":"Blue (NCS)","hex":"1486B6","rgb":[20,134,182],"cmyk":[89,26,0,29],"hsb":[198,89,71],"hsl":[198,80,40],"lab":[52,-12,-33]},{"name":"Lapis Lazuli","hex":"126487","rgb":[18,100,135],"cmyk":[87,26,0,47],"hsb":[198,87,53],"hsl":[198,76,30],"lab":[40,-10,-26]},{"name":"Pacific cyan","hex":"1EABD0","rgb":[30,171,208],"cmyk":[86,18,0,18],"hsb":[192,86,82],"hsl":[192,75,47],"lab":[65,-22,-29]},{"name":"Prussian blue","hex":"032B47","rgb":[3,43,71],"cmyk":[96,39,0,72],"hsb":[205,96,28],"hsl":[205,92,15],"lab":[17,-1,-21]}]
+
+- XML
+
+<palette>
+  <color name="Cerulean" hex="10749E" r="16" g="116" b="158" />
+  <color name="Blue (NCS)" hex="1486B6" r="20" g="134" b="182" />
+  <color name="Lapis Lazuli" hex="126487" r="18" g="100" b="135" />
+  <color name="Pacific cyan" hex="1EABD0" r="30" g="171" b="208" />
+  <color name="Prussian blue" hex="032B47" r="3" g="43" b="71" />
+</palette>
