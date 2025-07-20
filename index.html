@@ -6,51 +6,14 @@
   <title>Synapse Symphony</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #0f1113;
-      color: #f1f1f1;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #1a1c1f;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #ffffff;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
-      color: #ccc;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #ffffff;
-    }
-
+    body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #0f1113; color: #f1f1f1; }
+    nav { background-color: #1a1c1f; padding: 1rem 2rem; display: flex; justify-content: space-between; }
+    nav .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; }
+    nav ul li a { text-decoration: none; color: #ccc; }
+    nav ul li a:hover { color: #fff; }
     .hero {
-      background: url('bg.jpg') center/cover no-repeat;
+      background: url('hero.jpg') center/cover no-repeat;
       height: 90vh;
       display: flex;
       flex-direction: column;
@@ -59,90 +22,26 @@
       text-align: center;
       padding: 0 2rem;
     }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin: 0;
-      color: #fff;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: #ddd;
-      max-width: 600px;
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #f4f4f4;
-    }
-
-    section p {
-      font-size: 1rem;
-      color: #cfcfcf;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #888;
-      background-color: #1a1c1f;
-    }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: white; }
+    .hero p { font-size: 1.25rem; color: #ccc; max-width: 700px; }
+    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #888; background-color: #1a1c1f; }
   </style>
 </head>
 <body>
-
   <nav>
     <div class="logo">SYNAPSE SYMPHONY</div>
     <ul>
+      <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="team.html">Team</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  
   <div class="hero">
     <h1>Harmonizing Health and Technology</h1>
-    <p>A collaborative initiative pushing the boundaries of neuroscience, medicine, and machine intelligence.</p>
+    <p>[Brief tagline or description here – write something compelling and concise]</p>
   </div>
-
-  <section id="about">
-    <h2>About the Project</h2>
-    <p>This project brings together engineers, physicians, and neuroscientists to design data-driven healthcare interventions and neural technologies with real-world impact. Our goal is to blend precision diagnostics with intelligent response systems across both clinical and research settings.</p>
-  </section>
-
-  <section id="research">
-    <h2>Research Focus</h2>
-    <p>We’re exploring neuroimaging-guided therapy, real-time AI analytics, and brain-computer interface prototypes. Our team actively collaborates across institutions and grant agencies to ensure scalability and translational potential.</p>
-  </section>
-
-  <section id="team">
-    <h2>Meet the Team</h2>
-    <p>Led by Dr. [Name], Synapse Symphony is powered by a multidisciplinary crew including biomedical engineers, cognitive scientists, and data analysts. We value transparency, creativity, and ethical tech development.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: info@synapsesymphony.org<br>
-    LinkedIn: linkedin.com/in/synapsesymphony<br>
-    We welcome grant inquiries, collaborations, and investor partnerships.</p>
-  </section>
-
-  <footer>
-    &copy; 2025 Synapse Symphony. All rights reserved.
-  </footer>
-
+  <footer>&copy; 2025 Synapse Symphony. All rights reserved.</footer>
 </body>
 </html>
