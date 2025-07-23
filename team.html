@@ -65,7 +65,7 @@
     }
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
     }
     .card {
@@ -75,14 +75,17 @@
       border: 2px solid #1486B6;
       border-radius: 10px;
       transition: transform 0.3s ease;
+      text-align: center;
     }
     .card:hover {
       transform: translateY(-5px);
     }
     .card img {
-      width: 100%;
-      height: auto;
-      display: block;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin-top: 1rem;
+      border-radius: 8px;
     }
     .card-content {
       padding: 1rem;
@@ -126,23 +129,23 @@
     <div class="team-grid">
       <div class="card">
         <a href="#"><img src="linkedin-icon.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="pulkit.jpg" alt="Pulkit Grover">
+        <img src="grover.png" alt="Prof. Pulkit Grover">
         <div class="card-content">
-          <h3>Prof. Pulkit Grover</h3>
+          <h3>Professor Pulkit Grover</h3>
           <p>CEO</p>
         </div>
       </div>
       <div class="card">
         <a href="#"><img src="linkedin-icon.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="vishal.jpg" alt="Vishal Jain">
+        <img src="benedict_alter.png" alt="Dr. Benedict Alter">
         <div class="card-content">
-          <h3>Vishal Jain, PhD</h3>
-          <p>COO</p>
+          <h3>Dr. Benedict Alter</h3>
+          <p>Clinical Co-founder</p>
         </div>
       </div>
       <div class="card">
         <a href="#"><img src="linkedin-icon.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="mats.jpg" alt="Mats Forssell">
+        <img src="matts_for.png" alt="Mats Forssell">
         <div class="card-content">
           <h3>Mats Forssell, PhD</h3>
           <p>Neurostimulation Expert</p>
@@ -155,30 +158,23 @@
     <div class="section-title">Clinical & Advisors</div>
     <div class="team-grid">
       <div class="card">
-        <img src="alter.jpg" alt="Dr. Benedict Alter">
-        <div class="card-content">
-          <h3>Dr. Benedict Alter</h3>
-          <p>Clinical Co-founder</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="elora.jpg" alt="Elora Gupta">
+        <img src="elora.png" alt="Elora Gupta">
         <div class="card-content">
           <h3>Elora Gupta</h3>
           <p>Regulatory Advisor</p>
         </div>
       </div>
       <div class="card">
-        <img src="maysam.jpg" alt="Maysam Chamanzar">
+        <img src="chamanzar.png" alt="Maysam Chamanzar">
         <div class="card-content">
-          <h3>Prof. Maysam Chamanzar</h3>
+          <h3>Professor Maysam Chamanzar</h3>
           <p>Professor, ECE, CMU</p>
         </div>
       </div>
       <div class="card">
-        <img src="douglas.jpg" alt="Douglas Weber">
+        <img src="weber.png" alt="Douglas Weber">
         <div class="card-content">
-          <h3>Prof. Douglas Weber</h3>
+          <h3>Professor Douglas Weber</h3>
           <p>Professor, MechE, CMU</p>
         </div>
       </div>
