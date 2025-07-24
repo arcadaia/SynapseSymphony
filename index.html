@@ -53,6 +53,7 @@
       text-align: center;
       padding: 0 5%;
       animation: fadeIn 2s ease-in;
+      background-attachment: fixed;
     }
     .header-image h1 {
       font-family: 'Playfair Display', serif;
@@ -72,17 +73,17 @@
       box-sizing: border-box;
     }
     .about-section {
-      background: linear-gradient(to right, #021a2c 60%, transparent), url('waves.jpg') right/contain no-repeat;
+      background: linear-gradient(to right, #021a2c 50%, transparent), url('waves.jpg') right/contain no-repeat;
       display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: center;
+      align-items: flex-start;
       animation: fadeIn 1s ease-in;
+      background-attachment: fixed;
     }
     .about-section-text {
-      flex: 2;
-      padding: 1rem 5% 1rem 5%;
+      flex: 1;
+      padding: 1rem 4rem 1rem 5%;
       text-align: left;
+      max-width: 45%;
     }
     .about-section h2 {
       font-size: 2.5rem;
@@ -98,8 +99,6 @@
       background-color: #021a2c;
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
-      padding: 0;
       align-items: center;
       animation: fadeIn 1.5s ease-in;
     }
@@ -110,9 +109,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 85%, transparent);
-      -webkit-mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.6) 85%, transparent);
-      filter: hue-rotate(190deg) brightness(0.9);
+      mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.8) 85%, transparent);
+      -webkit-mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.8) 85%, transparent);
+      opacity: 0.85;
+      background-color: #fff;
     }
     .testimonial-text {
       flex: 1;
