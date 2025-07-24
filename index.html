@@ -25,7 +25,16 @@
       top: 0;
       z-index: 1000;
     }
-    nav .logo {
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-container img {
+      height: 32px;
+      width: auto;
+    }
+    .logo-container span {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
       color: white;
@@ -79,12 +88,25 @@
       align-items: flex-start;
       animation: fadeIn 1s ease-in;
       background-attachment: fixed;
+      position: relative;
+    }
+    .about-section::before {
+      content: "Synapse Symphony";
+      position: absolute;
+      top: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      color: #ffffff33;
+      z-index: 0;
     }
     .about-section-text {
       flex: 1;
       padding: 1rem 4rem 1rem 5%;
       text-align: left;
       max-width: 42%;
+      z-index: 1;
     }
     .about-section h2 {
       font-size: 2.8rem;
@@ -123,7 +145,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.88;
+      opacity: 0.95;
+      background-color: rgba(255,255,255,0.05);
     }
     .testimonial-text {
       flex: 1;
@@ -159,7 +182,10 @@
 </head>
 <body>
   <nav>
-    <div class="logo">SYNAPSE SYMPHONY</div>
+    <div class="logo-container">
+      <img src="LogoIcon.png" alt="Logo">
+      <span>SYNAPSE SYMPHONY</span>
+    </div>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -169,9 +195,9 @@
     </ul>
   </nav>
   <div class="header-image">
-    <div> 
+    <div>
       <h1>Redefining Chronic Pain Care</h1>
-      <p>Advanced AI-powered, non-invasive neurostimulation for daily, at-home relief.</p>  
+      <p>AI-guided, non-invasive brain stimulation that adapts to your needs — bringing effective relief to your everyday life.</p>
     </div>
   </div>
   <section class="about-section">
