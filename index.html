@@ -88,13 +88,24 @@
     }
     .about-section h2 {
       font-size: 2.8rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       font-family: 'Playfair Display', serif;
+      position: relative;
+    }
+    .about-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background-color: #1486B6;
     }
     .about-section p {
       font-size: 1.1rem;
       line-height: 1.75;
       color: #dbe9f4;
+      margin-bottom: 1.6rem;
     }
     .testimonial {
       background-color: #021a2c;
@@ -105,14 +116,14 @@
     }
     .testimonial-img {
       flex: 1;
+      position: relative;
+      background: linear-gradient(to right, #021a2c, transparent);
     }
     .testimonial-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.7) 80%, transparent);
-      -webkit-mask-image: linear-gradient(to right, rgba(255, 255, 255, 0.7) 80%, transparent);
-      opacity: 0.93;
+      opacity: 0.88;
     }
     .testimonial-text {
       flex: 1;
@@ -158,17 +169,18 @@
     </ul>
   </nav>
   <div class="header-image">
-    <div>
+    <div> 
       <h1>Redefining Chronic Pain Care</h1>
-      <p>AI-guided, non-invasive brain stimulation that adapts to your needs — bringing effective relief to your everyday life.</p>
+      <p>Advanced AI-powered, non-invasive neurostimulation for daily, at-home relief.</p>  
     </div>
   </div>
   <section class="about-section">
     <div class="about-section-text">
       <h2>About</h2>
-      <p><strong>At Synapse Symphony</strong>, we’re revolutionizing chronic pain treatment through intelligent, patient-tailored brain stimulation. Our journey began when one patient, after decades of suffering, finally felt true relief — and we knew it had to go further than the lab.</p>
-      <p>We combine adaptive high-density neurostimulation with proprietary AI algorithms that continuously learn from each user’s anatomy and symptoms. This approach delivers precise, comfortable, and self-adjusting care — at home, every day.</p>
-      <p>Our unique "background hum" technique reduces discomfort caused by current injection, addressing a major pain point in traditional stimulation systems. The result? More relief, fewer side effects, and a system people actually want to use.</p>
+      <p><strong>At Synapse Symphony</strong>, we are redefining chronic pain care through advanced AI-powered, non-invasive neurostimulation. Sparked by a powerful moment when a patient in our early research said she felt relief for the first time in 20 years we knew we had to bring this breakthrough beyond the lab and into people's lives.</p>
+      <p>Our proprietary platform combines adaptive high-density brain stimulation with AI algorithms that personalize treatment based on each patient’s neuroanatomy, symptoms, and response patterns. We leverage proprietary algorithms and biophysical modeling to "sculpt" electric fields generated in the brain through the scalp, allowing for precise modulation of pain-related brain circuits without surgery or clinical oversight.</p>
+      <p>Another key differentiator is our novel “background hum” technique, which reduces discomfort caused by injected currents, a common issue in conventional stimulation systems that often leads to local pain or skin irritation. By minimizing these adverse sensations, “background hums” significantly improve patient tolerability and compliance, making our solution better suited for daily, at-home use.</p>
+      <p>By continuously learning from patient data, our system intelligently adjusts stimulation to maximize relief while minimizing discomfort.</p>
     </div>
   </section>
   <section class="testimonial">
