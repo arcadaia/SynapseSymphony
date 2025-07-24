@@ -78,25 +78,22 @@
       flex-direction: column;
       height: 100%;
     }
-    .card img.profile {
+    .profile-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .profile-wrapper img.profile {
       width: 100%;
       height: auto;
       display: block;
     }
-    .linkedin-wrapper {
-      position: relative;
-    }
-    .linkedin-icon {
+    .profile-wrapper .linkedin-icon {
       position: absolute;
       top: 8px;
       right: 8px;
-      width: 28px;
-      height: 28px;
-      z-index: 2;
-      background-color: white;
-      border-radius: 50%;
-      padding: 3px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      width: 24px;
+      height: 24px;
+      z-index: 10;
     }
     .card-content {
       padding: 1rem;
@@ -158,8 +155,9 @@
       <div class="card">
         <div class="linkedin-wrapper">
           <img src="grover.png" alt="Prof. Pulkit Grover" class="profile">
-          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
-        </div>
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
         <div class="card-content">
           <h3>Prof. Pulkit Grover</h3>
           <p>CEO</p>
@@ -168,7 +166,9 @@
       <div class="card">
         <div class="linkedin-wrapper">
           <img src="vishal.png" alt="Vishal Jain" class="profile">
-          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
         </div>
         <div class="card-content">
           <h3>Vishal Jain, PhD</h3>
@@ -178,7 +178,9 @@
       <div class="card">
         <div class="linkedin-wrapper">
           <img src="matts_for.png" alt="Mats Forssell" class="profile">
-          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
         </div>
         <div class="card-content">
           <h3>Mats Forssell, PhD</h3>
@@ -194,7 +196,9 @@
       <div class="card">
         <div class="linkedin-wrapper">
           <img src="benedict_alter.png" alt="Dr. Benedict Alter" class="profile">
-          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
         </div>
         <div class="card-content">
           <h3>Dr. Benedict Alter</h3>
@@ -204,7 +208,9 @@
       <div class="card">
         <div class="linkedin-wrapper">
           <img src="Elora.png" alt="Elora Gupta" class="profile">
-          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
         </div>
         <div class="card-content">
           <h3>Elora Gupta</h3>
@@ -214,7 +220,9 @@
       <div class="card">
         <div class="linkedin-wrapper">
           <img src="chamanzar.png" alt="Maysam Chamanzar" class="profile">
-          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
         </div>
         <div class="card-content">
           <h3>Prof. Maysam Chamanzar</h3>
@@ -224,7 +232,9 @@
       <div class="card">
         <div class="linkedin-wrapper">
           <img src="weber.png" alt="Douglas Weber" class="profile">
-          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
         </div>
         <div class="card-content">
           <h3>Prof. Douglas Weber</h3>
