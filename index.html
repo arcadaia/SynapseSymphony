@@ -70,29 +70,20 @@
       width: 100%;
       box-sizing: border-box;
     }
-    .about-section,
-    .testimonial {
-      background-color: #021a2c;
-    }
     .about-section {
+      background: linear-gradient(to right, #021a2c 60%, transparent), url('waves.jpg') right/contain no-repeat;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
+      align-items: center;
+      animation: fadeIn 1s ease-in;
     }
     .about-section-text {
       flex: 2;
       padding: 1rem;
     }
     .about-section-img {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-    }
-    .about-section-img img {
-      max-width: 100%;
-      border-radius: 8px;
+      display: none;
     }
     .about-section h2 {
       font-size: 2.5rem;
@@ -105,25 +96,29 @@
       color: #ddd;
     }
     .testimonial {
+      background-color: #021a2c;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       padding: 5rem 3rem;
+      align-items: center;
+      animation: fadeIn 1.5s ease-in;
     }
     .testimonial-img {
-      flex: 0 0 400px;
-      display: flex;
-      align-items: center;
+      flex: 1 1 100%;
     }
     .testimonial-img img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 0;
+      mask-image: linear-gradient(to bottom, white 85%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, white 85%, transparent);
     }
     .testimonial-text {
-      flex: 1;
+      flex: 1 1 100%;
       font-style: italic;
       font-size: 1.2rem;
       color: #ccc;
+      padding-top: 2rem;
     }
     .testimonial-text strong {
       display: block;
@@ -174,9 +169,6 @@
       <p>Our proprietary platform combines adaptive high-density brain stimulation with AI algorithms that personalize treatment based on each patient’s neuroanatomy, symptoms, and response patterns. We leverage proprietary algorithms and biophysical modeling to sculpt electric fields generated in the brain through the scalp, allowing for precise modulation of pain-related brain circuits without surgery or clinical oversight.</p>
       <p>Another key differentiator is our novel “background hum” technique, which reduces discomfort caused by injected currents—a common issue in conventional stimulation systems that often leads to local pain or skin irritation. By minimizing these adverse sensations, background hums significantly improve patient tolerability and compliance, making our solution better suited for daily, at-home use.</p>
       <p>By continuously learning from patient data, our system intelligently adjusts stimulation to maximize relief while minimizing discomfort.</p>
-    </div>
-    <div class="about-section-img">
-      <img src="placeholder.jpg" alt="Neurostimulation illustration">
     </div>
   </section>
   <section class="testimonial">
