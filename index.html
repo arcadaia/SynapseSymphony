@@ -49,8 +49,9 @@
       height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
+      justify-content: flex-start;
+      text-align: left;
+      padding-left: 5%;
       animation: fadeIn 2s ease-in;
     }
     .header-image h1 {
@@ -63,7 +64,6 @@
       font-size: 1.5rem;
       color: #dce6ee;
       max-width: 700px;
-      margin: 0 auto;
     }
     section {
       padding: 5rem 3rem;
@@ -80,10 +80,7 @@
     }
     .about-section-text {
       flex: 2;
-      padding: 1rem;
-    }
-    .about-section-img {
-      display: none;
+      padding: 1rem 3rem 1rem 5%;
     }
     .about-section h2 {
       font-size: 2.5rem;
@@ -100,25 +97,26 @@
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      padding: 5rem 3rem;
+      padding: 0;
       align-items: center;
       animation: fadeIn 1.5s ease-in;
     }
     .testimonial-img {
-      flex: 1 1 100%;
+      flex: 1;
     }
     .testimonial-img img {
       width: 100%;
-      border-radius: 0;
-      mask-image: linear-gradient(to bottom, white 85%, transparent);
-      -webkit-mask-image: linear-gradient(to bottom, white 85%, transparent);
+      height: 100%;
+      object-fit: cover;
+      mask-image: linear-gradient(to right, white 85%, transparent);
+      -webkit-mask-image: linear-gradient(to right, white 85%, transparent);
     }
     .testimonial-text {
-      flex: 1 1 100%;
+      flex: 1;
       font-style: italic;
       font-size: 1.2rem;
       color: #ccc;
-      padding-top: 2rem;
+      padding: 3rem;
     }
     .testimonial-text strong {
       display: block;
