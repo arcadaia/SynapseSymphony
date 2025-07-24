@@ -86,10 +86,10 @@
     .profile-wrapper {
       position: relative;
       width: 100%;
-      height: 480px;
+      height: 520px;
     }
     .team-grid.four .profile-wrapper {
-      height: 380px;
+      height: 400px;
     }
     .profile-wrapper img.profile {
       width: 100%;
@@ -114,7 +114,7 @@
       background-color: #021a2c;
       transition: transform 0.3s ease;
       text-align: left;
-      min-height: 80px;
+      min-height: 100px;
     }
     .card:hover .card-content {
       transform: translateY(-20px);
@@ -128,6 +128,13 @@
       font-size: 0.9rem;
       color: #bbb;
       margin: 0;
+    }
+    .card:hover .card-content::after {
+      content: attr(data-bio);
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #ccc;
     }
 
     footer {
@@ -149,7 +156,7 @@
 </head>
 <body>
   <nav>
-    <div class="logo">SYNAPSE SYMPHONYAAA</div>
+    <div class="logo">SYNAPSE SYMPHONY</div>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -168,26 +175,26 @@
     <div class="team-grid three">
       <div class="card">
         <div class="profile-wrapper">
-          <img src="grover.png" alt="Prof. Pulkit Grover" class="profile">
+          <img src="grover.png" alt="Dr. Pulkit Grover" class="profile">
           <a href="#" target="_blank">
             <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
           </a>
         </div>
-        <div class="card-content">
-          <h3>Prof. Pulkit Grover</h3>
-          <p>CEO</p>
+        <div class="card-content" data-bio="Dr. Pulkit Grover (Co-Founder & CEO) is a Professor of Electrical and Computer Engineering at Carnegie Mellon University, specializing in brain stimulation, artificial intelligence, machine learning, and systems theory. He leads the company’s vision, product strategy, and algorithm development, drawing on a decade of pioneering research in non-invasive neuromodulation.">
+          <h3>Dr. Pulkit Grover</h3>
+          <p>Chief Executive Officer</p>
         </div>
       </div>
       <div class="card">
         <div class="profile-wrapper">
-          <img src="vishal.png" alt="Vishal Jain" class="profile">
+          <img src="vishal.png" alt="Dr. Vishal Jain" class="profile">
           <a href="#" target="_blank">
             <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
           </a>
         </div>
-        <div class="card-content">
-          <h3>Vishal Jain, PhD</h3>
-          <p>COO</p>
+        <div class="card-content" data-bio="Dr. Vishal Jain (Co-Founder & COO) is a research scientist with a strong track record in in-vivo neuroscience, system integration, and clinical validation. He leads clinical operations, regulatory planning, and hardware-software translation, including coordination of IRB-approved pilot studies.">
+          <h3>Dr. Vishal Jain</h3>
+          <p>Chief Operating Officer</p>
         </div>
       </div>
       <div class="card">
@@ -197,7 +204,7 @@
             <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
           </a>
         </div>
-        <div class="card-content">
+        <div class="card-content" data-bio="Mats Forssell (Co-Founder & Lead Engineer) is a research scientist with deep expertise in neurostimulation hardware development and testing. He leads device engineering, electrical safety, and manufacturability optimization for our stimulation platform.">
           <h3>Mats Forssell, PhD</h3>
           <p>Neurostimulation Expert</p>
         </div>
@@ -215,7 +222,7 @@
             <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
           </a>
         </div>
-        <div class="card-content">
+        <div class="card-content" data-bio="Dr. Benedict Alter (Co-founder and Clinical Advisor) is an MD/PhD in anesthesiology and pain medicine at the University of Pittsburgh. He oversees our ongoing pilot trials in fibromyalgia and osteoarthritis patients, providing clinical insights into protocol design, patient selection, and therapeutic response.">
           <h3>Dr. Benedict Alter</h3>
           <p>Clinical Co-founder</p>
         </div>
@@ -234,26 +241,26 @@
       </div>
       <div class="card">
         <div class="profile-wrapper">
-          <img src="chamanzar.png" alt="Maysam Chamanzar" class="profile">
+          <img src="chamanzar.png" alt="Professor Maysam Chamanzar" class="profile">
           <a href="#" target="_blank">
             <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
           </a>
         </div>
         <div class="card-content">
-          <h3>Prof. Maysam Chamanzar</h3>
-          <p>Professor, ECE, CMU</p>
+          <h3>Professor Maysam Chamanzar</h3>
+          <p>Professor, Electrical and Computer Engineering, CMU</p>
         </div>
       </div>
       <div class="card">
         <div class="profile-wrapper">
-          <img src="weber.png" alt="Douglas Weber" class="profile">
+          <img src="weber.png" alt="Professor Douglas Weber" class="profile">
           <a href="#" target="_blank">
             <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
           </a>
         </div>
         <div class="card-content">
-          <h3>Prof. Douglas Weber</h3>
-          <p>Professor, MechE, CMU</p>
+          <h3>Professor Douglas Weber</h3>
+          <p>Professor, Mechanical Engineering, CMU</p>
         </div>
       </div>
     </div>
