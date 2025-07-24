@@ -7,11 +7,13 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: 'Open Sans', sans-serif;
       background-color: #032B47;
       color: #f1f1f1;
+      scroll-behavior: smooth;
     }
     nav {
       background-color: #021a2c;
@@ -19,6 +21,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     nav .logo {
       font-family: 'Playfair Display', serif;
@@ -40,87 +45,89 @@
       color: #fff;
     }
     .header-image {
-      background: url('bg.jpg') center/cover no-repeat;
-      height: 80vh;
-      border-top: 4px solid #1486B6;
-      border-bottom: 4px solid #1486B6;
-    }
-    .hero {
-      padding: 5rem 2rem 3rem;
+      background: linear-gradient(rgba(3, 43, 71, 0.7), rgba(3, 43, 71, 0.7)), url('bg.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      max-width: 1000px;
-      margin: auto;
+      animation: fadeIn 2s ease-in;
     }
-    .hero h1 {
+    .header-image h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: #fff;
+      font-size: 4rem;
       margin-bottom: 1rem;
+      color: #ffffff;
     }
-    .hero p {
-      font-size: 1.25rem;
-      color: #ddd;
+    .header-image p {
+      font-size: 1.5rem;
+      color: #dce6ee;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    section {
+      padding: 5rem 3rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .about-section,
+    .testimonial {
+      background-color: #021a2c;
     }
     .about-section {
-      background-color: #021a2c;
-      padding: 4rem 2rem;
-      margin: 4rem auto;
-      max-width: 1200px;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
     }
     .about-section-text {
       flex: 2;
+      padding: 1rem;
     }
     .about-section-img {
       flex: 1;
       display: flex;
       justify-content: center;
+      align-items: center;
+      padding: 1rem;
     }
     .about-section-img img {
       max-width: 100%;
       border-radius: 8px;
-      border: 2px solid #1486B6;
     }
     .about-section h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       font-family: 'Playfair Display', serif;
     }
     .about-section p {
-      font-size: 1.05rem;
-      line-height: 1.6;
+      font-size: 1.1rem;
+      line-height: 1.7;
       color: #ddd;
     }
     .testimonial {
-      background-color: #021a2c;
-      padding: 4rem 2rem;
-      margin: 3rem auto;
-      max-width: 1000px;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
-      border-top: 1px solid #1486B6;
-      border-bottom: 1px solid #1486B6;
+      padding: 5rem 3rem;
     }
     .testimonial-img {
-      flex: 0 0 200px;
+      flex: 0 0 400px;
+      display: flex;
+      align-items: center;
     }
     .testimonial-img img {
       width: 100%;
       border-radius: 10px;
-      border: 2px solid #1486B6;
     }
     .testimonial-text {
       flex: 1;
       font-style: italic;
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: #ccc;
     }
     .testimonial-text strong {
       display: block;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       margin-bottom: 0.5rem;
       font-style: normal;
       font-weight: bold;
@@ -129,18 +136,17 @@
     footer {
       background-color: #021a2c;
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
+      padding: 2.5rem 1rem;
+      font-size: 0.95rem;
       border-top: 1px solid #1486B6;
-      margin-top: 3rem;
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: auto;
     }
     .footer-content p {
-      margin: 0.5rem 0;
+      margin: 0.4rem 0;
       color: #88b2ca;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -155,11 +161,12 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  <div class="header-image"></div>
-  <section class="hero">
-    <h1>Redefining Chronic Pain Care</h1>
-    <p>Advanced AI-powered, non-invasive neurostimulation for daily, at-home relief.</p>
-  </section>
+  <div class="header-image">
+    <div>
+      <h1>Redefining Chronic Pain Care</h1>
+      <p>Advanced AI-powered, non-invasive neurostimulation for daily, at-home relief.</p>
+    </div>
+  </div>
   <section class="about-section">
     <div class="about-section-text">
       <h2>About</h2>
