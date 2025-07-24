@@ -82,12 +82,14 @@
       display: flex;
       flex-direction: column;
       height: 100%;
-      min-height: 460px;
     }
     .profile-wrapper {
       position: relative;
       width: 100%;
-      height: 350px;
+      height: 400px;
+    }
+    .team-grid.four .profile-wrapper {
+      height: 320px;
     }
     .profile-wrapper img.profile {
       width: 100%;
@@ -97,11 +99,14 @@
     }
     .profile-wrapper .linkedin-icon {
       position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 24px;
-      height: 24px;
-      z-index: 10;
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      background-color: white;
+      border-radius: 50%;
+      padding: 4px;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     }
     .card-content {
       padding: 1rem;
