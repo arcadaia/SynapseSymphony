@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Synapse Symphony | Home</title>
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,13 +12,13 @@
       font-family: 'Open Sans', sans-serif;
       background-color: #032B47;
       color: #f1f1f1;
-      overflow-x: hidden;
     }
     nav {
       background-color: #021a2c;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
     nav .logo {
       font-family: 'Playfair Display', serif;
@@ -39,97 +39,93 @@
     nav ul li a:hover {
       color: #fff;
     }
-
+    .header-image {
+      background: url('bg.jpg') center/cover no-repeat;
+      height: 400px;
+      border-top: 4px solid #1486B6;
+      border-bottom: 4px solid #1486B6;
+    }
     .hero {
-      height: 100vh;
-      background: url('bg.png') no-repeat center center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      padding: 4rem 2rem;
       text-align: center;
-      padding: 2rem;
     }
     .hero h1 {
-      font-size: 3.2rem;
       font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
       color: #fff;
       margin-bottom: 1rem;
     }
     .hero p {
       font-size: 1.2rem;
       color: #ddd;
-      margin-bottom: 2rem;
-      max-width: 600px;
     }
-    .btn {
-      padding: 0.75rem 1.5rem;
-      background-color: #1486B6;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
     .about-section {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 5rem 10%;
       background-color: #021a2c;
+      border: 2px solid #1486B6;
+      border-radius: 10px;
+      padding: 2.5rem;
+      margin: 3rem auto;
+      max-width: 900px;
+      text-align: left;
     }
-    .about-section .text {
-      flex: 1;
-      padding-right: 2rem;
-    }
-    .about-section .text h2 {
-      font-size: 2.5rem;
-      font-family: 'Playfair Display', serif;
+    .about-section h2 {
+      font-size: 2rem;
       margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
     }
-    .about-section .text p {
+    .about-section p {
       font-size: 1.05rem;
       line-height: 1.6;
+      color: #ddd;
     }
-
-    .about-section img {
-      max-width: 400px;
-      border-radius: 12px;
-      border: 2px solid #1486B6;
-    }
-
     .testimonial {
+      background-color: #021a2c;
+      border: 2px solid #1486B6;
+      border-radius: 10px;
+      padding: 3rem 2rem;
+      margin: 3rem auto;
+      max-width: 900px;
       display: flex;
       align-items: center;
-      background-color: #011c30;
-      padding: 4rem 10%;
-      border-top: 4px solid #1486B6;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
-    .testimonial img {
-      width: 200px;
-      height: 200px;
+    .testimonial-img {
+      flex: 0 0 200px;
+    }
+    .testimonial-img img {
+      width: 100%;
       border-radius: 50%;
-      border: 4px solid #1486B6;
-      margin-right: 2rem;
     }
-    .testimonial .text {
-      max-width: 800px;
-      font-size: 1.1rem;
+    .testimonial-text {
+      flex: 1;
       font-style: italic;
+      font-size: 1rem;
+      color: #ccc;
     }
-    .testimonial .text span {
-      font-weight: bold;
-      color: #ffc107;
+    .testimonial-text strong {
       display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
       font-style: normal;
-      margin-bottom: 1rem;
+      font-weight: bold;
+      color: #f1f1f1;
     }
-
     footer {
+      background-color: #011c30;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
+      border-top: 1px solid #1486B6;
+      margin-top: 3rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+    }
+    .footer-content p {
+      margin: 0.5rem 0;
       color: #88b2ca;
-      background-color: #021a2c;
     }
   </style>
 </head>
@@ -144,30 +140,34 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-
+  <div class="header-image"></div>
   <section class="hero">
     <h1>Redefining Chronic Pain Care</h1>
     <p>Advanced AI-powered, non-invasive neurostimulation for daily, at-home relief.</p>
-    <a class="btn" href="about.html">Learn More</a>
   </section>
-
   <section class="about-section">
-    <div class="text">
-      <h2>About</h2>
-      <p><strong>At Synapse Symphony</strong>, we are redefining chronic pain care through advanced AI-powered, non-invasive neurostimulation. Sparked by a powerful moment when a patient in our early research said she felt relief for the first time in 20 years, we knew we had to bring this breakthrough beyond the lab and into people's lives.</p>
-      <p>Our proprietary platform combines adaptive high-density brain stimulation with AI algorithms that personalize treatment based on each patient’s neuroanatomy, symptoms, and response patterns.</p>
-    </div>
-    <img src="bg.png" alt="Device image">
+    <h2>About</h2>
+    <p><strong>At Synapse Symphony</strong>, we are redefining chronic pain care through advanced AI-powered, non-invasive neurostimulation. Sparked by a powerful moment when a patient in our early research said she felt relief for the first time in 20 years, we knew we had to bring this breakthrough beyond the lab and into people's lives.</p>
+    <p>Our proprietary platform combines adaptive high-density brain stimulation with AI algorithms that personalize treatment based on each patient’s neuroanatomy, symptoms, and response patterns. We leverage proprietary algorithms and biophysical modeling to sculpt electric fields generated in the brain through the scalp, allowing for precise modulation of pain-related brain circuits without surgery or clinical oversight.</p>
+    <p>Another key differentiator is our novel “background hum” technique, which reduces discomfort caused by injected currents—a common issue in conventional stimulation systems that often leads to local pain or skin irritation. By minimizing these adverse sensations, background hums significantly improve patient tolerability and compliance, making our solution better suited for daily, at-home use.</p>
+    <p>By continuously learning from patient data, our system intelligently adjusts stimulation to maximize relief while minimizing discomfort.</p>
   </section>
-
   <section class="testimonial">
-    <img src="patient.png" alt="Patient">
-    <div class="text">
-      <span>Fibromyalgia Patient</span>
-      "I have never felt like this in past few years. Past few months I cry to get out of bed. I don’t even. I used to not want to even get out of bed. And I was going down the steps like a toddler. Yesterday I was able to get out of bed immediately and walk down the steps like an adult."
+    <div class="testimonial-img">
+      <img src="patient.png" alt="Fibromyalgia Patient">
+    </div>
+    <div class="testimonial-text">
+      <strong>Fibromyalgia Patient</strong>
+      <p>I have never felt like this in past few years. Past few months I cry to get out of bed. I don’t even. I used to not want to even get out of bed. And I was going down the steps like a toddler. Yesterday I was able to get out of bed immediately and walk down the steps like an adult.</p>
     </div>
   </section>
-
-  <footer>&copy; 2025 Synapse Symphony. All rights reserved.</footer>
+  <footer>
+    <div class="footer-content">
+      <p><strong>Synapse Symphony</strong></p>
+      <p>Engineering the future of neurotechnology</p>
+      <p>contact@synapsesymphony.com</p>
+      <p>&copy; 2025 Synapse Symphony. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
