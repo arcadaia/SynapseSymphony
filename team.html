@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Synapse Symphony | Team</title>
-  <link rel="icon" type="image/png" href="LogoIcon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
@@ -78,26 +78,30 @@
       flex-direction: column;
       height: 100%;
     }
-    .card img {
+    .card img.profile {
       width: 100%;
       height: auto;
       display: block;
     }
+    .linkedin-wrapper {
+      position: relative;
+    }
     .linkedin-icon {
       position: absolute;
       top: 8px;
-      left: 8px;
-      width: 30px;
-      height: 30px;
+      right: 8px;
+      width: 28px;
+      height: 28px;
       z-index: 2;
       background-color: white;
       border-radius: 50%;
-      padding: 2px;
+      padding: 3px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
     }
     .card-content {
       padding: 1rem;
       background-color: #021a2c;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease;
       text-align: left;
       min-height: 80px;
     }
@@ -152,24 +156,30 @@
     <div class="section-title">Operations</div>
     <div class="team-grid">
       <div class="card">
-        <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="grover.png" alt="Prof. Pulkit Grover">
+        <div class="linkedin-wrapper">
+          <img src="grover.png" alt="Prof. Pulkit Grover" class="profile">
+          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+        </div>
         <div class="card-content">
           <h3>Prof. Pulkit Grover</h3>
           <p>CEO</p>
         </div>
       </div>
       <div class="card">
-        <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="vishal_jain.png" alt="Vishal Jain">
+        <div class="linkedin-wrapper">
+          <img src="vishal.png" alt="Vishal Jain" class="profile">
+          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+        </div>
         <div class="card-content">
           <h3>Vishal Jain, PhD</h3>
           <p>COO</p>
         </div>
       </div>
       <div class="card">
-        <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="matts_for.png" alt="Mats Forssell">
+        <div class="linkedin-wrapper">
+          <img src="matts_for.png" alt="Mats Forssell" class="profile">
+          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+        </div>
         <div class="card-content">
           <h3>Mats Forssell, PhD</h3>
           <p>Neurostimulation Expert</p>
@@ -182,32 +192,40 @@
     <div class="section-title">Clinical & Advisors</div>
     <div class="team-grid">
       <div class="card">
-        <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="benedict_alter.png" alt="Dr. Benedict Alter">
+        <div class="linkedin-wrapper">
+          <img src="benedict_alter.png" alt="Dr. Benedict Alter" class="profile">
+          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+        </div>
         <div class="card-content">
           <h3>Dr. Benedict Alter</h3>
           <p>Clinical Co-founder</p>
         </div>
       </div>
       <div class="card">
-        <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="Elora.png" alt="Elora Gupta">
+        <div class="linkedin-wrapper">
+          <img src="Elora.png" alt="Elora Gupta" class="profile">
+          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+        </div>
         <div class="card-content">
           <h3>Elora Gupta</h3>
           <p>Regulatory Advisor</p>
         </div>
       </div>
       <div class="card">
-        <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="chamanzar.png" alt="Maysam Chamanzar">
+        <div class="linkedin-wrapper">
+          <img src="chamanzar.png" alt="Maysam Chamanzar" class="profile">
+          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+        </div>
         <div class="card-content">
           <h3>Prof. Maysam Chamanzar</h3>
           <p>Professor, ECE, CMU</p>
         </div>
       </div>
       <div class="card">
-        <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
-        <img src="weber.png" alt="Douglas Weber">
+        <div class="linkedin-wrapper">
+          <img src="weber.png" alt="Douglas Weber" class="profile">
+          <a href="#"><img src="linkedin.png" alt="LinkedIn" class="linkedin-icon"></a>
+        </div>
         <div class="card-content">
           <h3>Prof. Douglas Weber</h3>
           <p>Professor, MechE, CMU</p>
