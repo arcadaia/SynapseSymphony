@@ -87,9 +87,10 @@
       position: relative;
       width: 100%;
       height: 520px;
+      overflow: hidden;
     }
     .team-grid.four .profile-wrapper {
-      height: 400px;
+      height: 420px;
     }
     .profile-wrapper img.profile {
       width: 100%;
@@ -110,14 +111,20 @@
       border: 2px solid white;
     }
     .card-content {
-      padding: 1rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       background-color: #021a2c;
-      transition: transform 0.3s ease;
-      text-align: left;
-      min-height: 100px;
+      color: #f1f1f1;
+      padding: 1rem;
+      height: 100px;
+      transition: height 0.3s ease;
+      z-index: 2;
+      overflow: hidden;
     }
     .card:hover .card-content {
-      transform: translateY(-20px);
+      height: 220px;
     }
     .card h3 {
       margin: 0.5rem 0 0.2rem;
