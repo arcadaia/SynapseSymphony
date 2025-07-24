@@ -65,7 +65,7 @@
     }
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
     .card {
@@ -74,40 +74,45 @@
       background-color: #021a2c;
       border: 2px solid #1486B6;
       border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     .card img {
       width: 100%;
       height: auto;
       display: block;
-      border-bottom: 1px solid #1486B6;
-    }
-    .card-content {
-      padding: 1rem;
-      text-align: left;
-    }
-    .card h3 {
-      margin: 0.5rem 0 0.2rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-    }
-    .card p {
-      font-size: 0.95rem;
-      color: #bbb;
     }
     .linkedin-icon {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 20px;
-      height: 20px;
+      top: 8px;
+      left: 8px;
+      width: 30px;
+      height: 30px;
       z-index: 2;
       background-color: white;
       border-radius: 50%;
       padding: 2px;
+    }
+    .card-content {
+      padding: 1rem;
+      background-color: #021a2c;
+      transition: all 0.3s ease;
+      text-align: left;
+      min-height: 80px;
+    }
+    .card:hover .card-content {
+      transform: translateY(-20px);
+    }
+    .card h3 {
+      margin: 0.5rem 0 0.2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin: 0;
     }
 
     footer {
