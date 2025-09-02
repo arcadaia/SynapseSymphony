@@ -8,26 +8,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --ink:#f1f1f1;
-      --ink-dim:#cfe2f1;
+      --ink:#ffffff;
+      --ink-dim:#dfeaf4;
       --bg:#032B47;
       --bg-2:#021a2c;
       --acc:#1486B6;
       --acc-2:#4bb0da;
-      --muted:#88b2ca;
-      --card:#062b43;
+      --accent-3:#6fd0ff;
+      --muted:#9ec2d9;
       --ring: rgba(20,134,182,0.35);
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
+
     /* Top nav */
     nav{
       position:sticky;top:0;z-index:1000;
       display:flex;align-items:center;justify-content:space-between;
-      padding:0.9rem 2rem;
-      background:linear-gradient(180deg, rgba(2,26,44,0.9), rgba(2,26,44,0.7));
+      padding:.9rem 2rem;
+      background:linear-gradient(180deg, rgba(2,26,44,.92), rgba(2,26,44,.7));
       backdrop-filter:saturate(140%) blur(6px);
-      border-bottom:1px solid rgba(20,134,182,0.25);
+      border-bottom:1px solid rgba(20,134,182,.25);
     }
     .logo-wrap{display:flex;align-items:center;gap:.7rem}
     .logo-wrap img{height:30px;width:auto}
@@ -39,11 +40,18 @@
     /* Hero */
     .hero{
       min-height:92vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
+      position:relative;overflow:hidden;
       background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(20,134,182,0.18), transparent 60%),
-        radial-gradient(900px 500px at 90% 0%, rgba(75,176,218,0.14), transparent 60%),
+        radial-gradient(1100px 520px at 12% 8%, rgba(20,134,182,.18), transparent 60%),
+        radial-gradient(900px 500px at 88% 0%, rgba(75,176,218,.14), transparent 60%),
         linear-gradient(rgba(3,43,71,.86), rgba(3,43,71,.86)), url('bg.jpg') center/cover no-repeat;
     }
+    .hero .shape-a, .hero .shape-b{
+      position:absolute;filter:blur(40px);opacity:.55;pointer-events:none;mix-blend-mode:screen;
+    }
+    .hero .shape-a{width:340px;height:340px;left:-80px;bottom:10%;background:radial-gradient(circle at 30% 30%, var(--acc-2), transparent 60%)}
+    .hero .shape-b{width:420px;height:420px;right:-120px;top:8%;background:radial-gradient(circle at 70% 40%, var(--acc), transparent 65%)}
+
     .hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.6rem,5vw,4.2rem);margin:.2rem 0 1rem}
     .hero p{font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--ink-dim);max-width:920px;margin:0 auto 1.6rem;line-height:1.55}
     .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
@@ -60,53 +68,74 @@
       padding:.35rem .6rem;border-radius:999px;margin-bottom:1rem;letter-spacing:.06em
     }
 
-    /* About */
     section{padding:5rem 4vw}
+
+    /* About (centered, split, easier to read) */
     .about{
-      display:grid;grid-template-columns:1fr;gap:2rem;
-      background:
-        radial-gradient(700px 400px at right 10%, rgba(20,134,182,.12), transparent 60%),
-        linear-gradient(180deg, rgba(2,26,44,.55), rgba(2,26,44,.25));
+      position:relative;
       border-top:1px solid rgba(20,134,182,.25);
       border-bottom:1px solid rgba(20,134,182,.18);
+      background:
+        radial-gradient(600px 380px at right 12%, rgba(79,203,255,.12), transparent 60%),
+        radial-gradient(520px 340px at left 70%, rgba(20,134,182,.12), transparent 65%),
+        linear-gradient(180deg, rgba(2,26,44,.55), rgba(2,26,44,.25));
     }
-    .about .content{max-width:980px;margin:0 auto}
+    .about .content{max-width:1040px;margin:0 auto}
     .section-title{
-      font-family:"Playfair Display",serif;font-size:clamp(1.9rem,3.2vw,2.6rem);position:relative;margin:0 0 1.6rem
+      text-align:center;
+      font-family:"Playfair Display",serif;font-size:clamp(1.9rem,3.2vw,2.6rem);position:relative;margin:0 0 2.2rem
     }
     .section-title:after{
-      content:"";position:absolute;left:0;bottom:-10px;width:110px;height:4px;background:linear-gradient(90deg, var(--acc), var(--acc-2));
-      border-radius:2px
+      content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-12px;width:140px;height:4px;
+      background:linear-gradient(90deg, var(--acc), var(--acc-2));border-radius:2px
     }
-    .about p{color:#dbe9f4;font-size:1.05rem;line-height:1.75;margin:.9rem 0}
-
-    /* Feature cards section to space content */
-    .pillars{max-width:1180px;margin:0 auto;display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .card{
+    .about-grid{
+      display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      align-items:start;
+    }
+    .info{
       background:linear-gradient(180deg, rgba(6,43,67,.75), rgba(6,43,67,.55));
-      border:1px solid rgba(20,134,182,.18);border-radius:16px;padding:1.25rem;
+      border:1px solid rgba(20,134,182,.18);border-radius:16px;padding:1.25rem 1.25rem;
       transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
-    .card:hover{transform:translateY(-2px);box-shadow:0 10px 28px -12px var(--ring);border-color:rgba(20,134,182,.35)}
-    .card h3{margin:.2rem 0 .6rem;font-size:1.15rem}
-    .card p{color:#cfe2f1;font-size:.98rem;line-height:1.6;margin:0}
+    .info:hover{transform:translateY(-2px);box-shadow:0 10px 28px -12px var(--ring);border-color:rgba(20,134,182,.35)}
+    .info h3{margin:.2rem 0 .55rem;font-size:1.15rem}
+    .info p{color:#e9f3fb;font-size:1.02rem;line-height:1.65;margin:0}
 
-    /* Testimonial */
-    .testimonial{
-      display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:stretch;overflow:hidden;
+    /* Spacer row of feature chips for color and rhythm */
+    .chips{
+      display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:2.2rem 0 0;
+    }
+    .chip{
+      padding:.45rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.16);
+      font-size:.9rem;color:#eef7ff;background:
+        linear-gradient(90deg, rgba(20,134,182,.35), rgba(75,176,218,.25));
+    }
+
+    /* Patient story panel (image + text, same height with fade) */
+    .story{
+      display:grid;grid-template-columns:1.15fr 1fr;align-items:stretch;overflow:hidden;
+      min-height:64vh; /* makes image and text share a tall panel */
       border-top:1px solid rgba(20,134,182,.2);
       background:linear-gradient(180deg, rgba(2,26,44,.65), rgba(2,26,44,.35));
     }
-    .t-img{position:relative;min-height:420px}
-    .t-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.96}
-    .t-img:after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(90deg, rgba(3,43,71,1) 0%, rgba(3,43,71,.85) 28%, rgba(3,43,71,0) 70%);
+    .photo-panel{
+      position:relative;
+      min-height:64vh;
     }
-    .t-copy{padding:3rem 6vw;display:flex;flex-direction:column;justify-content:center}
-    .t-copy strong{font-size:1.15rem;color:#e8f3fb;letter-spacing:.02em;margin-bottom:.35rem}
-    .t-copy p{font-size:1.05rem;color:#d8e6f2;line-height:1.7;margin:0}
-    .t-badge{display:inline-block;margin-bottom:.8rem;color:#b8d3e6;font-weight:600;letter-spacing:.06em;font-size:.82rem;border:1px solid rgba(255,255,255,.14);padding:.3rem .6rem;border-radius:999px}
+    .photo-panel img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.98;
+      /* Fade toward the text using a mask instead of a dark overlay */
+      -webkit-mask-image:linear-gradient(to right, rgba(0,0,0,1) 62%, rgba(0,0,0,.9) 75%, rgba(0,0,0,0) 95%);
+              mask-image:linear-gradient(to right, rgba(0,0,0,1) 62%, rgba(0,0,0,.9) 75%, rgba(0,0,0,0) 95%);
+    }
+    .story-copy{
+      padding:3rem 6vw;display:flex;flex-direction:column;justify-content:center;
+      max-width:720px;
+    }
+    .badge{display:inline-block;margin-bottom:.8rem;color:#b8d3e6;font-weight:600;letter-spacing:.06em;font-size:.82rem;border:1px solid rgba(255,255,255,.14);padding:.3rem .6rem;border-radius:999px}
+    .story-copy strong{font-size:1.15rem;color:#e8f3fb;letter-spacing:.02em;margin-bottom:.35rem}
+    .story-copy p{font-size:1.05rem;color:#d8e6f2;line-height:1.7;margin:0}
 
     /* Footer */
     footer{background:var(--bg-2);text-align:center;padding:2.4rem 1rem;border-top:1px solid rgba(20,134,182,.28)}
@@ -118,8 +147,11 @@
 
     /* Responsive */
     @media (max-width:960px){
-      .testimonial{grid-template-columns:1fr}
-      .t-img:after{background:linear-gradient(180deg, rgba(3,43,71,1) 0%, rgba(3,43,71,.85) 38%, rgba(3,43,71,0) 80%)}
+      .story{grid-template-columns:1fr}
+      .photo-panel img{
+        -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 62%, rgba(0,0,0,.9) 80%, rgba(0,0,0,0) 98%);
+                mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 62%, rgba(0,0,0,.9) 80%, rgba(0,0,0,0) 98%);
+      }
     }
   </style>
 </head>
@@ -141,6 +173,8 @@
 
   <!-- Hero -->
   <header class="hero">
+    <div class="shape-a"></div>
+    <div class="shape-b"></div>
     <div class="reveal show">
       <span class="subtle-kicker">Chronic pain care, reimagined</span>
       <h1>Redefining Chronic Pain Care</h1>
@@ -152,56 +186,60 @@
     </div>
   </header>
 
-  <!-- About -->
+  <!-- About (centered and split into digestible blocks) -->
   <section class="about">
     <div class="content">
       <h2 class="section-title">About</h2>
-      <p><strong>At Synapse Symphony</strong>, we are pioneering a new era of noninvasive neuromodulation that targets brain pain circuits with precision and comfort. The spark was a patient who reported relief for the first time in twenty years. That moment motivates our path from research to real-world impact. :contentReference[oaicite:1]{index=1}</p>
-      <p>Our platform combines high density electrode arrays with adaptive electric field shaping to personalize stimulation to each person’s neuroanatomy and pain profile. The system adjusts in real time using patient specific data to maximize relief and minimize discomfort. Early pilot work in fibromyalgia and osteoarthritis has shown promising improvement in mobility and reduction in pain. :contentReference[oaicite:2]{index=2}</p>
-      <p>A key differentiator is our background hum approach that reduces discomfort from current injection at the scalp. The goal is to improve comfort and session tolerability so people can use therapy at home. We are operating in an MVP stage with FDA cleared components while we build evidence and advance toward an integrated home device. :contentReference[oaicite:3]{index=3}</p>
+      <div class="about-grid">
+        <div class="info reveal">
+          <h3>Mission</h3>
+          <p>We are building a comfortable, at-home therapy that targets pain circuits with precision and helps people move with confidence again.</p>
+        </div>
+        <div class="info reveal">
+          <h3>How it works</h3>
+          <p>High density arrays and adaptive field shaping tailor stimulation to each person’s anatomy and symptoms. The system adjusts using patient data to maximize relief and minimize discomfort.</p>
+        </div>
+        <div class="info reveal">
+          <h3>Comfort focus</h3>
+          <p>Our background hum approach reduces scalp discomfort from current injection, supporting longer, more tolerable sessions at home.</p>
+        </div>
+        <div class="info reveal">
+          <h3>Roadmap</h3>
+          <p>We are operating with an MVP built from cleared components and advancing toward an integrated device as we build evidence in target indications.</p>
+        </div>
+      </div>
+
+      <!-- subtle chips row for color and spacing -->
+      <div class="chips">
+        <span class="chip">Personalized modulation</span>
+        <span class="chip">Comfort by design</span>
+        <span class="chip">Home ready</span>
+        <span class="chip">Evidence driven</span>
+      </div>
     </div>
   </section>
 
-  <!-- Pillars / How it helps -->
-  <section>
-    <div class="pillars">
-      <article class="card reveal">
-        <h3>Personalized brain modulation</h3>
-        <p>High density arrays and adaptive field shaping tailor stimulation to anatomy and symptoms for more effective relief. :contentReference[oaicite:4]{index=4}</p>
-      </article>
-      <article class="card reveal">
-        <h3>Comfort by design</h3>
-        <p>The background hum technique reduces scalp discomfort and helps people complete longer sessions comfortably at home. :contentReference[oaicite:5]{index=5}</p>
-      </article>
-      <article class="card reveal">
-        <h3>From prototype to product</h3>
-        <p>Modular MVP built from FDA cleared components today, with a roadmap to a compact, integrated device for daily use. :contentReference[oaicite:6]{index=6}</p>
-      </article>
-      <article class="card reveal">
-        <h3>Evidence building</h3>
-        <p>Pilot studies in fibromyalgia and knee osteoarthritis inform safety, efficacy, and product direction as we scale. :contentReference[oaicite:7]{index=7}</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Testimonial (keep patient image, remove quote graphic) -->
-  <section class="testimonial">
-    <div class="t-img">
+  <!-- Patient story: image panel fades toward text, same panel height -->
+  <section class="story">
+    <div class="photo-panel">
       <img src="patient.png" alt="Patient" />
     </div>
-    <div class="t-copy">
-      <span class="t-badge">Patient story</span>
+    <div class="story-copy">
+      <span class="badge">Patient story</span>
       <strong>Fibromyalgia Patient</strong>
-      <p>The therapy changed my relationship with pain and with my body. I did not expect that. I lived with fibromyalgia symptoms for years and now they are mostly gone. That shift is hard to put into words so I will keep it simple. Thank you for your work. It made a real difference. :contentReference[oaicite:8]{index=8}</p>
+      <p>The therapy changed my relationship with pain and with my body. I lived with symptoms for years and now they are mostly gone. It made a real difference.</p>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (updated contact info) -->
   <footer>
     <div class="footer-content">
       <p><strong>Synapse Symphony</strong></p>
       <p>Engineering the future of neurotechnology</p>
-      <p>contact@synapsesymphony.com</p>
+      <p>Email: info.synapsesymphony@gmail.com</p>
+      <p>Synapse Symphony Inc.<br>
+         4740 Wallingford St.<br>
+         Pittsburgh, PA 15213</p>
       <p>&copy; 2025 Synapse Symphony. All rights reserved.</p>
     </div>
   </footer>
@@ -216,18 +254,5 @@
     }, {threshold:0.12});
     els.forEach(el=>io.observe(el));
   </script>
-
-<footer>
-  <div class="footer-content">
-    <p><strong>Synapse Symphony</strong></p>
-    <p>Engineering the future of neurotechnology</p>
-    <p>Email: info.synapsesymphony@gmail.com</p>
-    <p>Synapse Symphony Inc.<br>
-       4740 Wallingford St.<br>
-       Pittsburgh, PA 15213</p>
-    <p>&copy; 2025 Synapse Symphony. All rights reserved.</p>
-  </div>
-</footer>
-
 </body>
 </html>
