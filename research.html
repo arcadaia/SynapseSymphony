@@ -12,109 +12,86 @@
       --ink-dim:#dfeaf4;
       --bg:#032B47;
       --bg-2:#021a2c;
+      --panel:#073350;
       --acc:#1486B6;
       --acc-2:#4bb0da;
-      --accent-3:#6fd0ff;
+      --acc-3:#6fd0ff;
       --muted:#9ec2d9;
       --ring: rgba(20,134,182,0.35);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
+    html,body{
+      margin:0;padding:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background:var(--bg);color:var(--ink);
+      scroll-behavior:smooth;
+    }
 
     /* Nav */
     nav{
       position:sticky;top:0;z-index:1000;
       display:flex;align-items:center;justify-content:space-between;
-      padding:.9rem 2rem;
-      background:linear-gradient(180deg, rgba(2,26,44,.92), rgba(2,26,44,.7));
-      border-bottom:1px solid rgba(20,134,182,.25);
+      padding:1rem 2rem;
+      background:linear-gradient(180deg, rgba(2,26,44,.96), rgba(2,26,44,.85));
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
     .logo-wrap{display:flex;align-items:center;gap:.7rem}
     .logo-wrap img{height:30px;width:auto}
     .brand{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}
     nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
-    nav a{color:#cfdbe6;text-decoration:none;font-weight:500}
+    nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
     nav a:hover{color:#fff}
 
-    /* Page header */
+    /* Hero */
     header.page-hero{
       min-height:46vh;
       display:grid;place-items:center;text-align:center;padding:0 6vw;
       position:relative;overflow:hidden;
-      background:
-        radial-gradient(1100px 520px at 12% 8%, rgba(20,134,182,.18), transparent 60%),
-        radial-gradient(900px 500px at 88% 0%, rgba(75,176,218,.14), transparent 60%),
-        linear-gradient(180deg, rgba(3,43,71,.92), rgba(3,43,71,.86));
+      background:linear-gradient(180deg, rgba(3,43,71,1), rgba(3,43,71,.92));
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,4.4vw,3.2rem);margin:.2rem 0 1rem}
+    .hero-shape{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;pointer-events:none}
+    .hero-a{width:420px;height:420px;left:-140px;top:-60px;background:radial-gradient(circle at 40% 40%, var(--acc-2), transparent 60%)}
+    .hero-b{width:520px;height:520px;right:-160px;bottom:-100px;background:radial-gradient(circle at 60% 60%, var(--acc), transparent 60%)}
+    .kicker{display:inline-block;font-size:.85rem;color:#cfe2f1;padding:.35rem .6rem;border-radius:999px;margin-bottom:1rem;border:1px solid rgba(255,255,255,.14);letter-spacing:.06em}
+    .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,4.4vw,3.1rem);margin:.2rem 0 1rem}
     .page-hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-dim);max-width:900px;margin:0 auto 1rem;line-height:1.6}
-    .kicker{display:inline-block;font-size:.85rem;color:#b8d3e6;padding:.35rem .6rem;border-radius:999px;margin-bottom:1rem;border:1px solid rgba(255,255,255,.14);letter-spacing:.06em}
 
+    /* Sections */
     section{padding:5rem 4vw;position:relative;overflow:hidden}
-
-    /* Section title */
     .section-title{
-      font-family:"Playfair Display",serif;font-size:clamp(1.9rem,3vw,2.4rem);margin:0 0 2rem;text-align:center;position:relative
+      font-family:"Playfair Display",serif;font-size:clamp(2rem,3.2vw,2.6rem);
+      text-align:center;margin:0 0 2rem;position:relative;color:#f9fbfd;
     }
-    .section-title:after{
-      content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-12px;width:140px;height:4px;
-      background:linear-gradient(90deg, var(--acc), var(--acc-2));border-radius:2px
+    .section-title::after{
+      content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-14px;
+      width:60px;height:2px;background:rgba(255,255,255,.25);border-radius:2px;
     }
 
-    /* Two column bands with image masks */
+    /* Band */
     .band{
       display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:stretch;
-      border:1px solid rgba(20,134,182,.18);
-      background:linear-gradient(180deg, rgba(2,26,44,.55), rgba(2,26,44,.25));
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(2,26,44,.85), rgba(2,26,44,.7));
       border-radius:18px;overflow:hidden;max-width:1200px;margin:0 auto 2.2rem;
     }
     .band.reverse{grid-template-columns:1fr 1.1fr}
-    .band .img{
-      position:relative;min-height:420px;background:#05283f;
-    }
-    .band .img img{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.96
-    }
-    /* soft fade toward the text side */
+    .band .img{position:relative;min-height:420px;background:#05283f}
+    .band .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95}
     .band .img.mask-right img{
-      -webkit-mask-image:linear-gradient(to right, rgba(0,0,0,1) 62%, rgba(0,0,0,0) 95%);
-              mask-image:linear-gradient(to right, rgba(0,0,0,1) 62%, rgba(0,0,0,0) 95%);
+      -webkit-mask-image:linear-gradient(to right, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
+              mask-image:linear-gradient(to right, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
     }
     .band .img.mask-left img{
-      -webkit-mask-image:linear-gradient(to left, rgba(0,0,0,1) 62%, rgba(0,0,0,0) 95%);
-              mask-image:linear-gradient(to left, rgba(0,0,0,1) 62%, rgba(0,0,0,0) 95%);
+      -webkit-mask-image:linear-gradient(to left, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
+              mask-image:linear-gradient(to left, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
     }
-    .band .copy{
-      padding:2.2rem 2.2rem;display:flex;flex-direction:column;justify-content:center
-    }
+    .band .copy{padding:2.2rem;display:flex;flex-direction:column;justify-content:center}
     .eyebrow{display:inline-block;font-size:.8rem;color:#cfe2f1;border:1px solid rgba(255,255,255,.14);padding:.28rem .55rem;border-radius:999px;margin-bottom:.7rem;letter-spacing:.05em}
-    .band h3{margin:.2rem 0 .6rem;font-size:1.4rem;color:var(--accent-3)}
+    .band h3{margin:.2rem 0 .6rem;font-size:1.4rem;color:var(--acc-3)}
     .band p{color:#e7f2fb;font-size:1.02rem;line-height:1.65;margin:.4rem 0}
 
-    /* Waves side panel block */
-    .waves-panel{
-      max-width:1200px;margin:2.6rem auto 0;border-radius:18px;overflow:hidden;position:relative;
-      border:1px solid rgba(20,134,182,.18);
-      background:linear-gradient(180deg, rgba(2,26,44,.55), rgba(2,26,44,.25));
-      display:grid;grid-template-columns:1fr 1.2fr;align-items:stretch;
-    }
-    .waves-img{position:relative;min-height:420px}
-    .waves-img::after{
-      content:"";position:absolute;inset:0;
-      background:radial-gradient(600px 300px at 20% 50%, rgba(79,203,255,.18), transparent 60%);
-      pointer-events:none
-    }
-    .waves-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95}
-    .waves-copy{padding:2.4rem 2.4rem;display:flex;flex-direction:column;justify-content:center}
-    .waves-copy h3{margin:.2rem 0 .6rem;font-size:1.35rem;color:var(--accent-3)}
-    .waves-copy p{color:#e7f2fb;font-size:1.02rem;line-height:1.65;margin:.4rem 0}
-
-    /* Colored blobs for depth */
-    .color-blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;z-index:-1}
-    .blob-a{width:340px;height:340px;background:var(--acc-2);top:-60px;left:-120px}
-    .blob-b{width:420px;height:420px;background:var(--accent-3);bottom:-80px;right:-140px}
-
-    /* Footer (same professional layout as home) */
+    /* Footer */
     footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
     .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
     .foot-brand{display:flex;gap:.8rem;align-items:center}
@@ -133,21 +110,20 @@
       .foot-bottom{flex-direction:column;gap:.4rem}
     }
 
-    /* Reveal motion */
+    /* Reveal */
     .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
     .reveal.show{opacity:1;transform:none}
 
     @media (max-width:980px){
       .band, .band.reverse{grid-template-columns:1fr}
       .band .img.mask-right img{
-        -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 98%);
-                mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 98%);
+        -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%);
+                mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%);
       }
       .band .img.mask-left img{
-        -webkit-mask-image:linear-gradient(to top, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 98%);
-                mask-image:linear-gradient(to top, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 98%);
+        -webkit-mask-image:linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%);
+                mask-image:linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%);
       }
-      .waves-panel{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -167,8 +143,10 @@
     </ul>
   </nav>
 
-  <!-- Page header -->
+  <!-- Hero -->
   <header class="page-hero">
+    <div class="hero-a hero-shape"></div>
+    <div class="hero-b hero-shape"></div>
     <div class="reveal show">
       <span class="kicker">Technology</span>
       <h1>Reimagining Pain Relief Through Intelligent Neurostimulation</h1>
@@ -177,9 +155,6 @@
   </header>
 
   <main>
-    <div class="color-blob blob-a"></div>
-    <div class="color-blob blob-b"></div>
-
     <!-- Personalized Brain Modulation -->
     <section>
       <h2 class="section-title reveal">Personalized Brain Modulation</h2>
@@ -215,15 +190,15 @@
     <!-- Breakthrough: Background Hum -->
     <section>
       <h2 class="section-title reveal">Breakthrough: Background Hum</h2>
-      <div class="waves-panel reveal">
-        <div class="waves-img">
-          <img src="waves.jpg" alt="Wave motif" />
-        </div>
-        <div class="waves-copy">
+      <div class="band reveal">
+        <div class="copy">
           <span class="eyebrow">Comfort</span>
           <h3>Reduce discomfort and support longer sessions</h3>
           <p>Traditional electrical stimulation can cause scalp discomfort due to current injection. Our background hum technique aims to reduce this sensation and improve session tolerability.</p>
           <p>The goal is consistent therapeutic dosing without distress so people can complete longer home sessions comfortably.</p>
+        </div>
+        <div class="img mask-right">
+          <img src="waves.jpg" alt="Wave motif" />
         </div>
       </div>
     </section>
