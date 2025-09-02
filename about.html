@@ -2,38 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Synapse Symphony</title>
-  <link rel="icon" href="LogoIcon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Synapse Symphony | About</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #032B47; color: #f1f1f1; }
-    nav { background-color: #021a2c; padding: 1rem 2rem; display: flex; justify-content: space-between; }
-    nav .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; }
-    nav ul { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; }
-    nav ul li a { text-decoration: none; color: #ccc; }
-    nav ul li a:hover { color: #fff; }
-    .header-image {
-      background: url('bg.jpg') center/cover no-repeat;
-      height: 300px;
-      border-top: 4px solid #1486B6;
-      border-bottom: 4px solid #1486B6;
+    :root{
+      --ink:#ffffff;
+      --ink-dim:#dfeaf4;
+      --bg:#032B47;
+      --bg-2:#021a2c;
+      --acc:#1486B6;
+      --acc-2:#4bb0da;
+      --accent-3:#6fd0ff;
+      --muted:#9ec2d9;
+      --ring: rgba(20,134,182,0.35);
+      --card: rgba(6,43,67,.65);
     }
-    section {
-      padding: 3rem 2rem;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
+
+    /* Nav */
+    nav{
+      position:sticky;top:0;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:.9rem 2rem;
+      background:linear-gradient(180deg, rgba(2,26,44,.92), rgba(2,26,44,.7));
+      border-bottom:1px solid rgba(20,134,182,.25);
     }
-    h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff; margin-bottom: 1rem; }
-    p.description { font-size: 1.1rem; margin-bottom: 2rem; color: #ddd; }
-    img.about-image { max-width: 100%; margin-top: 1rem; border-radius: 8px; }
-    footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #88b2ca; background-color: #021a2c; }
+    .logo-wrap{display:flex;align-items:center;gap:.7rem}
+    .logo-wrap img{height:30px;width:auto}
+    .brand{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}
+    nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
+    nav a{color:#cfdbe6;text-decoration:none;font-weight:500}
+    nav a:hover{color:#fff}
+
+    /* Hero (no images; layered shapes) */
+    header.page-hero{
+      min-height:48vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(1100px 520px at 12% 8%, rgba(20,134,182,.18), transparent 60%),
+        radial-gradient(900px 500px at 88% 0%, rgba(75,176,218,.14), transparent 60%),
+        linear-gradient(180deg, rgba(3,43,71,.92), rgba(3,43,71,.86));
+    }
+    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.38;pointer-events:none}
+    .blob.a{width:360px;height:360px;left:-120px;top:-40px;background:var(--acc-2)}
+    .blob.b{width:420px;height:420px;right:-140px;bottom:-80px;background:var(--accent-3)}
+
+    .kicker{display:inline-block;font-size:.85rem;color:#b8d3e6;padding:.35rem .6rem;border-radius:999px;margin-bottom:1rem;border:1px solid rgba(255,255,255,.14);letter-spacing:.06em}
+    .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,4.4vw,3.1rem);margin:.2rem 0 1rem}
+    .page-hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-dim);max-width:900px;margin:0 auto 1rem;line-height:1.6}
+
+    section{padding:5rem 4vw;position:relative;overflow:hidden}
+
+    /* Section title */
+    .section-title{
+      font-family:"Playfair Display",serif;font-size:clamp(1.9rem,3vw,2.4rem);margin:0 0 2rem;text-align:center;position:relative
+    }
+    .section-title:after{
+      content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-12px;width:140px;height:4px;
+      background:linear-gradient(90deg, var(--acc), var(--acc-2));border-radius:2px
+    }
+
+    /* Three key cards */
+    .cards{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+    .card{
+      background:linear-gradient(180deg, var(--card), rgba(6,43,67,.5));
+      border:1px solid rgba(20,134,182,.22);border-radius:16px;padding:1.4rem;
+      min-height:220px;text-align:center;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 12px 30px -14px var(--ring);border-color:rgba(20,134,182,.38)}
+    .card h3{margin:.2rem 0 .6rem;font-size:1.18rem;color:var(--accent-3)}
+    .card p{margin:0;color:#eaf5fb;line-height:1.6}
+    @media (max-width:980px){.cards{grid-template-columns:1fr}}
+
+    /* Body copy blocks with soft separators */
+    .copy-wrap{max-width:1000px;margin:0 auto}
+    .copy{background:linear-gradient(180deg, rgba(2,26,44,.55), rgba(2,26,44,.25));border:1px solid rgba(20,134,182,.18);border-radius:18px;padding:1.6rem 1.6rem;margin:1rem 0}
+    .copy p{margin:.6rem 0 0;color:#e7f2fb;font-size:1.04rem;line-height:1.75}
+
+    /* Value chips */
+    .chips{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:2.2rem 0 0}
+    .chip{padding:.5rem .8rem;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:.92rem;color:#eef7ff;
+      background:linear-gradient(90deg, rgba(20,134,182,.35), rgba(75,176,218,.25))}
+
+    /* Timeline (simple, no icons) */
+    .timeline{max-width:1000px;margin:0 auto 1rem;border-left:2px solid rgba(79,203,255,.35);padding-left:1.2rem}
+    .tl-item{margin:1.2rem 0;position:relative}
+    .tl-item::before{content:"";position:absolute;left:-10px;top:.25rem;width:10px;height:10px;background:linear-gradient(90deg,var(--acc),var(--acc-2));border-radius:50%}
+    .tl-item h4{margin:.1rem 0 .4rem;font-size:1.05rem;color:var(--accent-3)}
+    .tl-item p{margin:0;color:#dfeefb;line-height:1.65}
+
+    /* FAQ with details */
+    details{background:linear-gradient(180deg, var(--card), rgba(6,43,67,.5));border:1px solid rgba(20,134,182,.22);border-radius:14px;padding:1rem;margin:.6rem 0}
+    summary{cursor:pointer;font-weight:600;color:#eaf5fb}
+    details p{margin:.6rem 0 0;color:#dfeefb;line-height:1.65}
+
+    /* Footer (same professional layout) */
+    footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
+    .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
+    .foot-brand{display:flex;gap:.8rem;align-items:center}
+    .foot-brand img{height:28px;width:auto;opacity:.95}
+    .foot-title{font-family:"Playfair Display",serif;font-size:1.15rem;margin:0}
+    .foot-tagline{margin:.35rem 0 0;color:#bcd1df;font-size:.95rem}
+    .foot-contact{justify-self:end;text-align:right}
+    .foot-contact h4{margin:0 0 .6rem;font-size:1rem;letter-spacing:.03em;color:#e7f1f8}
+    .foot-contact p{margin:.2rem 0;color:#9ec2d9;font-size:.95rem}
+    .foot-line{border-top:1px solid rgba(255,255,255,.08);margin:0 4vw}
+    .foot-bottom{max-width:1200px;margin:0 auto;padding:1rem 4vw;display:flex;justify-content:space-between;align-items:center;color:#9ec2d9;font-size:.9rem}
+    .foot-bottom small{opacity:.9}
+    @media (max-width:900px){
+      .footer-wrap{grid-template-columns:1fr}
+      .foot-contact{justify-self:start;text-align:left}
+      .foot-bottom{flex-direction:column;gap:.4rem}
+    }
+
+    /* Reveal motion */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
   </style>
 </head>
 <body>
+  <!-- Nav -->
   <nav>
-    <div class="logo">SYNAPSE SYMPHONY</div>
+    <div class="logo-wrap">
+      <img src="LogoIcon.png" alt="Logo" />
+      <span class="brand">SYNAPSE SYMPHONY</span>
+    </div>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
@@ -42,12 +139,136 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  <div class="header-image"></div>
-  <section>
-    <h1>About the Project</h1>
-    <p class="description">Write a general description of the project: purpose, origin, scope</p>
-    <img src="about_image.jpg" alt="About image" class="about-image">
-  </section>
-  <footer>&copy; 2025 Synapse Symphony. All rights reserved.</footer>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div class="blob a"></div>
+    <div class="blob b"></div>
+    <div class="reveal show">
+      <span class="kicker">About</span>
+      <h1>Advancing personalized, comfortable neurostimulation</h1>
+      <p>We are building an at home therapy that targets pain circuits with precision and comfort so people can move with confidence again.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Three key ideas -->
+    <section>
+      <h2 class="section-title reveal">What drives us</h2>
+      <div class="cards">
+        <article class="card reveal">
+          <h3>Patient impact</h3>
+          <p>A patient in our early work felt real relief for the first time in twenty years. That moment motivates everything we do.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Precision first</h3>
+          <p>Adaptive high density stimulation and biophysical modeling sculpt fields through the scalp to modulate pain circuits precisely.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Comfort by design</h3>
+          <p>Our background hum technique reduces stimulation discomfort and supports longer, more tolerable sessions at home.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Core story copy split into easy blocks -->
+    <section>
+      <h2 class="section-title reveal">Our approach</h2>
+      <div class="copy-wrap">
+        <div class="copy reveal">
+          <p>At Synapse Symphony, we are redefining chronic pain care with AI powered, noninvasive neurostimulation. The work began with a simple idea. Bring meaningful relief beyond the lab and into daily life.</p>
+        </div>
+        <div class="copy reveal">
+          <p>Our platform combines adaptive high density stimulation with algorithms that personalize therapy using each person’s neuroanatomy, symptoms, and response patterns. Field shaping through the scalp enables precise modulation without surgery or clinic visits.</p>
+        </div>
+        <div class="copy reveal">
+          <p>The background hum innovation aims to lower the discomfort that can occur with current injection at the scalp. The goal is better tolerability and better adherence so people can complete effective sessions at home.</p>
+        </div>
+        <div class="copy reveal">
+          <p>By learning continuously from patient data, the system adjusts to maximize relief while minimizing discomfort. This is how we move from one size fits all to truly personal therapy.</p>
+        </div>
+      </div>
+
+      <!-- Values chips for rhythm and color -->
+      <div class="chips reveal">
+        <span class="chip">Personalized modulation</span>
+        <span class="chip">Comfort focused</span>
+        <span class="chip">Evidence driven</span>
+        <span class="chip">Home ready</span>
+      </div>
+    </section>
+
+    <!-- Simple timeline (vision) -->
+    <section>
+      <h2 class="section-title reveal">Vision and roadmap</h2>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <h4>MVP and pilots</h4>
+          <p>Modular system using cleared components to validate outcomes and refine protocols with patient input.</p>
+        </div>
+        <div class="tl-item reveal">
+          <h4>Integration</h4>
+          <p>Miniaturization and hardware integration into a compact device designed for reliable daily use at home.</p>
+        </div>
+        <div class="tl-item reveal">
+          <h4>Scale and access</h4>
+          <p>Broader studies, expanded indications, and pathways that help people access personalized therapy safely and quickly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ style quick clarifications (optional, pure CSS) -->
+    <section>
+      <h2 class="section-title reveal">Questions</h2>
+      <div class="copy-wrap">
+        <details class="reveal">
+          <summary>Is the therapy surgical</summary>
+          <p>No. It is noninvasive and designed for home use with clinical guidance as needed.</p>
+        </details>
+        <details class="reveal">
+          <summary>What makes it personal</summary>
+          <p>Adaptive field shaping and data informed updates that reflect each person’s anatomy and response trends.</p>
+        </details>
+        <details class="reveal">
+          <summary>How do you improve comfort</summary>
+          <p>The background hum approach aims to reduce scalp discomfort from current injection so people can complete longer sessions comfortably.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-wrap">
+      <div>
+        <div class="foot-brand">
+          <img src="LogoIcon.png" alt="Synapse Symphony">
+          <h3 class="foot-title">Synapse Symphony</h3>
+        </div>
+        <p class="foot-tagline">Engineering the future of neurotechnology</p>
+      </div>
+      <div class="foot-contact">
+        <h4>Contact</h4>
+        <p>Email: info.synapsesymphony@gmail.com</p>
+        <p>Synapse Symphony Inc.<br>4740 Wallingford St.<br>Pittsburgh, PA 15213</p>
+      </div>
+    </div>
+    <div class="foot-line"></div>
+    <div class="foot-bottom">
+      <small>&copy; 2025 Synapse Symphony. All rights reserved.</small>
+      <small>Home • About • Research • Team • Contact</small>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const toReveal = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    toReveal.forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
