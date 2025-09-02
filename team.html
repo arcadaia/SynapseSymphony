@@ -34,7 +34,7 @@
     nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
     nav a:hover{color:#fff}
 
-    /* Hero to match other pages */
+    /* Hero (matches other pages) */
     header.page-hero{
       min-height:46vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
       position:relative;overflow:hidden;
@@ -50,23 +50,39 @@
 
     main{max-width:1300px;margin:0 auto;padding:3rem 4vw}
 
-    /* Section header: centered text with lines extending out */
-    .group{margin:2.6rem 0 1.4rem;display:flex;align-items:center;gap:1rem;justify-content:center}
+    /* Big centered group header (Board Members only) */
+    .group{
+      margin:2.6rem 0 1.4rem;display:flex;align-items:center;gap:1rem;justify-content:center
+    }
     .group::before,.group::after{
       content:"";flex:1;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
     }
-    .group span{
-      font-family:"Playfair Display",serif;font-weight:600;letter-spacing:.02em;
-      color:#eaf5fb;
+    .group span{font-family:"Playfair Display",serif;font-weight:600;letter-spacing:.02em;color:#eaf5fb}
+
+    /* Column/row headers that DO NOT span other columns */
+    .row-3{display:grid;grid-template-columns:repeat(3, minmax(240px, 1fr));gap:2rem;align-items:start;justify-items:center}
+    .subhead{
+      grid-column:auto / span 1;
+      text-align:center;color:#eaf5fb;font-family:"Playfair Display",serif;font-weight:600;
+      padding-bottom:.4rem;margin-bottom:.4rem;position:relative;width:100%;
     }
+    .subhead::after{
+      content:"";position:absolute;left:15%;right:15%;bottom:0;height:2px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+      border-radius:2px;
+    }
+    .subhead.span2{grid-column:1 / span 2}
 
     /* Grids */
     .grid{display:grid;gap:2rem;justify-items:center}
     .grid.two{grid-template-columns:repeat(2, minmax(300px, 560px))}
     .grid.one{grid-template-columns:minmax(260px, 420px)}
-    .grid.three{grid-template-columns:repeat(3, minmax(240px, 380px))}
-    @media (max-width:1100px){.grid.two,.grid.three{grid-template-columns:repeat(2, minmax(240px, 1fr))}}
-    @media (max-width:720px){.grid.two,.grid.three{grid-template-columns:1fr}}
+    @media (max-width:1100px){.grid.two{grid-template-columns:repeat(2, minmax(240px, 1fr))}}
+    @media (max-width:720px){
+      .grid.two{grid-template-columns:1fr}
+      .row-3{grid-template-columns:1fr}
+      .subhead.span2{grid-column:auto}
+    }
 
     /* Card */
     .card{
@@ -101,7 +117,7 @@
     .name{font-family:"Playfair Display",serif;font-size:1.08rem;margin:0 0 .2rem}
     .title{margin:0;color:#cfe1ef;font-size:.96rem}
 
-    /* Hover bio overlay (fully hidden until hover; uses exact text) */
+    /* Hover bio overlay (hidden until hover; exact text) */
     .bio{
       position:absolute;left:12px;right:12px;bottom:88px;
       background:rgba(2,26,44,.86);
@@ -188,9 +204,12 @@
       </article>
     </section>
 
-    <!-- Clinical Advisor -->
-    <div class="group"><span>Clinical Advisor</span></div>
-    <section class="grid one">
+    <!-- Row of three with column-local headers -->
+    <section class="row-3" style="margin-top:2.2rem">
+      <div class="subhead">Clinical Advisor</div>
+      <div class="subhead">Regulatory Advisor</div>
+      <div class="subhead">Technical Lead</div>
+
       <article class="card">
         <div class="photo"><img src="benedict_alter.png" alt="Benedict Alter, MD, Ph.D."></div>
         <div class="band">
@@ -201,11 +220,7 @@
           Dr. Benedict Alter (Co-founder and Clinical Advisor) is an MD/PhD in anesthesiology and pain medicine at the University of Pittsburgh. He oversees our ongoing pilot trials in fibromyalgia and osteoarthritis patients, providing clinical insights into protocol design, patient selection, and therapeutic response.
         </div>
       </article>
-    </section>
 
-    <!-- Regulatory Advisor -->
-    <div class="group"><span>Regulatory Advisor</span></div>
-    <section class="grid one">
       <article class="card">
         <div class="photo contain-blue">
           <img src="Elora.png" alt="Elora Gupta, Ph.D. (padded)" />
@@ -214,13 +229,9 @@
           <h3 class="name">Elora Gupta, Ph.D.</h3>
           <p class="title">Regulatory Advisor</p>
         </div>
-        <!-- no bio on purpose -->
+        <!-- no bio -->
       </article>
-    </section>
 
-    <!-- Technical Lead -->
-    <div class="group"><span>Technical Lead</span></div>
-    <section class="grid one">
       <article class="card">
         <div class="photo"><img src="matts_for.png" alt="Mats Forssell, Ph.D."></div>
         <div class="band">
@@ -233,10 +244,12 @@
       </article>
     </section>
 
-    <!-- Scientific Advisors -->
-    <div class="group"><span>Scientific Advisors</span></div>
-    <section class="grid three">
-      <article class="card">
+    <!-- Bottom row: header spanning cols 1–2, separate header on col 3 -->
+    <section class="row-3" style="margin-top:2.6rem">
+      <div class="subhead span2">Scientific Advisors</div>
+      <div class="subhead" style="grid-column:3">Embedded Entrepreneur</div>
+
+      <article class="card" style="grid-column:1">
         <div class="photo"><img src="chamanzar.png" alt="Maysam Chamanzar, Ph.D."></div>
         <div class="band">
           <h3 class="name">Maysam Chamanzar, Ph.D.</h3>
@@ -244,19 +257,15 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" style="grid-column:2">
         <div class="photo"><img src="weber.png" alt="Douglas Weber, Ph.D."></div>
         <div class="band">
           <h3 class="name">Douglas Weber, Ph.D.</h3>
           <p class="title">Professor, Mechanical Engineering at CMU</p>
         </div>
       </article>
-    </section>
 
-    <!-- Embedded Entrepreneur -->
-    <div class="group"><span>Embedded Entrepreneur</span></div>
-    <section class="grid one">
-      <article class="card">
+      <article class="card" style="grid-column:3">
         <div class="photo"><img src="kwasa.jpg" alt="Jasmine Kwasa, Ph.D."></div>
         <div class="band">
           <h3 class="name">Jasmine Kwasa, Ph.D.</h3>
@@ -264,7 +273,6 @@
         </div>
       </article>
     </section>
-
   </main>
 
   <!-- Footer -->
