@@ -12,21 +12,14 @@
       --ink-dim:#dfeaf4;
       --bg:#032B47;
       --bg-2:#021a2c;
-      --panel:#073350;
       --acc:#1486B6;
       --acc-2:#4bb0da;
-      --acc-3:#6fd0ff;
       --ring: rgba(20,134,182,0.35);
     }
     *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;
-      font-family:Inter,system-ui,Arial,sans-serif;
-      background:var(--bg);color:var(--ink);
-      scroll-behavior:smooth;
-    }
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
 
-    /* Nav (same as other pages) */
+    /* Nav (shared) */
     nav{
       position:sticky;top:0;z-index:1000;
       display:flex;align-items:center;justify-content:space-between;
@@ -41,7 +34,7 @@
     nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
     nav a:hover{color:#fff}
 
-    /* Hero (uses bg.jpg with soft overlay & shapes like the other pages) */
+    /* Hero (bg.jpg + soft shapes to match site) */
     header.page-hero{
       min-height:46vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
       position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08);
@@ -56,42 +49,41 @@
     .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.3rem,4.4vw,3.2rem);margin:.2rem 0 .75rem}
     .page-hero p{font-size:clamp(1rem,2vw,1.15rem);color:var(--ink-dim);max-width:900px;margin:0 auto;line-height:1.6}
 
-    /* Content */
-    main{max-width:1100px;margin:0 auto;padding:3rem 4vw}
-
-    .cards{display:grid;grid-template-columns:1.1fr 1fr;gap:1.2rem;align-items:start}
-    @media (max-width:980px){.cards{grid-template-columns:1fr}}
-
-    .card{
+    /* Main layout: vertical timeline list */
+    main{max-width:900px;margin:0 auto;padding:3.2rem 4vw}
+    .vlist{
+      position:relative;display:grid;gap:1.4rem;
+      padding-left:28px;
+    }
+    .vlist::before{
+      content:"";position:absolute;left:12px;top:0;bottom:0;width:2px;
+      background:linear-gradient(180deg, rgba(255,255,255,.25), rgba(255,255,255,.06));
+      border-radius:2px;
+    }
+    .item{
+      position:relative;border-radius:16px;padding:1.2rem 1.4rem;
       background:linear-gradient(180deg, rgba(7,51,80,.95), rgba(7,51,80,.85));
       border:1px solid rgba(255,255,255,.12);
-      border-radius:16px;
-      padding:1.4rem 1.6rem;
       box-shadow:0 10px 24px -16px rgba(0,0,0,.45);
     }
-    .card h2{
-      margin:.1rem 0 .6rem;
-      font-size:1.15rem;font-weight:700;letter-spacing:.02em;color:#eaf5fb
+    .item::before{
+      content:"";position:absolute;left:-20px;top:18px;width:12px;height:12px;border-radius:50%;
+      background:linear-gradient(90deg, var(--acc), var(--acc-2));box-shadow:0 0 0 4px rgba(20,134,182,.25);
     }
-    .card p{margin:.4rem 0;color:#e8f3fa;line-height:1.7}
+    .item h2{margin:.1rem 0 .55rem;font-size:1.15rem;letter-spacing:.02em;color:#eaf5fb}
+    .item p{margin:.35rem 0;color:#e8f3fa;line-height:1.7}
+    .list{margin:.1rem 0 0 0;padding-left:1.1rem;color:#e8f3fa}
+    .list li{margin:.2rem 0}
     .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
     .muted{color:#bcd3e4}
 
-    .stack{display:grid;gap:1.2rem}
-    .list{margin:.2rem 0 0 0;padding-left:1.1rem;color:#e8f3fa}
-    .list li{margin:.2rem 0}
-
-    /* Buttons */
-    .actions{margin-top:.9rem;display:flex;gap:.6rem;flex-wrap:wrap}
+    /* Single action button (only one kept) */
+    .actions{margin-top:.8rem}
     .btn{
       display:inline-block;text-decoration:none;
-      padding:.7rem 1rem;border-radius:10px;border:1px solid rgba(255,255,255,.18);
+      padding:.8rem 1.1rem;border-radius:12px;border:1px solid rgba(255,255,255,.18);
       background:linear-gradient(90deg, var(--acc), var(--acc-2));
       color:#fff;font-weight:800
-    }
-    .btn.secondary{
-      background:rgba(255,255,255,.06);color:#fff;
-      border:1px solid rgba(255,255,255,.16)
     }
 
     /* Footer (shared) */
@@ -137,69 +129,63 @@
     <div>
       <span class="kicker">Contact</span>
       <h1>Get in Touch with Synapse Symphony</h1>
-      <p>We partner with clinicians, researchers, and technology leaders to advance comfortable, personalized neuromodulation. For general inquiries, media, or collaboration opportunities, reach us through the channels below.</p>
+      <p>We partner with clinicians, researchers, and technology leaders to advance comfortable, personalized neuromodulation. For general inquiries, media, or collaboration opportunities, use the channels below.</p>
     </div>
   </header>
 
   <main>
-    <div class="cards">
-      <!-- Left column: main contacts in a stack -->
-      <div class="stack">
-        <section class="card">
-          <h2>General Inquiries</h2>
-          <p class="mono">info.synapsesymphony@gmail.com</p>
-          <p class="muted">We aim to reply within 2–3 business days.</p>
-          <div class="actions">
-            <a class="btn" href="mailto:info.synapsesymphony@gmail.com">Email Synapse Symphony</a>
-            <button class="btn secondary" id="copyEmail" type="button">Copy email</button>
-          </div>
-        </section>
+    <div class="vlist">
+      <!-- General -->
+      <section class="item">
+        <h2>General Inquiries</h2>
+        <p class="mono">info.synapsesymphony@gmail.com</p>
+        <p class="muted">We aim to reply within 2–3 business days.</p>
+        <div class="actions">
+          <a class="btn" href="mailto:info.synapsesymphony@gmail.com">Email Synapse Symphony</a>
+        </div>
+      </section>
 
-        <section class="card">
-          <h2>Collaboration & Clinical Studies</h2>
-          <p>If you’re a clinician, PI, or partner exploring trials or technical collaboration, please include:</p>
-          <ul class="list">
-            <li>Affiliation and role</li>
-            <li>Area of interest (e.g., fibromyalgia, osteoarthritis)</li>
-            <li>Study concept or integration needs</li>
-          </ul>
-          <div class="actions">
-            <a class="btn secondary" href="mailto:info.synapsesymphony@gmail.com?subject=Collaboration%20Inquiry">Start a collaboration email</a>
-          </div>
-        </section>
+      <!-- Collaboration -->
+      <section class="item">
+        <h2>Collaboration & Clinical Studies</h2>
+        <p>If you’re a clinician, PI, or partner exploring trials or technical collaboration, please include:</p>
+        <ul class="list">
+          <li>Affiliation and role</li>
+          <li>Area of interest (e.g., fibromyalgia, osteoarthritis)</li>
+          <li>Study concept or integration needs</li>
+        </ul>
+        <p class="muted">Send details to <span class="mono">info.synapsesymphony@gmail.com</span>.</p>
+      </section>
 
-        <section class="card">
-          <h2>Media & Press</h2>
-          <p>For interviews, speaking, or materials, please share outlet, deadline, and topic.</p>
-          <div class="actions">
-            <a class="btn secondary" href="mailto:info.synapsesymphony@gmail.com?subject=Press%20Inquiry">Press inquiry</a>
-          </div>
-        </section>
-      </div>
+      <!-- Media -->
+      <section class="item">
+        <h2>Media & Press</h2>
+        <p>For interviews, speaking, or materials, include outlet, deadline, and topic. We’ll follow up promptly.</p>
+        <p class="muted">Contact: <span class="mono">info.synapsesymphony@gmail.com</span></p>
+      </section>
 
-      <!-- Right column: address & expectations -->
-      <div class="stack">
-        <section class="card">
-          <h2>Mailing Address</h2>
-          <p>
-            Synapse Symphony Inc.<br/>
-            4740 Wallingford St.<br/>
-            Pittsburgh, PA 15213
-          </p>
-          <p class="muted">For official correspondence and shipments (no walk-in office hours).</p>
-        </section>
+      <!-- Address -->
+      <section class="item">
+        <h2>Mailing Address</h2>
+        <p>
+          Synapse Symphony Inc.<br/>
+          4740 Wallingford St.<br/>
+          Pittsburgh, PA 15213
+        </p>
+        <p class="muted">For official correspondence and shipments (no walk-in office hours).</p>
+      </section>
 
-        <section class="card">
-          <h2>Response & Availability</h2>
-          <p><strong>Business hours:</strong> 9:00–5:00 ET, Monday–Friday</p>
-          <p><strong>Security & privacy:</strong> Please don’t send protected health information by email. We’ll provide a secure channel if needed.</p>
-          <p class="muted">Synapse Symphony does not provide medical advice. If you’re experiencing a medical emergency, contact your local emergency number.</p>
-        </section>
-      </div>
+      <!-- Availability / Privacy -->
+      <section class="item">
+        <h2>Response & Availability</h2>
+        <p><strong>Business hours:</strong> 9:00–5:00 ET, Monday–Friday</p>
+        <p><strong>Security & privacy:</strong> Please don’t send protected health information by email. We can provide a secure channel if needed.</p>
+        <p class="muted">Synapse Symphony does not provide medical advice. If you are experiencing a medical emergency, contact your local emergency number.</p>
+      </section>
     </div>
   </main>
 
-  <!-- Footer (shared) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-wrap">
       <div>
@@ -221,17 +207,5 @@
       <small>Home • About • Research • Team • Contact</small>
     </div>
   </footer>
-
-  <script>
-    // Copy-to-clipboard for email
-    document.getElementById('copyEmail')?.addEventListener('click', () => {
-      const email = 'info.synapsesymphony@gmail.com';
-      navigator.clipboard.writeText(email).then(()=>{
-        const btn = document.getElementById('copyEmail');
-        btn.textContent = 'Copied!';
-        setTimeout(()=>btn.textContent='Copy email', 1200);
-      });
-    });
-  </script>
 </body>
 </html>
