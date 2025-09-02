@@ -20,20 +20,16 @@
       --ring: rgba(20,134,182,0.35);
     }
     *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;
-      font-family:Inter,system-ui,Arial,sans-serif;
-      background:var(--bg);color:var(--ink);
-      scroll-behavior:smooth;
-    }
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
 
-    /* Nav */
+    /* Nav (shared) */
     nav{
       position:sticky;top:0;z-index:1000;
       display:flex;align-items:center;justify-content:space-between;
       padding:1rem 2rem;
       background:linear-gradient(180deg, rgba(2,26,44,.96), rgba(2,26,44,.85));
       border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter:saturate(1.2) blur(4px);
     }
     .logo-wrap{display:flex;align-items:center;gap:.7rem}
     .logo-wrap img{height:30px;width:auto}
@@ -44,8 +40,7 @@
 
     /* Hero */
     header.page-hero{
-      min-height:46vh;
-      display:grid;place-items:center;text-align:center;padding:0 6vw;
+      min-height:46vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
       position:relative;overflow:hidden;
       background:linear-gradient(180deg, rgba(3,43,71,1), rgba(3,43,71,.92));
       border-bottom:1px solid rgba(255,255,255,.08);
@@ -53,7 +48,7 @@
     .hero-shape{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;pointer-events:none}
     .hero-a{width:420px;height:420px;left:-140px;top:-60px;background:radial-gradient(circle at 40% 40%, var(--acc-2), transparent 60%)}
     .hero-b{width:520px;height:520px;right:-160px;bottom:-100px;background:radial-gradient(circle at 60% 60%, var(--acc), transparent 60%)}
-    .kicker{display:inline-block;font-size:.85rem;color:#cfe2f1;padding:.35rem .6rem;border-radius:999px;margin-bottom:1rem;border:1px solid rgba(255,255,255,.14);letter-spacing:.06em}
+    .kicker{display:inline-block;font-size:.9rem;color:#cfe2f1;letter-spacing:.06em;padding:.4rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.14);margin-bottom:1rem}
     .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,4.4vw,3.1rem);margin:.2rem 0 1rem}
     .page-hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-dim);max-width:900px;margin:0 auto 1rem;line-height:1.6}
 
@@ -61,14 +56,31 @@
     section{padding:5rem 4vw;position:relative;overflow:hidden}
     .section-title{
       font-family:"Playfair Display",serif;font-size:clamp(2rem,3.2vw,2.6rem);
-      text-align:center;margin:0 0 2rem;position:relative;color:#f9fbfd;
+      text-align:center;margin:0 0 2rem;position:relative;color:#f9fbfd
     }
     .section-title::after{
-      content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-14px;
-      width:60px;height:2px;background:rgba(255,255,255,.25);border-radius:2px;
+      content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-14px;width:60px;height:2px;background:rgba(255,255,255,.25);border-radius:2px
     }
 
-    /* Band */
+    /* Intro feature grid (text-only for variety) */
+    .features{
+      max-width:1200px;margin:0 auto;display:grid;gap:1.2rem;
+      grid-template-columns:repeat(3,1fr)
+    }
+    .feat{
+      border-radius:18px;padding:1.3rem 1.4rem;
+      background:linear-gradient(180deg, rgba(8,54,84,.9), rgba(8,54,84,.75));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 6px 18px -12px rgba(0,0,0,.35);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      text-align:center;min-height:180px
+    }
+    .feat:hover{transform:translateY(-3px);border-color:rgba(111,208,255,.4);box-shadow:0 16px 34px -18px var(--ring)}
+    .feat h3{margin:.2rem 0 .55rem;font-size:1.18rem;color:var(--acc-3)}
+    .feat p{margin:0;color:#e8f3fa;line-height:1.65}
+    @media (max-width:980px){.features{grid-template-columns:1fr}}
+
+    /* Image bands (each image used once) */
     .band{
       display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:stretch;
       border:1px solid rgba(255,255,255,.08);
@@ -76,22 +88,38 @@
       border-radius:18px;overflow:hidden;max-width:1200px;margin:0 auto 2.2rem;
     }
     .band.reverse{grid-template-columns:1fr 1.1fr}
-    .band .img{position:relative;min-height:420px;background:#05283f}
-    .band .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95}
-    .band .img.mask-right img{
-      -webkit-mask-image:linear-gradient(to right, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
-              mask-image:linear-gradient(to right, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
-    }
-    .band .img.mask-left img{
-      -webkit-mask-image:linear-gradient(to left, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
-              mask-image:linear-gradient(to left, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 95%);
-    }
     .band .copy{padding:2.2rem;display:flex;flex-direction:column;justify-content:center}
     .eyebrow{display:inline-block;font-size:.8rem;color:#cfe2f1;border:1px solid rgba(255,255,255,.14);padding:.28rem .55rem;border-radius:999px;margin-bottom:.7rem;letter-spacing:.05em}
-    .band h3{margin:.2rem 0 .6rem;font-size:1.4rem;color:var(--acc-3)}
+    .band h3{margin:.2rem 0 .6rem;font-size:1.38rem;color:var(--acc-3)}
     .band p{color:#e7f2fb;font-size:1.02rem;line-height:1.65;margin:.4rem 0}
 
-    /* Footer */
+    .band .img{position:relative;min-height:420px;background:#05283f}
+    .band .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95}
+    /* soft fade toward copy */
+    .band .img.mask-right img{
+      -webkit-mask-image:linear-gradient(to right, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 96%);
+              mask-image:linear-gradient(to right, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 96%);
+    }
+    .band .img.mask-left img{
+      -webkit-mask-image:linear-gradient(to left, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 96%);
+              mask-image:linear-gradient(to left, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 96%);
+    }
+
+    /* “Background Hum” text-only cards */
+    .hum-grid{
+      max-width:1200px;margin:0 auto;display:grid;gap:1.1rem;grid-template-columns:repeat(3,1fr)
+    }
+    .hum{
+      background:linear-gradient(180deg, rgba(7,51,80,.96), rgba(7,51,80,.84));
+      border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:1.2rem 1.3rem;min-height:160px;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .hum:hover{transform:translateY(-3px);box-shadow:0 16px 34px -18px var(--ring);border-color:rgba(111,208,255,.38)}
+    .hum h4{margin:.2rem 0 .5rem;font-size:1.06rem;color:var(--acc-3)}
+    .hum p{margin:0;color:#e9f4fb;line-height:1.65}
+    @media (max-width:980px){.hum-grid{grid-template-columns:1fr}}
+
+    /* Footer (shared) */
     footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
     .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
     .foot-brand{display:flex;gap:.8rem;align-items:center}
@@ -117,12 +145,12 @@
     @media (max-width:980px){
       .band, .band.reverse{grid-template-columns:1fr}
       .band .img.mask-right img{
-        -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%);
-                mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%);
+        -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 72%, rgba(0,0,0,0) 98%);
+                mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 72%, rgba(0,0,0,0) 98%);
       }
       .band .img.mask-left img{
-        -webkit-mask-image:linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%);
-                mask-image:linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 98%);
+        -webkit-mask-image:linear-gradient(to top, rgba(0,0,0,1) 72%, rgba(0,0,0,0) 98%);
+                mask-image:linear-gradient(to top, rgba(0,0,0,1) 72%, rgba(0,0,0,0) 98%);
       }
     }
   </style>
@@ -150,77 +178,83 @@
     <div class="reveal show">
       <span class="kicker">Technology</span>
       <h1>Reimagining Pain Relief Through Intelligent Neurostimulation</h1>
-      <p>We are developing noninvasive neuromodulation that delivers personalized, effective relief by targeting brain pain circuits with precision and comfort.</p>
+      <p>Personalized, non-invasive neuromodulation designed for precision, comfort, and daily use at home.</p>
     </div>
   </header>
 
   <main>
-    <!-- Personalized Brain Modulation -->
+    <!-- Text-only intro for variety -->
+    <section>
+      <h2 class="section-title reveal">What Makes Our Approach Different</h2>
+      <div class="features">
+        <article class="feat reveal">
+          <h3>Personalized Field Shaping</h3>
+          <p>High-density arrays and adaptive algorithms tailor stimulation to neuroanatomy and pain profile.</p>
+        </article>
+        <article class="feat reveal">
+          <h3>Comfort by Design</h3>
+          <p>Subsystems focus on tolerability so patients complete effective sessions without distress.</p>
+        </article>
+        <article class="feat reveal">
+          <h3>Learning System</h3>
+          <p>Patient data informs continuous adjustment for durable relief and dependable experience.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Waves image used ONCE -->
     <section>
       <h2 class="section-title reveal">Personalized Brain Modulation</h2>
       <div class="band reveal">
         <div class="copy">
           <span class="eyebrow">Platform</span>
           <h3>Targeted stimulation shaped to each person</h3>
-          <p>Our platform uses high density electrode arrays combined with adaptive electric field shaping to tailor stimulation to individual neuroanatomy and pain profile.</p>
-          <p>This personalized approach aims to provide more effective and longer lasting relief compared to conventional therapies.</p>
+          <p>Our platform uses high-density electrode arrays combined with adaptive electric-field shaping to tailor stimulation to individual neuroanatomy and pain profile.</p>
+          <p>This personalized approach aims to provide more effective and longer-lasting relief compared with conventional therapies.</p>
         </div>
         <div class="img mask-right">
-          <img src="waves.jpg" alt="Oscilloscope wave graphic" />
+          <img src="waves.jpg" alt="Oscilloscope wave motif" />
         </div>
       </div>
     </section>
 
-    <!-- The Science Behind the Relief -->
-    <section>
-      <h2 class="section-title reveal">The Science Behind the Relief</h2>
-      <div class="band reverse reveal">
-        <div class="img mask-left">
-          <img src="testing.jpg" alt="In lab device testing" />
-        </div>
-        <div class="copy">
-          <span class="eyebrow">Evidence</span>
-          <h3>Smarter and more responsive therapy</h3>
-          <p>Built on years of neuroscience and clinical insight, the system adjusts stimulation patterns in real time using patient specific data for a safer and more responsive experience.</p>
-          <p>Early pilot work in fibromyalgia and osteoarthritis has shown strong potential with reported improvement in mobility and reduction in pain.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Breakthrough: Background Hum -->
+    <!-- Background Hum (text-only cards; no images) -->
     <section>
       <h2 class="section-title reveal">Breakthrough: Background Hum</h2>
-      <div class="band reveal">
-        <div class="copy">
-          <span class="eyebrow">Comfort</span>
-          <h3>Reduce discomfort and support longer sessions</h3>
-          <p>Traditional electrical stimulation can cause scalp discomfort due to current injection. Our background hum technique aims to reduce this sensation and improve session tolerability.</p>
-          <p>The goal is consistent therapeutic dosing without distress so people can complete longer home sessions comfortably.</p>
+      <div class="hum-grid">
+        <div class="hum reveal">
+          <h4>Reduce Surface Discomfort</h4>
+          <p>The technique targets the sharp sensations from current injection at the scalp, making sessions feel smoother.</p>
         </div>
-        <div class="img mask-right">
-          <img src="waves.jpg" alt="Wave motif" />
+        <div class="hum reveal">
+          <h4>Support Longer Sessions</h4>
+          <p>Improved tolerability enables therapeutic dosing over time, suitable for daily at-home use.</p>
+        </div>
+        <div class="hum reveal">
+          <h4>Improve Consistency</h4>
+          <p>Comfort boosts adherence, helping patients maintain stable, effective therapy routines.</p>
         </div>
       </div>
     </section>
 
-    <!-- From Prototype to Product -->
+    <!-- Testing image used ONCE -->
     <section>
       <h2 class="section-title reveal">From Prototype to Product</h2>
-      <div class="band reveal">
+      <div class="band reverse reveal">
+        <div class="img mask-left">
+          <img src="testing.jpg" alt="Prototype testing" />
+        </div>
         <div class="copy">
           <span class="eyebrow">Roadmap</span>
-          <h3>Faster access today and a clear path to home use</h3>
-          <p>We are operating in an MVP stage using a modular setup built from cleared components to validate outcomes while expanding access for patients.</p>
-          <p>Next steps include miniaturization and integration into a compact device designed for daily use at home.</p>
-        </div>
-        <div class="img mask-right">
-          <img src="testing.jpg" alt="Prototype in evaluation" />
+          <h3>Faster access today, integrated device tomorrow</h3>
+          <p>We operate in an MVP stage using a modular setup built from cleared components to validate outcomes and expand early access.</p>
+          <p>Next steps include miniaturization and integration into a compact, user-friendly device optimized for home use.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (shared) -->
   <footer>
     <div class="footer-wrap">
       <div>
