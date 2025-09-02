@@ -21,11 +21,8 @@
     }
     *{box-sizing:border-box}
     html,body{
-      margin:0;padding:0;
-      font-family:Inter,system-ui,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-      scroll-behavior:smooth;
+      margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;
+      background:var(--bg);color:var(--ink);scroll-behavior:smooth;
     }
 
     /* Nav (shared) */
@@ -43,64 +40,44 @@
     nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
     nav a:hover{color:#fff}
 
-    /* Hero: solid block with layered shapes */
+    /* Hero */
     header.page-hero{
       min-height:48vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
-      position:relative;overflow:hidden;
-      background:
-        linear-gradient(180deg, rgba(3,43,71,1) 0%, rgba(3,43,71,.92) 100%);
+      position:relative;overflow:hidden;background:linear-gradient(180deg, rgba(3,43,71,1) 0%, rgba(3,43,71,.92) 100%);
       border-bottom:1px solid rgba(20,134,182,.28);
     }
     .hero-shape{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;pointer-events:none}
     .hero-a{width:420px;height:420px;left:-140px;top:-60px;background:radial-gradient(circle at 40% 40%, var(--acc-2), transparent 60%)}
     .hero-b{width:520px;height:520px;right:-160px;bottom:-100px;background:radial-gradient(circle at 60% 60%, var(--acc), transparent 60%)}
-
-    .kicker{
-      display:inline-block;font-size:.9rem;color:#cfe2f1;letter-spacing:.06em;
-      padding:.4rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.16);margin-bottom:1rem
-    }
+    .kicker{display:inline-block;font-size:.9rem;color:#cfe2f1;letter-spacing:.06em;padding:.4rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.16);margin-bottom:1rem}
     .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.3rem,4.4vw,3.2rem);margin:.2rem 0 1rem}
     .page-hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-dim);max-width:880px;margin:0 auto 1rem;line-height:1.6}
 
-    /* Global sections */
+    /* Bands + angled separators */
     section{position:relative;overflow:hidden}
+    .band-solid{padding:4.5rem 4vw;background:var(--bg-2);border-top:1px solid rgba(20,134,182,.22);border-bottom:1px solid rgba(20,134,182,.22)}
+    .band-accent{padding:4.5rem 4vw;background:linear-gradient(180deg, rgba(7,51,80,1), rgba(7,51,80,.94));border-top:1px solid rgba(79,203,255,.28);border-bottom:1px solid rgba(79,203,255,.22)}
+    .band-panel{padding:4.5rem 4vw;background:var(--panel);border-top:1px solid rgba(20,134,182,.24);border-bottom:1px solid rgba(20,134,182,.24)}
+    .angle-top::before, .angle-bottom::after{
+      content:"";position:absolute;left:0;width:100%;height:80px;z-index:0;pointer-events:none;background:inherit;
+    }
+    .angle-top::before{top:-40px;clip-path:polygon(0 100%,100% 0,100% 100%)}
+    .angle-bottom::after{bottom:-40px;clip-path:polygon(0 0,100% 100%,0 100%)}
 
-    /* Solid color bands to add heft */
-    .band-solid{
-      padding:4.5rem 4vw;
-      background:var(--bg-2);
-      border-top:1px solid rgba(20,134,182,.22);
-      border-bottom:1px solid rgba(20,134,182,.22);
-    }
-    .band-accent{
-      padding:4.5rem 4vw;
-      background:linear-gradient(180deg, rgba(7,51,80,1), rgba(7,51,80,.94));
-      border-top:1px solid rgba(79,203,255,.28);
-      border-bottom:1px solid rgba(79,203,255,.22);
-    }
-    .band-panel{
-      padding:4.5rem 4vw;
-      background:var(--panel);
-      border-top:1px solid rgba(20,134,182,.24);
-      border-bottom:1px solid rgba(20,134,182,.24);
-    }
-
-    /* Section headings */
+    /* Titles + full-width accent stripe */
     .section-title{
-      font-family:"Playfair Display",serif;
-      font-size:clamp(2rem,3.2vw,2.6rem);
-      text-align:center;margin:0 0 2rem;position:relative;
+      font-family:"Playfair Display",serif;font-size:clamp(2rem,3.2vw,2.6rem);
+      text-align:center;margin:0 0 1.1rem;position:relative;z-index:1;
     }
-    .section-title:after{
-      content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-12px;width:140px;height:4px;
-      background:linear-gradient(90deg, var(--acc), var(--acc-2));border-radius:2px
+    .title-stripe{
+      height:6px;width:100%;background:linear-gradient(90deg, var(--acc), var(--acc-2), var(--acc-3));
+      border-radius:3px;opacity:.9;max-width:1200px;margin:0 auto 1.3rem;
+      box-shadow:0 4px 18px -8px rgba(111,208,255,.55), inset 0 0 0 1px rgba(255,255,255,.05);
     }
 
-    /* Mission block: solid card with chunky padding and gradient border */
+    /* Mission block */
     .mission{
-      max-width:1100px;margin:0 auto;border-radius:22px;padding:2rem 2rem;
-      background:linear-gradient(180deg, rgba(6,43,67,.9), rgba(6,43,67,.75));
-      position:relative;
+      max-width:1100px;margin:0 auto;border-radius:22px;padding:2rem 2rem;background:linear-gradient(180deg, rgba(6,43,67,.9), rgba(6,43,67,.75));position:relative;
     }
     .mission::before{
       content:"";position:absolute;inset:0;border-radius:22px;padding:1.2px;
@@ -111,67 +88,67 @@
     }
     .mission p{color:#e9f4fb;font-size:1.08rem;line-height:1.8;margin:0}
 
-    /* Three chunky pillars */
-    .pillars{
-      max-width:1220px;margin:0 auto;display:grid;gap:1.4rem;grid-template-columns:repeat(3,1fr)
-    }
+    /* Pillars with sheen */
+    .pillars{max-width:1220px;margin:0 auto;display:grid;gap:1.4rem;grid-template-columns:repeat(3,1fr)}
     .card{
-      border-radius:20px;padding:1.6rem;background:linear-gradient(180deg, rgba(8,54,84,.95), rgba(8,54,84,.8));
+      position:relative;overflow:hidden;border-radius:20px;padding:1.6rem;
+      background:linear-gradient(180deg, rgba(8,54,84,.95), rgba(8,54,84,.8));
       border:1px solid rgba(20,134,182,.28);
       display:flex;flex-direction:column;justify-content:center;min-height:240px;text-align:center;
-      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;isolation:isolate;
     }
-    .card:hover{transform:translateY(-2px);box-shadow:0 18px 36px -16px var(--ring);border-color:rgba(20,134,182,.45)}
     .card h3{margin:.15rem 0 .7rem;font-size:1.22rem;color:var(--acc-3)}
     .card p{margin:0;color:#eef7ff;font-size:1.02rem;line-height:1.65}
+    .card::after{
+      content:"";position:absolute;top:-120%;left:-40%;width:60%;height:300%;transform:rotate(20deg);
+      background:linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.18) 50%, rgba(255,255,255,0) 100%);opacity:0;pointer-events:none;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 18px 36px -16px var(--ring);border-color:rgba(20,134,182,.45)}
+    .card:hover::after{animation:sheen 900ms ease forwards;opacity:1}
+    @keyframes sheen{0%{transform:translateX(0) rotate(20deg)}100%{transform:translateX(260%) rotate(20deg)}}
     @media (max-width:980px){.pillars{grid-template-columns:1fr}}
 
-    /* Two column text slabs with solid split */
-    .slab{
-      max-width:1220px;margin:0 auto;border-radius:22px;overflow:hidden;
-      display:grid;grid-template-columns:1fr 1fr;
-      border:1px solid rgba(20,134,182,.28);
-    }
-    .slab .col{
-      padding:2.2rem 2.4rem;
-      background:rgba(3,43,71,.85);
-    }
-    .slab .col.alt{
-      background:linear-gradient(180deg, rgba(7,51,80,.98), rgba(7,51,80,.9));
-      border-left:1px solid rgba(255,255,255,.08);
-    }
+    /* Slabs */
+    .slab{max-width:1220px;margin:0 auto;border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(20,134,182,.28)}
+    .slab .col{padding:2.2rem 2.4rem;background:rgba(3,43,71,.85)}
+    .slab .col.alt{background:linear-gradient(180deg, rgba(7,51,80,.98), rgba(7,51,80,.9));border-left:1px solid rgba(255,255,255,.08)}
     .slab h4{margin:.2rem 0 .6rem;font-size:1.12rem;color:var(--acc-3)}
     .slab p{margin:.45rem 0;color:#e9f3fb;line-height:1.8;font-size:1.04rem}
-    @media (max-width:980px){
-      .slab{grid-template-columns:1fr}
-      .slab .col.alt{border-left:none;border-top:1px solid rgba(255,255,255,.08)}
-    }
+    @media (max-width:980px){.slab{grid-template-columns:1fr}.slab .col.alt{border-left:none;border-top:1px solid rgba(255,255,255,.08)}}
 
-    /* Steps: large numbered chips */
-    .steps{
-      max-width:1180px;margin:0 auto;display:grid;gap:1.1rem;grid-template-columns:repeat(3,1fr)
-    }
-    .step{
-      display:flex;gap:1rem;align-items:flex-start;
-      background:linear-gradient(180deg, rgba(8,54,84,.92), rgba(8,54,84,.78));
-      border:1px solid rgba(20,134,182,.28);border-radius:18px;padding:1.25rem 1.3rem;min-height:130px
-    }
-    .num{
-      flex:0 0 44px;height:44px;display:grid;place-items:center;border-radius:12px;
-      background:linear-gradient(90deg, var(--acc), var(--acc-2));font-weight:800
-    }
+    /* Steps */
+    .steps{max-width:1180px;margin:0 auto;display:grid;gap:1.1rem;grid-template-columns:repeat(3,1fr)}
+    .step{display:flex;gap:1rem;align-items:flex-start;background:linear-gradient(180deg, rgba(8,54,84,.92), rgba(8,54,84,.78));border:1px solid rgba(20,134,182,.28);border-radius:18px;padding:1.25rem 1.3rem;min-height:130px}
+    .num{flex:0 0 44px;height:44px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(90deg, var(--acc), var(--acc-2));font-weight:800}
     .step h5{margin:.1rem 0 .35rem;font-size:1.04rem;color:#eef7ff}
     .step p{margin:0;color:#dfeaf4;line-height:1.65}
     @media (max-width:980px){.steps{grid-template-columns:1fr}}
 
-    /* Value chips line */
-    .chips{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin:2rem auto 0;max-width:1100px}
-    .chip{
-      padding:.55rem .9rem;border-radius:999px;border:1px solid rgba(255,255,255,.18);
-      font-size:.95rem;color:#eef7ff;background:linear-gradient(90deg, rgba(20,134,182,.42), rgba(75,176,218,.34));
+    /* FAQ: BIGGER BOXES (accordion cards) */
+    .faq-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    details.faq{
+      background:linear-gradient(180deg, rgba(6,43,67,.92), rgba(6,43,67,.78));
+      border:1px solid rgba(20,134,182,.32);
+      border-radius:18px;padding:1rem 1.2rem;
+      transition:box-shadow .25s ease, border-color .25s ease, transform .25s ease;
     }
+    details.faq:hover{box-shadow:0 18px 36px -16px var(--ring);border-color:rgba(20,134,182,.46);transform:translateY(-1px)}
+    summary{
+      list-style:none;cursor:pointer;display:flex;align-items:center;gap:.8rem;
+      font-weight:700;font-size:1.05rem;color:#eaf5fb;outline:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .q-icon{
+      flex:0 0 34px;height:34px;display:grid;place-items:center;border-radius:10px;
+      background:linear-gradient(90deg, var(--acc), var(--acc-2));
+      font-weight:800;
+    }
+    details.faq p{margin:.7rem 0 0;color:#dfeefb;line-height:1.7;font-size:1.02rem}
+    details.faq[open]{border-color:rgba(111,208,255,.6)}
+    details.faq[open] summary{color:#ffffff}
+    @media (max-width:960px){.faq-wrap{grid-template-columns:1fr}}
 
-    /* Footer (shared professional layout) */
+    /* Footer (shared) */
     footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
     .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
     .foot-brand{display:flex;gap:.8rem;align-items:center}
@@ -184,13 +161,9 @@
     .foot-line{border-top:1px solid rgba(255,255,255,.08);margin:0 4vw}
     .foot-bottom{max-width:1200px;margin:0 auto;padding:1rem 4vw;display:flex;justify-content:space-between;align-items:center;color:#9ec2d9;font-size:.9rem}
     .foot-bottom small{opacity:.9}
-    @media (max-width:900px){
-      .footer-wrap{grid-template-columns:1fr}
-      .foot-contact{justify-self:start;text-align:left}
-      .foot-bottom{flex-direction:column;gap:.4rem}
-    }
+    @media (max-width:900px){.footer-wrap{grid-template-columns:1fr}.foot-contact{justify-self:start;text-align:left}.foot-bottom{flex-direction:column;gap:.4rem}}
 
-    /* Reveal motion */
+    /* Reveal */
     .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
     .reveal.show{opacity:1;transform:none}
   </style>
@@ -224,9 +197,10 @@
 
   <main>
 
-    <!-- Mission: big chunky card inside a solid band -->
-    <section class="band-solid">
+    <!-- Mission -->
+    <section class="band-solid angle-top angle-bottom">
       <h2 class="section-title reveal">Our Mission</h2>
+      <div class="title-stripe"></div>
       <div class="mission reveal">
         <p>
           At Synapse Symphony, we are redefining chronic pain care through advanced AI powered, noninvasive neurostimulation.
@@ -236,9 +210,10 @@
       </div>
     </section>
 
-    <!-- Three pillars: bold equal cards on a contrasting band -->
-    <section class="band-accent">
+    <!-- Pillars -->
+    <section class="band-accent angle-bottom">
       <h2 class="section-title reveal">What guides our work</h2>
+      <div class="title-stripe"></div>
       <div class="pillars">
         <article class="card reveal">
           <h3>Personalized modulation</h3>
@@ -255,9 +230,10 @@
       </div>
     </section>
 
-    <!-- Text slabs: heavier two column blocks to avoid a scrawny feel -->
-    <section class="band-panel">
+    <!-- Text slabs -->
+    <section class="band-panel angle-top angle-bottom">
       <h2 class="section-title reveal">How we work</h2>
+      <div class="title-stripe"></div>
       <div class="slab reveal">
         <div class="col">
           <h4>Field shaping with precision</h4>
@@ -294,9 +270,10 @@
       </div>
     </section>
 
-    <!-- Steps row: large numbered chips on a solid band -->
-    <section class="band-solid">
+    <!-- Steps -->
+    <section class="band-solid angle-top angle-bottom">
       <h2 class="section-title reveal">Our approach</h2>
+      <div class="title-stripe"></div>
       <div class="steps">
         <div class="step reveal">
           <div class="num">1</div>
@@ -320,8 +297,7 @@
           </div>
         </div>
       </div>
-
-      <div class="chips reveal" style="margin-top:1.6rem">
+      <div class="chips reveal" style="margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center">
         <span class="chip">Personalized</span>
         <span class="chip">Comfort focused</span>
         <span class="chip">Evidence informed</span>
@@ -329,9 +305,66 @@
       </div>
     </section>
 
+    <!-- FAQ / Questions -->
+    <section class="band-accent angle-top">
+      <h2 class="section-title reveal">Questions</h2>
+      <div class="title-stripe"></div>
+      <div class="faq-wrap">
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>Is the therapy surgical?</summary>
+          <p>No. It is noninvasive and designed for at-home use with clinical guidance as needed.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>How long is a typical session?</summary>
+          <p>Session length can vary by protocol. The system is designed to support comfortable, repeatable sessions suitable for daily use.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>What does “background hum” feel like?</summary>
+          <p>It’s a comfort technique intended to reduce the sharp tingling that can occur with current injection at the scalp, helping sessions feel smoother.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>Who is this for?</summary>
+          <p>Our early work focuses on chronic pain conditions such as fibromyalgia and osteoarthritis. Suitability depends on individual evaluation.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>Is it FDA approved?</summary>
+          <p>We are operating in an MVP stage using cleared components while building evidence and advancing toward an integrated home device.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>Can it be used with medications or physical therapy?</summary>
+          <p>Many pain management plans are multimodal. Therapy choices should be made with a clinician who knows your medical history.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>How does personalization work?</summary>
+          <p>High-density arrays and field shaping are guided by models and patient data to target pain-related circuits more precisely.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>What about data privacy?</summary>
+          <p>Patient data is handled with strict privacy and security standards. Only data necessary for personalization is used.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>When will it be broadly available?</summary>
+          <p>We are building evidence and product maturity. Timelines depend on study results, regulatory pathways, and manufacturing.</p>
+        </details>
+
+        <details class="faq reveal">
+          <summary><span class="q-icon">Q</span>Is it covered by insurance?</summary>
+          <p>Coverage varies by plan and indication. We will share updates on access pathways as we progress.</p>
+        </details>
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (shared) -->
   <footer>
     <div class="footer-wrap">
       <div>
