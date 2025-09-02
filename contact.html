@@ -2,89 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Synapse Symphony</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #032B47;
-      color: #f1f1f1;
+    :root{
+      --bg:#032B47;
+      --bg-2:#021a2c;
+      --panel:#073350;
+      --ink:#ffffff;
+      --ink-dim:#dfeaf4;
+      --acc:#1486B6;
+      --acc-2:#4bb0da;
     }
-    nav {
-      background-color: #021a2c;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Open Sans',system-ui,Arial,sans-serif}
+
+    /* Nav (kept like your pages) */
+    nav{
+      background-color:#021a2c;
+      padding:1rem 2rem;
+      display:flex;justify-content:space-between;align-items:center
     }
-    nav .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: white;
+    nav .logo{font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff}
+    nav ul{list-style:none;display:flex;gap:1.5rem;margin:0;padding:0}
+    nav a{text-decoration:none;color:#ccc}
+    nav a:hover{color:#fff}
+
+    /* Header image band with subtle overlay */
+    .header-image{
+      position:relative;height:300px;
+      background:linear-gradient(180deg, rgba(3,43,71,.6), rgba(3,43,71,.85)), url('bg.jpg') center/cover no-repeat;
+      border-top:4px solid var(--acc);border-bottom:4px solid var(--acc);
+      display:grid;place-items:center;text-align:center;padding:0 2rem;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
+    .header-image h1{
+      font-family:'Playfair Display',serif;
+      font-size:2.6rem;margin:0 0 .4rem 0;color:#fff
     }
-    nav ul li a {
-      text-decoration: none;
-      color: #ccc;
+    .header-image p{margin:0;color:var(--ink-dim);max-width:820px;line-height:1.6}
+
+    /* Content */
+    main{padding:3.2rem 2rem;max-width:980px;margin:0 auto}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+    @media (max-width:780px){.cards{grid-template-columns:1fr}}
+
+    .card{
+      background:linear-gradient(180deg, rgba(7,51,80,.95), rgba(7,51,80,.85));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      padding:1.4rem 1.6rem;
+      box-shadow:0 10px 24px -16px rgba(0,0,0,.5);
     }
-    nav ul li a:hover {
-      color: #fff;
+    .card h2{
+      margin:.1rem 0 .6rem;
+      font-size:1.15rem;font-weight:700;letter-spacing:.02em;color:#eaf5fb
     }
-    .header-image {
-      background: url('bg.jpg') center/cover no-repeat;
-      height: 300px;
-      border-top: 4px solid #1486B6;
-      border-bottom: 4px solid #1486B6;
+    .card p{margin:.35rem 0;color:#e8f3fa;line-height:1.7}
+    .muted{color:#bcd3e4}
+
+    /* Action row */
+    .actions{margin-top:1.2rem;display:flex;gap:.6rem;flex-wrap:wrap}
+    .btn{
+      display:inline-block;text-decoration:none;
+      padding:.7rem 1rem;border-radius:10px;border:1px solid rgba(255,255,255,.18);
+      background:linear-gradient(90deg, var(--acc), var(--acc-2));
+      color:#fff;font-weight:700
     }
-    section {
-      padding: 3rem 2rem;
-      max-width: 600px;
-      margin: auto;
+    .btn.secondary{
+      background:rgba(255,255,255,.06);color:#fff;
+      border:1px solid rgba(255,255,255,.16)
     }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      text-align: center;
-      font-size: 2.75rem;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    input, textarea {
-      padding: 1rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 4px;
-    }
-    button {
-      background-color: #1486B6;
-      color: white;
-      padding: 1rem;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    button:hover {
-      background-color: #0e5c82;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #88b2ca;
-      background-color: #021a2c;
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+
+    /* Footer (unchanged) */
+    footer{
+      text-align:center;padding:2rem;font-size:.9rem;color:#88b2ca;background:#021a2c;
+      margin-top:2rem
     }
   </style>
 </head>
@@ -100,19 +95,57 @@
     </ul>
   </nav>
 
-  <div class="header-image"></div>
+  <header class="header-image">
+    <div>
+      <h1>Contact Us</h1>
+      <p>We’re happy to hear from clinicians, collaborators, and prospective partners. For general inquiries, email us directly or use the address below.</p>
+    </div>
+  </header>
 
-  <section>
-    <h1>Contact Us</h1>
-    <h3>This currently will do nothing but you can link this to a google form or a form creation service and embedd it so it will work</h3>
-    <form>
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+  <main>
+    <div class="cards">
+      <!-- Email -->
+      <section class="card">
+        <h2>Email</h2>
+        <p class="mono">info.synapsesymphony@gmail.com</p>
+        <p class="muted">We aim to respond within 2–3 business days.</p>
+        <div class="actions">
+          <a class="btn" href="mailto:info.synapsesymphony@gmail.com">Email Synapse Symphony</a>
+          <button class="btn secondary" id="copyEmail" type="button">Copy email</button>
+        </div>
+      </section>
+
+      <!-- Address -->
+      <section class="card">
+        <h2>Mailing Address</h2>
+        <p>
+          Synapse Symphony Inc.<br/>
+          4740 Wallingford St.<br/>
+          Pittsburgh, PA 15213
+        </p>
+        <p class="muted">For official correspondence and mail.</p>
+      </section>
+    </div>
+
+    <!-- Optional notes -->
+    <section style="margin-top:1.4rem" class="card">
+      <h2>Notes</h2>
+      <p class="muted">Synapse Symphony does not provide medical advice. If you are experiencing a medical emergency, call your local emergency number.</p>
+    </section>
+  </main>
 
   <footer>&copy; 2025 Synapse Symphony. All rights reserved.</footer>
+
+  <script>
+    // Copy-to-clipboard for email
+    document.getElementById('copyEmail')?.addEventListener('click', () => {
+      const email = 'info.synapsesymphony@gmail.com';
+      navigator.clipboard.writeText(email).then(()=>{
+        const btn = document.getElementById('copyEmail');
+        btn.textContent = 'Copied!';
+        setTimeout(()=>btn.textContent='Copy email', 1200);
+      });
+    });
+  </script>
 </body>
 </html>

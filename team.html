@@ -7,109 +7,158 @@
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#032B47;
-      --bg-2:#021a2c;
-      --ink:#f1f1f1;
-      --muted:#cfe2f1;
-      --acc:#1486B6;
-      --acc-2:#4bb0da;
-      --chip:#0e5c82;
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #032B47;
+      color: #f1f1f1;
     }
-    /* Base */
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--ink)}
-    a{color:inherit}
-
-    /* Nav (kept like your original) */
-    nav{background:#021a2c;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
-    nav .logo{font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff}
-    nav ul{list-style:none;display:flex;gap:1.5rem;margin:0;padding:0}
-    nav ul li a{text-decoration:none;color:#ccc}
-    nav ul li a:hover{color:#fff}
-
-    /* Header */
-    header{background:linear-gradient(to bottom,#011c30,#032B47);padding:6rem 2rem 2rem;text-align:center}
-    header h1{font-family:'Playfair Display',serif;font-size:3rem;margin:0 0 1rem}
-
-    /* Section shell */
-    .team-section{max-width:1280px;margin:auto;padding:2rem}
-    .groupbar{display:flex;justify-content:center;margin:1.25rem 0 1.25rem}
-    .groupbar .bar{
-      background:var(--acc); color:#fff; font-weight:800;
-      padding:.55rem 1.1rem; border-radius:9px; letter-spacing:.02em;
-      box-shadow:0 6px 18px -10px rgba(0,0,0,.35);
+    nav {
+      background-color: #021a2c;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #ccc;
+    }
+    nav ul li a:hover {
+      color: #fff;
     }
 
-    /* Grids */
-    .grid-2, .grid-3, .grid-4{display:grid;gap:2rem;justify-items:center}
-    .grid-2{grid-template-columns:repeat(2, minmax(260px, 1fr))}
-    .grid-3{grid-template-columns:repeat(3, minmax(260px, 1fr))}
-    .grid-4{grid-template-columns:repeat(4, minmax(220px, 1fr))}
-    @media (max-width:1100px){.grid-4{grid-template-columns:repeat(2, minmax(260px,1fr))}}
-    @media (max-width:860px){
-      .grid-3{grid-template-columns:repeat(2, minmax(260px,1fr))}
-      .grid-2{grid-template-columns:1fr}
+    header {
+      background: linear-gradient(to bottom, #011c30, #032B47);
+      padding: 6rem 2rem 2rem;
+      text-align: center;
     }
-    @media (max-width:620px){
-      .grid-3,.grid-4{grid-template-columns:1fr}
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 1rem;
     }
 
-    /* Card (uniform image sizes + centered) */
-    .card{
-      position:relative; width:100%; max-width:360px;
-      background:#021a2c; border:2px solid var(--acc); border-radius:14px;
-      overflow:hidden; box-shadow:0 10px 24px -14px rgba(0,0,0,.5);
+    .team-section {
+      max-width: 1400px;
+      margin: auto;
+      padding: 2rem;
     }
-    .profile-wrapper{
-      position:relative; width:100%;
-      /* Uniform headshot box using aspect-ratio, with fallback height */
-      aspect-ratio: 3/4; height: 480px; /* fallback for older browsers */
-      overflow:hidden; background:#08283f;
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: left;
+      border-bottom: 2px solid #1486B6;
+      padding-bottom: 0.5rem;
     }
-    .profile{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
+    .team-grid.three {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .team-grid.four {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      background-color: #021a2c;
+      border: 2px solid #1486B6;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .profile-wrapper {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      overflow: hidden;
+    }
+    .team-grid.four .profile-wrapper {
+      height: 460px;
+    }
+    .profile-wrapper img.profile {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .profile-wrapper .linkedin-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      background-color: white;
+      border-radius: 50%;
+      padding: 3px;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+      border: 2px solid white;
+    }
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #021a2c;
+      color: #f1f1f1;
+      padding: 1rem;
+      height: 100px;
+      transition: height 0.3s ease;
+      z-index: 2;
+      overflow: hidden;
+    }
+    .card:hover .card-content {
+      height: 220px;
+    }
+    .card h3 {
+      margin: 0.5rem 0 0.2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin: 0;
+    }
+    .card:hover .card-content::after {
+      content: attr(data-bio);
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
 
-    /* LinkedIn badge (optional link) */
-    .linkedin-icon{
-      position:absolute; top:10px; right:10px; width:28px; height:28px;
-      background:#fff; border-radius:50%; padding:3px; border:2px solid #fff;
-      box-shadow:0 0 3px rgba(0,0,0,.25);
+    footer {
+      background-color: #011c30;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #1486B6;
+      margin-top: 3rem;
     }
-
-    /* Name bar (fixed height to avoid layout jump) */
-    .namebar{
-      position:absolute; left:0; right:0; bottom:0;
-      background:linear-gradient(180deg, rgba(1,28,48,.15), rgba(1,28,48,.65) 35%, rgba(1,28,48,.92));
-      padding:.85rem 1rem .9rem;
-      min-height:84px;  /* consistent height so spacing doesn't vary */
-      display:flex; flex-direction:column; justify-content:flex-end;
-      border-top:1px solid rgba(255,255,255,.08);
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
     }
-    .namebar h3{margin:0 0 .2rem; font-family:'Playfair Display',serif; font-size:1.08rem}
-    .namebar p{margin:0; font-size:.9rem; color:#d9e7f4}
-
-    /* Hover bio (semi-transparent, only when .has-bio) */
-    .bio{
-      position:absolute; left:0; right:0; bottom:84px; /* sits above fixed namebar */
-      background:rgba(2,26,44,.78); backdrop-filter:saturate(1.1) blur(1px);
-      padding:1rem 1rem 1.1rem; color:#e8f3fb; font-size:.9rem; line-height:1.5;
-      max-height:0; overflow:hidden; transition:max-height .35s ease;
-      border-top:1px solid rgba(255,255,255,.08);
+    .footer-content p {
+      margin: 0.5rem 0;
     }
-    .card.has-bio:hover .bio{max-height:220px}
-
-    /* Little label chip above single-role cards (Clinical Advisor, etc.) */
-    .role-chip{
-      display:inline-block; background:linear-gradient(180deg, var(--acc), var(--acc-2));
-      padding:.42rem .8rem; border-radius:12px; font-weight:800; letter-spacing:.02em;
-      color:#fff; box-shadow:0 10px 20px -14px rgba(0,0,0,.45);
-      margin:0 auto .6rem; text-align:center;
-    }
-
-    /* Footer (kept original for now) */
-    footer{background:#011c30;text-align:center;padding:2rem 1rem;font-size:.9rem;border-top:1px solid var(--acc);margin-top:3rem}
-    .footer-content{max-width:1200px;margin:auto}
-    .footer-content p{margin:.5rem 0}
   </style>
 </head>
 <body>
@@ -128,151 +177,107 @@
     <h1>Meet the Team</h1>
   </header>
 
-  <main class="team-section">
-
-    <!-- Board Members -->
-    <div class="groupbar"><div class="bar">Board Members</div></div>
-    <div class="grid-2">
-      <!-- Pulkit (bio on hover) -->
-      <article class="card has-bio">
+  <section class="team-section">
+    <div class="section-title">Operations</div>
+    <div class="team-grid three">
+      <div class="card">
         <div class="profile-wrapper">
-          <img class="profile" src="grover.png" alt="Dr. Pulkit Grover">
-          <a href="#" target="_blank" aria-label="Pulkit Grover LinkedIn">
-            <img class="linkedin-icon" src="linkedin.png" alt="">
+          <img src="grover.png" alt="Dr. Pulkit Grover" class="profile">
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
           </a>
-          <div class="bio">
-            Dr. Pulkit Grover (Co-Founder & CEO) is a Professor of Electrical & Computer Engineering at Carnegie Mellon University,
-            specializing in brain stimulation, AI/ML, and systems theory. He leads vision, product strategy, and algorithm development,
-            drawing on a decade of pioneering work in non-invasive neuromodulation.
-          </div>
-          <div class="namebar">
-            <h3>Pulkit Grover, Ph.D.</h3>
-            <p>Co-Founder & CEO</p>
-          </div>
         </div>
-      </article>
-
-      <!-- Vishal (bio on hover) -->
-      <article class="card has-bio">
+        <div class="card-content" data-bio="Dr. Pulkit Grover (Co-Founder & CEO) is a Professor of Electrical and Computer Engineering at Carnegie Mellon University, specializing in brain stimulation, artificial intelligence, machine learning, and systems theory. He leads the company’s vision, product strategy, and algorithm development, drawing on a decade of pioneering research in non-invasive neuromodulation.">
+          <h3>Dr. Pulkit Grover</h3>
+          <p>Chief Executive Officer</p>
+        </div>
+      </div>
+      <div class="card">
         <div class="profile-wrapper">
-          <img class="profile" src="vishal.png" alt="Dr. Vishal Jain">
-          <a href="#" target="_blank" aria-label="Vishal Jain LinkedIn">
-            <img class="linkedin-icon" src="linkedin.png" alt="">
+          <img src="vishal.png" alt="Dr. Vishal Jain" class="profile">
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
           </a>
-          <div class="bio">
-            Dr. Vishal Jain (Co-Founder & COO) is a research scientist with a track record in in-vivo neuroscience, system integration,
-            and clinical validation. He leads clinical operations, regulatory planning, and hardware-software translation, including IRB-approved pilot studies.
-          </div>
-          <div class="namebar">
-            <h3>Vishal Jain, Ph.D.</h3>
-            <p>Co-Founder & COO</p>
-          </div>
         </div>
-      </article>
-    </div>
-
-    <!-- Single-role row: Clinical / Regulatory / Technical -->
-    <div class="grid-3" style="margin-top:2.2rem">
-      <!-- Clinical Advisor -->
-      <div style="text-align:center">
-        <div class="role-chip">Clinical Advisor</div>
-        <article class="card has-bio">
-          <div class="profile-wrapper">
-            <img class="profile" src="benedict_alter.png" alt="Dr. Benedict Alter">
-            <div class="bio">
-              Dr. Benedict Alter (Co-founder & Clinical Advisor) is an MD/PhD in anesthesiology & pain medicine at the University of Pittsburgh.
-              He oversees fibromyalgia and osteoarthritis pilot trials, guiding protocol design, patient selection, and therapeutic response.
-            </div>
-            <div class="namebar">
-              <h3>Benedict Alter, MD, Ph.D.</h3>
-              <p>Co-Founder & Clinical Advisor</p>
-            </div>
-          </div>
-        </article>
+        <div class="card-content" data-bio="Dr. Vishal Jain (Co-Founder & COO) is a research scientist with a strong track record in in-vivo neuroscience, system integration, and clinical validation. He leads clinical operations, regulatory planning, and hardware-software translation, including coordination of IRB-approved pilot studies.">
+          <h3>Dr. Vishal Jain</h3>
+          <p>Chief Operating Officer</p>
+        </div>
       </div>
-
-      <!-- Regulatory Advisor (no bio hover) -->
-      <div style="text-align:center">
-        <div class="role-chip">Regulatory Advisor</div>
-        <article class="card">
-          <div class="profile-wrapper">
-            <img class="profile" src="Elora.png" alt="Elora Gupta, Ph.D.">
-            <div class="namebar">
-              <h3>Elora Gupta, Ph.D.</h3>
-              <p>Regulatory Advisor</p>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <!-- Technical Lead (bio on hover) -->
-      <div style="text-align:center">
-        <div class="role-chip">Technical Lead</div>
-        <article class="card has-bio">
-          <div class="profile-wrapper">
-            <img class="profile" src="matts_for.png" alt="Mats Forssell, Ph.D.">
-            <div class="bio">
-              Mats Forssell (Co-Founder & Lead Engineer) is a research scientist with deep expertise in neurostimulation hardware development.
-              He leads device engineering, electrical safety, and manufacturability optimization for our platform.
-            </div>
-            <div class="namebar">
-              <h3>Mats Forssell, Ph.D.</h3>
-              <p>Co-Founder & Lead Engineer</p>
-            </div>
-          </div>
-        </article>
+      <div class="card">
+        <div class="profile-wrapper">
+          <img src="matts_for.png" alt="Mats Forssell" class="profile">
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
+        </div>
+        <div class="card-content" data-bio="Mats Forssell (Co-Founder & Lead Engineer) is a research scientist with deep expertise in neurostimulation hardware development and testing. He leads device engineering, electrical safety, and manufacturability optimization for our stimulation platform.">
+          <h3>Mats Forssell, PhD</h3>
+          <p>Neurostimulation Expert</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Scientific Advisors & Embedded Entrepreneur -->
-    <div class="grid-3" style="margin-top:2.6rem">
-      <div style="text-align:center">
-        <div class="groupbar" style="margin:0 0 .8rem"><div class="bar" style="padding:.5rem 1rem">Scientific Advisors</div></div>
-        <article class="card">
-          <div class="profile-wrapper">
-            <img class="profile" src="chamanzar.png" alt="Maysam Chamanzar, Ph.D.">
-            <div class="namebar">
-              <h3>Maysam Chamanzar, Ph.D.</h3>
-              <p>Professor, ECE, CMU</p>
-            </div>
-          </div>
-        </article>
+  <section class="team-section">
+    <div class="section-title">Clinical & Advisors</div>
+    <div class="team-grid four">
+      <div class="card">
+        <div class="profile-wrapper">
+          <img src="benedict_alter.png" alt="Dr. Benedict Alter" class="profile">
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
+        </div>
+        <div class="card-content" data-bio="Dr. Benedict Alter (Co-founder and Clinical Advisor) is an MD/PhD in anesthesiology and pain medicine at the University of Pittsburgh. He oversees our ongoing pilot trials in fibromyalgia and osteoarthritis patients, providing clinical insights into protocol design, patient selection, and therapeutic response.">
+          <h3>Dr. Benedict Alter</h3>
+          <p>Clinical Co-founder</p>
+        </div>
       </div>
-
-      <div style="text-align:center">
-        <div class="groupbar" style="visibility:hidden"><div class="bar">spacer</div></div>
-        <article class="card">
-          <div class="profile-wrapper">
-            <img class="profile" src="weber.png" alt="Douglas Weber, Ph.D.">
-            <div class="namebar">
-              <h3>Douglas Weber, Ph.D.</h3>
-              <p>Professor, MechE, CMU</p>
-            </div>
-          </div>
-        </article>
+      <div class="card">
+        <div class="profile-wrapper">
+          <img src="Elora.png" alt="Elora Gupta" class="profile">
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
+        </div>
+        <div class="card-content">
+          <h3>Elora Gupta</h3>
+          <p>Regulatory Advisor</p>
+        </div>
       </div>
-
-      <div style="text-align:center">
-        <div class="groupbar" style="margin:0 0 .8rem"><div class="bar" style="padding:.5rem 1rem">Embedded Entrepreneur</div></div>
-        <article class="card">
-          <div class="profile-wrapper">
-            <img class="profile" src="kwasa.jpg" alt="Jasmine Kwasa, Ph.D.">
-            <div class="namebar">
-              <h3>Jasmine Kwasa, Ph.D.</h3>
-              <p>Embedded Entrepreneur</p>
-            </div>
-          </div>
-        </article>
+      <div class="card">
+        <div class="profile-wrapper">
+          <img src="chamanzar.png" alt="Professor Maysam Chamanzar" class="profile">
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
+        </div>
+        <div class="card-content">
+          <h3>Professor Maysam Chamanzar</h3>
+          <p>Professor, Electrical and Computer Engineering, CMU</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="profile-wrapper">
+          <img src="weber.png" alt="Professor Douglas Weber" class="profile">
+          <a href="#" target="_blank">
+            <img class="linkedin-icon" src="linkedin.png" alt="LinkedIn">
+          </a>
+        </div>
+        <div class="card-content">
+          <h3>Professor Douglas Weber</h3>
+          <p>Professor, Mechanical Engineering, CMU</p>
+        </div>
       </div>
     </div>
-
-  </main>
+  </section>
 
   <footer>
     <div class="footer-content">
       <p><strong>Synapse Symphony</strong></p>
       <p>Engineering the future of neurotechnology</p>
-      <p>info.synapsesymphony@gmail.com</p>
+      <p>contact@synapsesymphony.com</p>
       <p>&copy; 2025 Synapse Symphony. All rights reserved.</p>
     </div>
   </footer>
