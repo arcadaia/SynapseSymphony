@@ -29,17 +29,21 @@
       background:linear-gradient(180deg, rgba(2,26,44,.96), rgba(2,26,44,.85));
       border-bottom:1px solid rgba(255,255,255,.08);
     }
-    .logo{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}
+    .brand{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}
+    .logo-wrap{display:flex;align-items:center;gap:.7rem}
+    .logo-wrap img{height:30px;width:auto}
     nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
     nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
     nav a:hover{color:#fff}
 
-    /* Hero (matches other pages) */
+    /* Hero (now matches other pages with bg.jpg overlay + shapes) */
     header.page-hero{
-      min-height:46vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
-      position:relative;overflow:hidden;
-      background:linear-gradient(180deg, rgba(3,43,71,1), rgba(3,43,71,.92));
-      border-bottom:1px solid rgba(255,255,255,.08);
+      min-height:46vh;
+      display:grid;place-items:center;text-align:center;padding:0 6vw;
+      position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(3,43,71,.88), rgba(3,43,71,.92)),
+        url('bg.jpg') center/cover no-repeat;
     }
     .hero-shape{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;pointer-events:none}
     .hero-a{width:420px;height:420px;left:-140px;top:-60px;background:radial-gradient(circle at 40% 40%, var(--acc-2), transparent 60%)}
@@ -98,7 +102,7 @@
     /* Photo areas */
     .photo{
       position:relative;width:100%;
-      aspect-ratio: 3 / 4;              /* tall portrait */
+      aspect-ratio: 3 / 4; /* tall portrait */
       overflow:hidden;background:#06354f;
     }
     /* Board members: even taller */
@@ -232,7 +236,6 @@
           <h3 class="name">Elora Gupta, Ph.D.</h3>
           <p class="title">Regulatory Advisor</p>
         </div>
-        <!-- no bio -->
       </article>
 
       <article class="card">
@@ -247,7 +250,7 @@
       </article>
     </section>
 
-    <!-- Bottom row: header spanning cols 1–2, separate header on col 3 -->
+    <!-- Bottom row -->
     <section class="row-3" style="margin-top:2.6rem">
       <div class="subhead span2">Scientific Advisors</div>
       <div class="subhead" style="grid-column:3">Embedded Entrepreneur</div>
