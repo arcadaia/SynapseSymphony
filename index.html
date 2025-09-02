@@ -21,13 +21,12 @@
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
 
-    /* Top nav */
+    /* Nav */
     nav{
       position:sticky;top:0;z-index:1000;
       display:flex;align-items:center;justify-content:space-between;
       padding:.9rem 2rem;
       background:linear-gradient(180deg, rgba(2,26,44,.92), rgba(2,26,44,.7));
-      backdrop-filter:saturate(140%) blur(6px);
       border-bottom:1px solid rgba(20,134,182,.25);
     }
     .logo-wrap{display:flex;align-items:center;gap:.7rem}
@@ -46,113 +45,64 @@
         radial-gradient(900px 500px at 88% 0%, rgba(75,176,218,.14), transparent 60%),
         linear-gradient(rgba(3,43,71,.86), rgba(3,43,71,.86)), url('bg.jpg') center/cover no-repeat;
     }
-    .hero .shape-a, .hero .shape-b{
-      position:absolute;filter:blur(40px);opacity:.55;pointer-events:none;mix-blend-mode:screen;
-    }
-    .hero .shape-a{width:340px;height:340px;left:-80px;bottom:10%;background:radial-gradient(circle at 30% 30%, var(--acc-2), transparent 60%)}
-    .hero .shape-b{width:420px;height:420px;right:-120px;top:8%;background:radial-gradient(circle at 70% 40%, var(--acc), transparent 65%)}
-
     .hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.6rem,5vw,4.2rem);margin:.2rem 0 1rem}
     .hero p{font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--ink-dim);max-width:920px;margin:0 auto 1.6rem;line-height:1.55}
     .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-    .btn{
-      padding:.85rem 1.15rem;border:1px solid rgba(255,255,255,.14);border-radius:14px;
-      color:#fff;text-decoration:none;font-weight:600;
-      transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
-    }
+    .btn{padding:.85rem 1.15rem;border:1px solid rgba(255,255,255,.14);border-radius:14px;
+      color:#fff;text-decoration:none;font-weight:600;transition:transform .25s ease, box-shadow .25s ease}
     .btn:hover{transform:translateY(-1px)}
     .btn-primary{background:linear-gradient(90deg, var(--acc), var(--acc-2));border-color:transparent;box-shadow:0 8px 24px -10px var(--ring)}
     .btn-ghost{background:transparent}
-    .subtle-kicker{
-      display:inline-block;font-size:.85rem;color:#b8d3e6;border:1px solid rgba(255,255,255,.14);
-      padding:.35rem .6rem;border-radius:999px;margin-bottom:1rem;letter-spacing:.06em
+    .subtle-kicker{display:inline-block;font-size:.85rem;color:#b8d3e6;padding:.35rem .6rem;border-radius:999px;margin-bottom:1rem;letter-spacing:.06em;border:1px solid rgba(255,255,255,.14)}
+
+    section{padding:5rem 4vw;position:relative;overflow:hidden}
+
+    /* About preview (3 equal cards) */
+    .about .section-title{text-align:center;font-family:"Playfair Display",serif;font-size:2.3rem;margin:0 0 2rem;position:relative}
+    .about .section-title:after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-12px;width:120px;height:4px;background:linear-gradient(90deg,var(--acc),var(--acc-2));border-radius:2px}
+    .about-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(3,1fr);max-width:1100px;margin:0 auto}
+    .info{background:linear-gradient(180deg, rgba(6,43,67,.8), rgba(6,43,67,.55));border:1px solid rgba(20,134,182,.25);border-radius:16px;padding:1.5rem;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:220px}
+    .info h3{margin:.2rem 0 .6rem;font-size:1.2rem;color:var(--accent-3)}
+    .info p{font-size:1rem;line-height:1.55;color:#eaf5fb;margin:0}
+    .about::before,.about::after{content:"";position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;z-index:0}
+    .about::before{width:320px;height:320px;background:var(--acc-2);top:-60px;left:-120px}
+    .about::after{width:380px;height:380px;background:var(--accent-3);bottom:-80px;right:-120px}
+    @media (max-width:980px){.about-grid{grid-template-columns:1fr}}
+
+    /* Testimonial (panel image fade) */
+    .story{display:grid;grid-template-columns:1fr 1fr;min-height:60vh;border-top:1px solid rgba(20,134,182,.25)}
+    .photo-panel{position:relative}
+    .photo-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95;
+      -webkit-mask-image:linear-gradient(to right, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+              mask-image:linear-gradient(to right, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);
+    }
+    .story-copy{padding:3rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(180deg,rgba(2,26,44,.6),rgba(2,26,44,.3))}
+    .story-copy strong{font-size:1.2rem;color:var(--accent-3);margin-bottom:.8rem}
+    .story-copy p{font-size:1.05rem;line-height:1.7;max-width:600px;color:#f3f9ff}
+    @media (max-width:980px){.story{grid-template-columns:1fr}.photo-panel img{-webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%);mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 65%, rgba(0,0,0,0) 100%)}}
+
+    /* Footer (professional layout) */
+    footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28)}
+    .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
+    .foot-brand{display:flex;gap:.8rem;align-items:center}
+    .foot-brand img{height:28px;width:auto;opacity:.95}
+    .foot-title{font-family:"Playfair Display",serif;font-size:1.15rem;margin:0}
+    .foot-tagline{margin:.35rem 0 0;color:#bcd1df;font-size:.95rem}
+    .foot-contact{justify-self:end;text-align:right}
+    .foot-contact h4{margin:0 0 .6rem;font-size:1rem;letter-spacing:.03em;color:#e7f1f8}
+    .foot-contact p{margin:.2rem 0;color:#9ec2d9;font-size:.95rem}
+    .foot-line{border-top:1px solid rgba(255,255,255,.08);margin:0 4vw}
+    .foot-bottom{max-width:1200px;margin:0 auto;padding:1rem 4vw;display:flex;justify-content:space-between;align-items:center;color:#9ec2d9;font-size:.9rem}
+    .foot-bottom small{opacity:.9}
+    @media (max-width:900px){
+      .footer-wrap{grid-template-columns:1fr}
+      .foot-contact{justify-self:start;text-align:left}
+      .foot-bottom{flex-direction:column;gap:.4rem}
     }
 
-    section{padding:5rem 4vw}
-
-    /* About (centered, split, easier to read) */
-    .about{
-      position:relative;
-      border-top:1px solid rgba(20,134,182,.25);
-      border-bottom:1px solid rgba(20,134,182,.18);
-      background:
-        radial-gradient(600px 380px at right 12%, rgba(79,203,255,.12), transparent 60%),
-        radial-gradient(520px 340px at left 70%, rgba(20,134,182,.12), transparent 65%),
-        linear-gradient(180deg, rgba(2,26,44,.55), rgba(2,26,44,.25));
-    }
-    .about .content{max-width:1040px;margin:0 auto}
-    .section-title{
-      text-align:center;
-      font-family:"Playfair Display",serif;font-size:clamp(1.9rem,3.2vw,2.6rem);position:relative;margin:0 0 2.2rem
-    }
-    .section-title:after{
-      content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-12px;width:140px;height:4px;
-      background:linear-gradient(90deg, var(--acc), var(--acc-2));border-radius:2px
-    }
-    .about-grid{
-      display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      align-items:start;
-    }
-    .info{
-      background:linear-gradient(180deg, rgba(6,43,67,.75), rgba(6,43,67,.55));
-      border:1px solid rgba(20,134,182,.18);border-radius:16px;padding:1.25rem 1.25rem;
-      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .info:hover{transform:translateY(-2px);box-shadow:0 10px 28px -12px var(--ring);border-color:rgba(20,134,182,.35)}
-    .info h3{margin:.2rem 0 .55rem;font-size:1.15rem}
-    .info p{color:#e9f3fb;font-size:1.02rem;line-height:1.65;margin:0}
-
-    /* Spacer row of feature chips for color and rhythm */
-    .chips{
-      display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:2.2rem 0 0;
-    }
-    .chip{
-      padding:.45rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.16);
-      font-size:.9rem;color:#eef7ff;background:
-        linear-gradient(90deg, rgba(20,134,182,.35), rgba(75,176,218,.25));
-    }
-
-    /* Patient story panel (image + text, same height with fade) */
-    .story{
-      display:grid;grid-template-columns:1.15fr 1fr;align-items:stretch;overflow:hidden;
-      min-height:64vh; /* makes image and text share a tall panel */
-      border-top:1px solid rgba(20,134,182,.2);
-      background:linear-gradient(180deg, rgba(2,26,44,.65), rgba(2,26,44,.35));
-    }
-    .photo-panel{
-      position:relative;
-      min-height:64vh;
-    }
-    .photo-panel img{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.98;
-      /* Fade toward the text using a mask instead of a dark overlay */
-      -webkit-mask-image:linear-gradient(to right, rgba(0,0,0,1) 62%, rgba(0,0,0,.9) 75%, rgba(0,0,0,0) 95%);
-              mask-image:linear-gradient(to right, rgba(0,0,0,1) 62%, rgba(0,0,0,.9) 75%, rgba(0,0,0,0) 95%);
-    }
-    .story-copy{
-      padding:3rem 6vw;display:flex;flex-direction:column;justify-content:center;
-      max-width:720px;
-    }
-    .badge{display:inline-block;margin-bottom:.8rem;color:#b8d3e6;font-weight:600;letter-spacing:.06em;font-size:.82rem;border:1px solid rgba(255,255,255,.14);padding:.3rem .6rem;border-radius:999px}
-    .story-copy strong{font-size:1.15rem;color:#e8f3fb;letter-spacing:.02em;margin-bottom:.35rem}
-    .story-copy p{font-size:1.05rem;color:#d8e6f2;line-height:1.7;margin:0}
-
-    /* Footer */
-    footer{background:var(--bg-2);text-align:center;padding:2.4rem 1rem;border-top:1px solid rgba(20,134,182,.28)}
-    .footer-content p{margin:.35rem 0;color:var(--muted);font-size:.95rem}
-
-    /* Motion */
+    /* Reveal motion */
     .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
     .reveal.show{opacity:1;transform:none}
-
-    /* Responsive */
-    @media (max-width:960px){
-      .story{grid-template-columns:1fr}
-      .photo-panel img{
-        -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 62%, rgba(0,0,0,.9) 80%, rgba(0,0,0,0) 98%);
-                mask-image:linear-gradient(to bottom, rgba(0,0,0,1) 62%, rgba(0,0,0,.9) 80%, rgba(0,0,0,0) 98%);
-      }
-    }
   </style>
 </head>
 <body>
@@ -173,8 +123,6 @@
 
   <!-- Hero -->
   <header class="hero">
-    <div class="shape-a"></div>
-    <div class="shape-b"></div>
     <div class="reveal show">
       <span class="subtle-kicker">Chronic pain care, reimagined</span>
       <h1>Redefining Chronic Pain Care</h1>
@@ -186,73 +134,72 @@
     </div>
   </header>
 
-  <!-- About (centered and split into digestible blocks) -->
+  <!-- About Preview -->
   <section class="about">
-    <div class="content">
-      <h2 class="section-title">About</h2>
-      <div class="about-grid">
-        <div class="info reveal">
-          <h3>Mission</h3>
-          <p>We are building a comfortable, at-home therapy that targets pain circuits with precision and helps people move with confidence again.</p>
-        </div>
-        <div class="info reveal">
-          <h3>How it works</h3>
-          <p>High density arrays and adaptive field shaping tailor stimulation to each person’s anatomy and symptoms. The system adjusts using patient data to maximize relief and minimize discomfort.</p>
-        </div>
-        <div class="info reveal">
-          <h3>Comfort focus</h3>
-          <p>Our background hum approach reduces scalp discomfort from current injection, supporting longer, more tolerable sessions at home.</p>
-        </div>
-        <div class="info reveal">
-          <h3>Roadmap</h3>
-          <p>We are operating with an MVP built from cleared components and advancing toward an integrated device as we build evidence in target indications.</p>
-        </div>
+    <h2 class="section-title reveal">About</h2>
+    <div class="about-grid">
+      <div class="info reveal">
+        <h3>Personalized Relief</h3>
+        <p>Adaptive stimulation shaped to each person’s brain and symptoms.</p>
       </div>
-
-      <!-- subtle chips row for color and spacing -->
-      <div class="chips">
-        <span class="chip">Personalized modulation</span>
-        <span class="chip">Comfort by design</span>
-        <span class="chip">Home ready</span>
-        <span class="chip">Evidence driven</span>
+      <div class="info reveal">
+        <h3>Comfort First</h3>
+        <p>Our background hum design reduces discomfort and supports daily use.</p>
+      </div>
+      <div class="info reveal">
+        <h3>Future Ready</h3>
+        <p>From MVP prototypes today toward a fully integrated home device.</p>
       </div>
     </div>
   </section>
 
-  <!-- Patient story: image panel fades toward text, same panel height -->
+  <!-- Testimonial -->
   <section class="story">
     <div class="photo-panel">
       <img src="patient.png" alt="Patient" />
     </div>
-    <div class="story-copy">
-      <span class="badge">Patient story</span>
+    <div class="story-copy reveal">
       <strong>Fibromyalgia Patient</strong>
-      <p>The therapy changed my relationship with pain and with my body. I lived with symptoms for years and now they are mostly gone. It made a real difference.</p>
+      <p>
+        “I have never felt like this in past few years. Past few months I cry to get out of bed. 
+        I used to not want to even get out of bed. And I was going down the steps like a toddler. 
+        Yesterday I was able to get out of bed immediately and walk down the steps like an adult.”
+      </p>
     </div>
   </section>
 
-  <!-- Footer (updated contact info) -->
+  <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <p><strong>Synapse Symphony</strong></p>
-      <p>Engineering the future of neurotechnology</p>
-      <p>Email: info.synapsesymphony@gmail.com</p>
-      <p>Synapse Symphony Inc.<br>
-         4740 Wallingford St.<br>
-         Pittsburgh, PA 15213</p>
-      <p>&copy; 2025 Synapse Symphony. All rights reserved.</p>
+    <div class="footer-wrap">
+      <div>
+        <div class="foot-brand">
+          <img src="LogoIcon.png" alt="Synapse Symphony">
+          <h3 class="foot-title">Synapse Symphony</h3>
+        </div>
+        <p class="foot-tagline">Engineering the future of neurotechnology</p>
+      </div>
+      <div class="foot-contact">
+        <h4>Contact</h4>
+        <p>Email: info.synapsesymphony@gmail.com</p>
+        <p>Synapse Symphony Inc.<br>4740 Wallingford St.<br>Pittsburgh, PA 15213</p>
+      </div>
+    </div>
+    <div class="foot-line"></div>
+    <div class="foot-bottom">
+      <small>&copy; 2025 Synapse Symphony. All rights reserved.</small>
+      <small>Home • About • Research • Team • Contact</small>
     </div>
   </footer>
 
   <script>
-    // simple scroll reveal
-    const els = document.querySelectorAll('.reveal');
+    // Scroll reveal
+    const toReveal = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
       });
     }, {threshold:0.12});
-    els.forEach(el=>io.observe(el));
+    toReveal.forEach(el=>io.observe(el));
   </script>
 </body>
 </html>
