@@ -2,192 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Synapse Symphony | Home</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #032B47;
-      color: #f1f1f1;
-      scroll-behavior: smooth;
+    :root{
+      --ink:#f1f1f1;
+      --ink-dim:#cfe2f1;
+      --bg:#032B47;
+      --bg-2:#021a2c;
+      --acc:#1486B6;
+      --acc-2:#4bb0da;
+      --muted:#88b2ca;
+      --card:#062b43;
+      --ring: rgba(20,134,182,0.35);
     }
-    nav {
-      background-color: #021a2c;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
+    /* Top nav */
+    nav{
+      position:sticky;top:0;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0.9rem 2rem;
+      background:linear-gradient(180deg, rgba(2,26,44,0.9), rgba(2,26,44,0.7));
+      backdrop-filter:saturate(140%) blur(6px);
+      border-bottom:1px solid rgba(20,134,182,0.25);
     }
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+    .logo-wrap{display:flex;align-items:center;gap:.7rem}
+    .logo-wrap img{height:30px;width:auto}
+    .brand{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}
+    nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
+    nav a{color:#cfdbe6;text-decoration:none;font-weight:500}
+    nav a:hover{color:#fff}
+
+    /* Hero */
+    .hero{
+      min-height:92vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(20,134,182,0.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(75,176,218,0.14), transparent 60%),
+        linear-gradient(rgba(3,43,71,.86), rgba(3,43,71,.86)), url('bg.jpg') center/cover no-repeat;
     }
-    .logo-container img {
-      height: 32px;
-      width: auto;
+    .hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.6rem,5vw,4.2rem);margin:.2rem 0 1rem}
+    .hero p{font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--ink-dim);max-width:920px;margin:0 auto 1.6rem;line-height:1.55}
+    .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+    .btn{
+      padding:.85rem 1.15rem;border:1px solid rgba(255,255,255,.14);border-radius:14px;
+      color:#fff;text-decoration:none;font-weight:600;
+      transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
     }
-    .logo-container span {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: white;
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(90deg, var(--acc), var(--acc-2));border-color:transparent;box-shadow:0 8px 24px -10px var(--ring)}
+    .btn-ghost{background:transparent}
+    .subtle-kicker{
+      display:inline-block;font-size:.85rem;color:#b8d3e6;border:1px solid rgba(255,255,255,.14);
+      padding:.35rem .6rem;border-radius:999px;margin-bottom:1rem;letter-spacing:.06em
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
-      padding: 0;
+
+    /* About */
+    section{padding:5rem 4vw}
+    .about{
+      display:grid;grid-template-columns:1fr;gap:2rem;
+      background:
+        radial-gradient(700px 400px at right 10%, rgba(20,134,182,.12), transparent 60%),
+        linear-gradient(180deg, rgba(2,26,44,.55), rgba(2,26,44,.25));
+      border-top:1px solid rgba(20,134,182,.25);
+      border-bottom:1px solid rgba(20,134,182,.18);
     }
-    nav ul li a {
-      text-decoration: none;
-      color: #ccc;
+    .about .content{max-width:980px;margin:0 auto}
+    .section-title{
+      font-family:"Playfair Display",serif;font-size:clamp(1.9rem,3.2vw,2.6rem);position:relative;margin:0 0 1.6rem
     }
-    nav ul li a:hover {
-      color: #fff;
+    .section-title:after{
+      content:"";position:absolute;left:0;bottom:-10px;width:110px;height:4px;background:linear-gradient(90deg, var(--acc), var(--acc-2));
+      border-radius:2px
     }
-    .header-image {
-      background: linear-gradient(rgba(3, 43, 71, 0.85), rgba(3, 43, 71, 0.85)), url('bg.jpg') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 5%;
-      animation: fadeIn 2s ease-in;
-      background-attachment: fixed;
+    .about p{color:#dbe9f4;font-size:1.05rem;line-height:1.75;margin:.9rem 0}
+
+    /* Feature cards section to space content */
+    .pillars{max-width:1180px;margin:0 auto;display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .card{
+      background:linear-gradient(180deg, rgba(6,43,67,.75), rgba(6,43,67,.55));
+      border:1px solid rgba(20,134,182,.18);border-radius:16px;padding:1.25rem;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
-    .header-image h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      color: #ffffff;
+    .card:hover{transform:translateY(-2px);box-shadow:0 10px 28px -12px var(--ring);border-color:rgba(20,134,182,.35)}
+    .card h3{margin:.2rem 0 .6rem;font-size:1.15rem}
+    .card p{color:#cfe2f1;font-size:.98rem;line-height:1.6;margin:0}
+
+    /* Testimonial */
+    .testimonial{
+      display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:stretch;overflow:hidden;
+      border-top:1px solid rgba(20,134,182,.2);
+      background:linear-gradient(180deg, rgba(2,26,44,.65), rgba(2,26,44,.35));
     }
-    .header-image p {
-      font-size: 1.6rem;
-      color: #cfe2f1;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.5;
+    .t-img{position:relative;min-height:420px}
+    .t-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.96}
+    .t-img:after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(90deg, rgba(3,43,71,1) 0%, rgba(3,43,71,.85) 28%, rgba(3,43,71,0) 70%);
     }
-    section {
-      padding: 5rem 3rem;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .about-section {
-      background: linear-gradient(to right, #021a2c 52%, transparent), url('waves.jpg') right/contain no-repeat;
-      display: flex;
-      align-items: flex-start;
-      animation: fadeIn 1s ease-in;
-      background-attachment: fixed;
-      position: relative;
-    }
-    .about-section::before {
-      content: "";
-    }
-    .about-section-text {
-      flex: 1;
-      padding: 1rem 4rem 1rem 5%;
-      text-align: left;
-      max-width: 42%;
-      z-index: 1;
-    }
-    .about-section h2 {
-      font-size: 2.8rem;
-      margin-bottom: 2rem;
-      font-family: 'Playfair Display', serif;
-      position: relative;
-    }
-    .about-section h2::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 100px;
-      height: 4px;
-      background-color: #1486B6;
-    }
-    .about-section p {
-      font-size: 1.1rem;
-      line-height: 1.75;
-      color: #dbe9f4;
-      margin-bottom: 1.6rem;
-    }
-    .testimonial {
-      background-color: #021a2c;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      animation: fadeIn 1.5s ease-in;
-    }
-    .testimonial-img {
-      flex: 1;
-      position: relative;
-      background: linear-gradient(to right, #021a2c, transparent);
-      overflow: hidden;
-    }
-    .testimonial-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.95;
-      transition: opacity 1s ease-in;
-    }
-    .testimonial-text {
-      flex: 1;
-      font-style: italic;
-      font-size: 1.25rem;
-      color: #c9d6de;
-      padding: 3rem;
-      position: relative;
-    }
-    .testimonial-text::before {
-      content: "\201C";
-      font-size: 4rem;
-      position: absolute;
-      top: 1rem;
-      left: 2rem;
-      color: #1486B6;
-      font-style: normal;
-    }
-    .testimonial-text strong {
-      display: block;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-style: normal;
-      font-weight: bold;
-      color: #f1f1f1;
-    }
-    footer {
-      background-color: #021a2c;
-      text-align: center;
-      padding: 2.5rem 1rem;
-      font-size: 0.95rem;
-      border-top: 1px solid #1486B6;
-    }
-    .footer-content p {
-      margin: 0.4rem 0;
-      color: #88b2ca;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .t-copy{padding:3rem 6vw;display:flex;flex-direction:column;justify-content:center}
+    .t-copy strong{font-size:1.15rem;color:#e8f3fb;letter-spacing:.02em;margin-bottom:.35rem}
+    .t-copy p{font-size:1.05rem;color:#d8e6f2;line-height:1.7;margin:0}
+    .t-badge{display:inline-block;margin-bottom:.8rem;color:#b8d3e6;font-weight:600;letter-spacing:.06em;font-size:.82rem;border:1px solid rgba(255,255,255,.14);padding:.3rem .6rem;border-radius:999px}
+
+    /* Footer */
+    footer{background:var(--bg-2);text-align:center;padding:2.4rem 1rem;border-top:1px solid rgba(20,134,182,.28)}
+    .footer-content p{margin:.35rem 0;color:var(--muted);font-size:.95rem}
+
+    /* Motion */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* Responsive */
+    @media (max-width:960px){
+      .testimonial{grid-template-columns:1fr}
+      .t-img:after{background:linear-gradient(180deg, rgba(3,43,71,1) 0%, rgba(3,43,71,.85) 38%, rgba(3,43,71,0) 80%)}
     }
   </style>
 </head>
 <body>
+  <!-- Nav -->
   <nav>
-    <div class="logo-container">
-      <img src="LogoIcon.png" alt="Logo">
-      <span>SYNAPSE SYMPHONY</span>
+    <div class="logo-wrap">
+      <img src="LogoIcon.png" alt="Logo" />
+      <span class="brand">SYNAPSE SYMPHONY</span>
     </div>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -197,30 +138,65 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  <div class="header-image">
-    <div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="reveal show">
+      <span class="subtle-kicker">Chronic pain care, reimagined</span>
       <h1>Redefining Chronic Pain Care</h1>
       <p>Advanced AI powered, noninvasive neurostimulation for daily at home relief.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="research.html">See the technology</a>
+        <a class="btn btn-ghost" href="contact.html">Get in touch</a>
+      </div>
     </div>
-  </div>
-  <section class="about-section">
-    <div class="about-section-text">
-      <h2>About</h2>
-      <p><strong>At Synapse Symphony</strong>, we are redefining chronic pain care through advanced AI-powered, non-invasive neurostimulation. Sparked by a powerful moment when a patient in our early research said she felt relief for the first time in 20 years we knew we had to bring this breakthrough beyond the lab and into people's lives.</p>
-      <p>Our proprietary platform combines adaptive high-density brain stimulation with AI algorithms that personalize treatment based on each patient’s neuroanatomy, symptoms, and response patterns. We leverage proprietary algorithms and biophysical modeling to "sculpt" electric fields generated in the brain through the scalp, allowing for precise modulation of pain-related brain circuits without surgery or clinical oversight.</p>
-      <p>Another key differentiator is our novel “background hum” technique, which reduces discomfort caused by injected currents, a common issue in conventional stimulation systems that often leads to local pain or skin irritation. By minimizing these adverse sensations, “background hums” significantly improve patient tolerability and compliance, making our solution better suited for daily, at-home use.</p>
-      <p>By continuously learning from patient data, our system intelligently adjusts stimulation to maximize relief while minimizing discomfort.</p>
+  </header>
+
+  <!-- About -->
+  <section class="about">
+    <div class="content">
+      <h2 class="section-title">About</h2>
+      <p><strong>At Synapse Symphony</strong>, we are pioneering a new era of noninvasive neuromodulation that targets brain pain circuits with precision and comfort. The spark was a patient who reported relief for the first time in twenty years. That moment motivates our path from research to real-world impact. :contentReference[oaicite:1]{index=1}</p>
+      <p>Our platform combines high density electrode arrays with adaptive electric field shaping to personalize stimulation to each person’s neuroanatomy and pain profile. The system adjusts in real time using patient specific data to maximize relief and minimize discomfort. Early pilot work in fibromyalgia and osteoarthritis has shown promising improvement in mobility and reduction in pain. :contentReference[oaicite:2]{index=2}</p>
+      <p>A key differentiator is our background hum approach that reduces discomfort from current injection at the scalp. The goal is to improve comfort and session tolerability so people can use therapy at home. We are operating in an MVP stage with FDA cleared components while we build evidence and advance toward an integrated home device. :contentReference[oaicite:3]{index=3}</p>
     </div>
   </section>
+
+  <!-- Pillars / How it helps -->
+  <section>
+    <div class="pillars">
+      <article class="card reveal">
+        <h3>Personalized brain modulation</h3>
+        <p>High density arrays and adaptive field shaping tailor stimulation to anatomy and symptoms for more effective relief. :contentReference[oaicite:4]{index=4}</p>
+      </article>
+      <article class="card reveal">
+        <h3>Comfort by design</h3>
+        <p>The background hum technique reduces scalp discomfort and helps people complete longer sessions comfortably at home. :contentReference[oaicite:5]{index=5}</p>
+      </article>
+      <article class="card reveal">
+        <h3>From prototype to product</h3>
+        <p>Modular MVP built from FDA cleared components today, with a roadmap to a compact, integrated device for daily use. :contentReference[oaicite:6]{index=6}</p>
+      </article>
+      <article class="card reveal">
+        <h3>Evidence building</h3>
+        <p>Pilot studies in fibromyalgia and knee osteoarthritis inform safety, efficacy, and product direction as we scale. :contentReference[oaicite:7]{index=7}</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Testimonial (keep patient image, remove quote graphic) -->
   <section class="testimonial">
-    <div class="testimonial-img">
-      <img src="patient.png" alt="Fibromyalgia Patient">
+    <div class="t-img">
+      <img src="patient.png" alt="Patient" />
     </div>
-    <div class="testimonial-text">
+    <div class="t-copy">
+      <span class="t-badge">Patient story</span>
       <strong>Fibromyalgia Patient</strong>
-      <p>I have never felt like this in past few years. Past few months I cry to get out of bed. I don’t even. I used to not want to even get out of bed. And I was going down the steps like a toddler. Yesterday I was able to get out of bed immediately and walk down the steps like an adult.</p>
+      <p>The therapy changed my relationship with pain and with my body. I did not expect that. I lived with fibromyalgia symptoms for years and now they are mostly gone. That shift is hard to put into words so I will keep it simple. Thank you for your work. It made a real difference. :contentReference[oaicite:8]{index=8}</p>
     </div>
   </section>
+
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <p><strong>Synapse Symphony</strong></p>
@@ -229,5 +205,16 @@
       <p>&copy; 2025 Synapse Symphony. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // simple scroll reveal
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    els.forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
