@@ -10,97 +10,168 @@
     :root{
       --ink:#ffffff;
       --ink-dim:#dfeaf4;
-      --bg:#032B47;
-      --bg-2:#021a2c;
-      --acc:#1486B6;
-      --acc-2:#4bb0da;
-      --accent-3:#6fd0ff;
+      --bg:#032B47;      /* deep blue */
+      --bg-2:#021a2c;    /* darker blue */
+      --panel:#073350;   /* mid panel */
+      --acc:#1486B6;     /* teal */
+      --acc-2:#4bb0da;   /* cyan */
+      --acc-3:#6fd0ff;   /* light cyan */
       --muted:#9ec2d9;
       --ring: rgba(20,134,182,0.35);
-      --card: rgba(6,43,67,.65);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
+    html,body{
+      margin:0;padding:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      scroll-behavior:smooth;
+    }
 
-    /* Nav */
+    /* Nav (shared) */
     nav{
       position:sticky;top:0;z-index:1000;
       display:flex;align-items:center;justify-content:space-between;
-      padding:.9rem 2rem;
-      background:linear-gradient(180deg, rgba(2,26,44,.92), rgba(2,26,44,.7));
+      padding:1rem 2rem;
+      background:linear-gradient(180deg, rgba(2,26,44,.96), rgba(2,26,44,.8));
       border-bottom:1px solid rgba(20,134,182,.25);
     }
     .logo-wrap{display:flex;align-items:center;gap:.7rem}
     .logo-wrap img{height:30px;width:auto}
     .brand{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}
     nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
-    nav a{color:#cfdbe6;text-decoration:none;font-weight:500}
+    nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
     nav a:hover{color:#fff}
 
-    /* Hero (no images; layered shapes) */
+    /* Hero: solid block with layered shapes */
     header.page-hero{
       min-height:48vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
       position:relative;overflow:hidden;
       background:
-        radial-gradient(1100px 520px at 12% 8%, rgba(20,134,182,.18), transparent 60%),
-        radial-gradient(900px 500px at 88% 0%, rgba(75,176,218,.14), transparent 60%),
-        linear-gradient(180deg, rgba(3,43,71,.92), rgba(3,43,71,.86));
+        linear-gradient(180deg, rgba(3,43,71,1) 0%, rgba(3,43,71,.92) 100%);
+      border-bottom:1px solid rgba(20,134,182,.28);
     }
-    .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.38;pointer-events:none}
-    .blob.a{width:360px;height:360px;left:-120px;top:-40px;background:var(--acc-2)}
-    .blob.b{width:420px;height:420px;right:-140px;bottom:-80px;background:var(--accent-3)}
+    .hero-shape{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;pointer-events:none}
+    .hero-a{width:420px;height:420px;left:-140px;top:-60px;background:radial-gradient(circle at 40% 40%, var(--acc-2), transparent 60%)}
+    .hero-b{width:520px;height:520px;right:-160px;bottom:-100px;background:radial-gradient(circle at 60% 60%, var(--acc), transparent 60%)}
 
-    .kicker{display:inline-block;font-size:.85rem;color:#b8d3e6;padding:.35rem .6rem;border-radius:999px;margin-bottom:1rem;border:1px solid rgba(255,255,255,.14);letter-spacing:.06em}
-    .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,4.4vw,3.1rem);margin:.2rem 0 1rem}
-    .page-hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-dim);max-width:900px;margin:0 auto 1rem;line-height:1.6}
+    .kicker{
+      display:inline-block;font-size:.9rem;color:#cfe2f1;letter-spacing:.06em;
+      padding:.4rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.16);margin-bottom:1rem
+    }
+    .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.3rem,4.4vw,3.2rem);margin:.2rem 0 1rem}
+    .page-hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-dim);max-width:880px;margin:0 auto 1rem;line-height:1.6}
 
-    section{padding:5rem 4vw;position:relative;overflow:hidden}
+    /* Global sections */
+    section{position:relative;overflow:hidden}
 
-    /* Section title */
+    /* Solid color bands to add heft */
+    .band-solid{
+      padding:4.5rem 4vw;
+      background:var(--bg-2);
+      border-top:1px solid rgba(20,134,182,.22);
+      border-bottom:1px solid rgba(20,134,182,.22);
+    }
+    .band-accent{
+      padding:4.5rem 4vw;
+      background:linear-gradient(180deg, rgba(7,51,80,1), rgba(7,51,80,.94));
+      border-top:1px solid rgba(79,203,255,.28);
+      border-bottom:1px solid rgba(79,203,255,.22);
+    }
+    .band-panel{
+      padding:4.5rem 4vw;
+      background:var(--panel);
+      border-top:1px solid rgba(20,134,182,.24);
+      border-bottom:1px solid rgba(20,134,182,.24);
+    }
+
+    /* Section headings */
     .section-title{
-      font-family:"Playfair Display",serif;font-size:clamp(1.9rem,3vw,2.4rem);margin:0 0 2rem;text-align:center;position:relative
+      font-family:"Playfair Display",serif;
+      font-size:clamp(2rem,3.2vw,2.6rem);
+      text-align:center;margin:0 0 2rem;position:relative;
     }
     .section-title:after{
       content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-12px;width:140px;height:4px;
       background:linear-gradient(90deg, var(--acc), var(--acc-2));border-radius:2px
     }
 
-    /* Three key cards */
-    .cards{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+    /* Mission block: solid card with chunky padding and gradient border */
+    .mission{
+      max-width:1100px;margin:0 auto;border-radius:22px;padding:2rem 2rem;
+      background:linear-gradient(180deg, rgba(6,43,67,.9), rgba(6,43,67,.75));
+      position:relative;
+    }
+    .mission::before{
+      content:"";position:absolute;inset:0;border-radius:22px;padding:1.2px;
+      background:linear-gradient(90deg, rgba(20,134,182,.9), rgba(111,208,255,.65));
+      -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+              mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;
+    }
+    .mission p{color:#e9f4fb;font-size:1.08rem;line-height:1.8;margin:0}
+
+    /* Three chunky pillars */
+    .pillars{
+      max-width:1220px;margin:0 auto;display:grid;gap:1.4rem;grid-template-columns:repeat(3,1fr)
+    }
     .card{
-      background:linear-gradient(180deg, var(--card), rgba(6,43,67,.5));
-      border:1px solid rgba(20,134,182,.22);border-radius:16px;padding:1.4rem;
-      min-height:220px;text-align:center;
+      border-radius:20px;padding:1.6rem;background:linear-gradient(180deg, rgba(8,54,84,.95), rgba(8,54,84,.8));
+      border:1px solid rgba(20,134,182,.28);
+      display:flex;flex-direction:column;justify-content:center;min-height:240px;text-align:center;
       transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
-    .card:hover{transform:translateY(-2px);box-shadow:0 12px 30px -14px var(--ring);border-color:rgba(20,134,182,.38)}
-    .card h3{margin:.2rem 0 .6rem;font-size:1.18rem;color:var(--accent-3)}
-    .card p{margin:0;color:#eaf5fb;line-height:1.6}
-    @media (max-width:980px){.cards{grid-template-columns:1fr}}
+    .card:hover{transform:translateY(-2px);box-shadow:0 18px 36px -16px var(--ring);border-color:rgba(20,134,182,.45)}
+    .card h3{margin:.15rem 0 .7rem;font-size:1.22rem;color:var(--acc-3)}
+    .card p{margin:0;color:#eef7ff;font-size:1.02rem;line-height:1.65}
+    @media (max-width:980px){.pillars{grid-template-columns:1fr}}
 
-    /* Body copy blocks with soft separators */
-    .copy-wrap{max-width:1000px;margin:0 auto}
-    .copy{background:linear-gradient(180deg, rgba(2,26,44,.55), rgba(2,26,44,.25));border:1px solid rgba(20,134,182,.18);border-radius:18px;padding:1.6rem 1.6rem;margin:1rem 0}
-    .copy p{margin:.6rem 0 0;color:#e7f2fb;font-size:1.04rem;line-height:1.75}
+    /* Two column text slabs with solid split */
+    .slab{
+      max-width:1220px;margin:0 auto;border-radius:22px;overflow:hidden;
+      display:grid;grid-template-columns:1fr 1fr;
+      border:1px solid rgba(20,134,182,.28);
+    }
+    .slab .col{
+      padding:2.2rem 2.4rem;
+      background:rgba(3,43,71,.85);
+    }
+    .slab .col.alt{
+      background:linear-gradient(180deg, rgba(7,51,80,.98), rgba(7,51,80,.9));
+      border-left:1px solid rgba(255,255,255,.08);
+    }
+    .slab h4{margin:.2rem 0 .6rem;font-size:1.12rem;color:var(--acc-3)}
+    .slab p{margin:.45rem 0;color:#e9f3fb;line-height:1.8;font-size:1.04rem}
+    @media (max-width:980px){
+      .slab{grid-template-columns:1fr}
+      .slab .col.alt{border-left:none;border-top:1px solid rgba(255,255,255,.08)}
+    }
 
-    /* Value chips */
-    .chips{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:2.2rem 0 0}
-    .chip{padding:.5rem .8rem;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:.92rem;color:#eef7ff;
-      background:linear-gradient(90deg, rgba(20,134,182,.35), rgba(75,176,218,.25))}
+    /* Steps: large numbered chips */
+    .steps{
+      max-width:1180px;margin:0 auto;display:grid;gap:1.1rem;grid-template-columns:repeat(3,1fr)
+    }
+    .step{
+      display:flex;gap:1rem;align-items:flex-start;
+      background:linear-gradient(180deg, rgba(8,54,84,.92), rgba(8,54,84,.78));
+      border:1px solid rgba(20,134,182,.28);border-radius:18px;padding:1.25rem 1.3rem;min-height:130px
+    }
+    .num{
+      flex:0 0 44px;height:44px;display:grid;place-items:center;border-radius:12px;
+      background:linear-gradient(90deg, var(--acc), var(--acc-2));font-weight:800
+    }
+    .step h5{margin:.1rem 0 .35rem;font-size:1.04rem;color:#eef7ff}
+    .step p{margin:0;color:#dfeaf4;line-height:1.65}
+    @media (max-width:980px){.steps{grid-template-columns:1fr}}
 
-    /* Timeline (simple, no icons) */
-    .timeline{max-width:1000px;margin:0 auto 1rem;border-left:2px solid rgba(79,203,255,.35);padding-left:1.2rem}
-    .tl-item{margin:1.2rem 0;position:relative}
-    .tl-item::before{content:"";position:absolute;left:-10px;top:.25rem;width:10px;height:10px;background:linear-gradient(90deg,var(--acc),var(--acc-2));border-radius:50%}
-    .tl-item h4{margin:.1rem 0 .4rem;font-size:1.05rem;color:var(--accent-3)}
-    .tl-item p{margin:0;color:#dfeefb;line-height:1.65}
+    /* Value chips line */
+    .chips{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin:2rem auto 0;max-width:1100px}
+    .chip{
+      padding:.55rem .9rem;border-radius:999px;border:1px solid rgba(255,255,255,.18);
+      font-size:.95rem;color:#eef7ff;background:linear-gradient(90deg, rgba(20,134,182,.42), rgba(75,176,218,.34));
+    }
 
-    /* FAQ with details */
-    details{background:linear-gradient(180deg, var(--card), rgba(6,43,67,.5));border:1px solid rgba(20,134,182,.22);border-radius:14px;padding:1rem;margin:.6rem 0}
-    summary{cursor:pointer;font-weight:600;color:#eaf5fb}
-    details p{margin:.6rem 0 0;color:#dfeefb;line-height:1.65}
-
-    /* Footer (same professional layout) */
+    /* Footer (shared professional layout) */
     footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
     .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
     .foot-brand{display:flex;gap:.8rem;align-items:center}
@@ -120,7 +191,7 @@
     }
 
     /* Reveal motion */
-    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
     .reveal.show{opacity:1;transform:none}
   </style>
 </head>
@@ -142,99 +213,122 @@
 
   <!-- Hero -->
   <header class="page-hero">
-    <div class="blob a"></div>
-    <div class="blob b"></div>
+    <div class="hero-a hero-shape"></div>
+    <div class="hero-b hero-shape"></div>
     <div class="reveal show">
       <span class="kicker">About</span>
-      <h1>Advancing personalized, comfortable neurostimulation</h1>
-      <p>We are building an at home therapy that targets pain circuits with precision and comfort so people can move with confidence again.</p>
+      <h1>Redefining Chronic Pain Care</h1>
+      <p>Advanced AI powered, noninvasive neurostimulation for daily at home relief.</p>
     </div>
   </header>
 
   <main>
-    <!-- Three key ideas -->
-    <section>
-      <h2 class="section-title reveal">What drives us</h2>
-      <div class="cards">
+
+    <!-- Mission: big chunky card inside a solid band -->
+    <section class="band-solid">
+      <h2 class="section-title reveal">Our Mission</h2>
+      <div class="mission reveal">
+        <p>
+          At Synapse Symphony, we are redefining chronic pain care through advanced AI powered, noninvasive neurostimulation.
+          Sparked by a powerful moment when a patient in our early research said she felt relief for the first time in twenty years,
+          we knew we had to bring this breakthrough beyond the lab and into people’s lives.
+        </p>
+      </div>
+    </section>
+
+    <!-- Three pillars: bold equal cards on a contrasting band -->
+    <section class="band-accent">
+      <h2 class="section-title reveal">What guides our work</h2>
+      <div class="pillars">
         <article class="card reveal">
-          <h3>Patient impact</h3>
-          <p>A patient in our early work felt real relief for the first time in twenty years. That moment motivates everything we do.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Precision first</h3>
-          <p>Adaptive high density stimulation and biophysical modeling sculpt fields through the scalp to modulate pain circuits precisely.</p>
+          <h3>Personalized modulation</h3>
+          <p>Adaptive high density stimulation shaped to neuroanatomy, symptoms, and response patterns.</p>
         </article>
         <article class="card reveal">
           <h3>Comfort by design</h3>
-          <p>Our background hum technique reduces stimulation discomfort and supports longer, more tolerable sessions at home.</p>
+          <p>Background hum reduces discomfort from current injection and supports daily use at home.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Learning system</h3>
+          <p>Continuous adjustment using patient data to sustain relief while minimizing discomfort.</p>
         </article>
       </div>
     </section>
 
-    <!-- Core story copy split into easy blocks -->
-    <section>
-      <h2 class="section-title reveal">Our approach</h2>
-      <div class="copy-wrap">
-        <div class="copy reveal">
-          <p>At Synapse Symphony, we are redefining chronic pain care with AI powered, noninvasive neurostimulation. The work began with a simple idea. Bring meaningful relief beyond the lab and into daily life.</p>
+    <!-- Text slabs: heavier two column blocks to avoid a scrawny feel -->
+    <section class="band-panel">
+      <h2 class="section-title reveal">How we work</h2>
+      <div class="slab reveal">
+        <div class="col">
+          <h4>Field shaping with precision</h4>
+          <p>
+            Our platform combines adaptive high density stimulation with algorithms that personalize therapy using each person’s
+            neuroanatomy, symptoms, and response patterns. We use biophysical modeling to sculpt fields through the scalp to
+            modulate pain related circuits precisely, without surgery or clinic visits.
+          </p>
         </div>
-        <div class="copy reveal">
-          <p>Our platform combines adaptive high density stimulation with algorithms that personalize therapy using each person’s neuroanatomy, symptoms, and response patterns. Field shaping through the scalp enables precise modulation without surgery or clinic visits.</p>
-        </div>
-        <div class="copy reveal">
-          <p>The background hum innovation aims to lower the discomfort that can occur with current injection at the scalp. The goal is better tolerability and better adherence so people can complete effective sessions at home.</p>
-        </div>
-        <div class="copy reveal">
-          <p>By learning continuously from patient data, the system adjusts to maximize relief while minimizing discomfort. This is how we move from one size fits all to truly personal therapy.</p>
+        <div class="col alt">
+          <h4>Comfort that sustains therapy</h4>
+          <p>
+            Traditional systems can cause local pain or irritation from current injection at the scalp. Our background hum aims to
+            lower these sensations and improve session tolerability so people can complete effective therapy at home.
+          </p>
         </div>
       </div>
 
-      <!-- Values chips for rhythm and color -->
-      <div class="chips reveal">
-        <span class="chip">Personalized modulation</span>
+      <div class="slab reveal" style="margin-top:1.2rem">
+        <div class="col">
+          <h4>Always learning</h4>
+          <p>
+            The system learns continuously from patient data and adjusts stimulation patterns to keep relief high while burden stays
+            low. The objective is dependable therapy that fits daily life.
+          </p>
+        </div>
+        <div class="col alt">
+          <h4>From lab insight to impact</h4>
+          <p>
+            We translate neuroscience and clinical insight into a product pathway that puts people first with comfort, personalization,
+            and measurable improvement in function.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps row: large numbered chips on a solid band -->
+    <section class="band-solid">
+      <h2 class="section-title reveal">Our approach</h2>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="num">1</div>
+          <div>
+            <h5>Model and plan</h5>
+            <p>Biophysical models and patient data guide field shaping and target selection.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="num">2</div>
+          <div>
+            <h5>Deliver comfortably</h5>
+            <p>High density stimulation with background hum supports longer home sessions.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="num">3</div>
+          <div>
+            <h5>Adapt continuously</h5>
+            <p>Algorithms adjust patterns over time to sustain relief and reduce burden.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chips reveal" style="margin-top:1.6rem">
+        <span class="chip">Personalized</span>
         <span class="chip">Comfort focused</span>
-        <span class="chip">Evidence driven</span>
+        <span class="chip">Evidence informed</span>
         <span class="chip">Home ready</span>
       </div>
     </section>
 
-    <!-- Simple timeline (vision) -->
-    <section>
-      <h2 class="section-title reveal">Vision and roadmap</h2>
-      <div class="timeline">
-        <div class="tl-item reveal">
-          <h4>MVP and pilots</h4>
-          <p>Modular system using cleared components to validate outcomes and refine protocols with patient input.</p>
-        </div>
-        <div class="tl-item reveal">
-          <h4>Integration</h4>
-          <p>Miniaturization and hardware integration into a compact device designed for reliable daily use at home.</p>
-        </div>
-        <div class="tl-item reveal">
-          <h4>Scale and access</h4>
-          <p>Broader studies, expanded indications, and pathways that help people access personalized therapy safely and quickly.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ style quick clarifications (optional, pure CSS) -->
-    <section>
-      <h2 class="section-title reveal">Questions</h2>
-      <div class="copy-wrap">
-        <details class="reveal">
-          <summary>Is the therapy surgical</summary>
-          <p>No. It is noninvasive and designed for home use with clinical guidance as needed.</p>
-        </details>
-        <details class="reveal">
-          <summary>What makes it personal</summary>
-          <p>Adaptive field shaping and data informed updates that reflect each person’s anatomy and response trends.</p>
-        </details>
-        <details class="reveal">
-          <summary>How do you improve comfort</summary>
-          <p>The background hum approach aims to reduce scalp discomfort from current injection so people can complete longer sessions comfortably.</p>
-        </details>
-      </div>
-    </section>
   </main>
 
   <!-- Footer -->
