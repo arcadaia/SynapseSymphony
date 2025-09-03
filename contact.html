@@ -19,7 +19,7 @@
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
 
-    /* Nav (shared) */
+    /* Nav */
     nav{
       position:sticky;top:0;z-index:1000;
       display:flex;align-items:center;justify-content:space-between;
@@ -34,7 +34,7 @@
     nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
     nav a:hover{color:#fff}
 
-    /* Hero (bg.jpg + soft shapes to match site) */
+    /* Hero */
     header.page-hero{
       min-height:46vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
       position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08);
@@ -49,7 +49,7 @@
     .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.3rem,4.4vw,3.2rem);margin:.2rem 0 .75rem}
     .page-hero p{font-size:clamp(1rem,2vw,1.15rem);color:var(--ink-dim);max-width:900px;margin:0 auto;line-height:1.6}
 
-    /* Main layout: vertical timeline list */
+    /* Main layout */
     main{max-width:900px;margin:0 auto;padding:3.2rem 4vw}
     .vlist{
       position:relative;display:grid;gap:1.4rem;
@@ -77,7 +77,7 @@
     .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
     .muted{color:#bcd3e4}
 
-    /* Single action button (only one kept) */
+    /* Single action button */
     .actions{margin-top:.8rem}
     .btn{
       display:inline-block;text-decoration:none;
@@ -86,7 +86,7 @@
       color:#fff;font-weight:800
     }
 
-    /* Footer (shared) */
+    /* Footer */
     footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
     .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
     .foot-brand{display:flex;gap:.8rem;align-items:center}

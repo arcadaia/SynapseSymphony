@@ -36,7 +36,7 @@
     nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
     nav a:hover{color:#fff}
 
-    /* Hero (now matches other pages with bg.jpg overlay + shapes) */
+    /* Hero */
     header.page-hero{
       min-height:46vh;
       display:grid;place-items:center;text-align:center;padding:0 6vw;
@@ -54,7 +54,7 @@
 
     main{max-width:1300px;margin:0 auto;padding:3rem 4vw}
 
-    /* Big centered group header (Board Members only) */
+    /* Big centered group header */
     .group{
       margin:2.6rem 0 1.4rem;display:flex;align-items:center;gap:1rem;justify-content:center
     }
@@ -108,7 +108,7 @@
     /* Board members: even taller */
     .board .photo{aspect-ratio: 2.6 / 4}
     .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-    /* Elora – pad in blue, keep centered without distortion */
+
     .photo.contain-blue{background:#073350}
     .photo.contain-blue img{object-fit:contain;padding:10px}
 
@@ -121,7 +121,7 @@
     .name{font-family:"Playfair Display",serif;font-size:1.08rem;margin:0 0 .2rem}
     .title{margin:0;color:#cfe1ef;font-size:.96rem}
 
-    /* Hover bio overlay (hidden until hover; exact text) */
+    /* Hover bio overlay  */
     .bio{
       position:absolute;left:12px;right:12px;bottom:88px;
       background:rgba(2,26,44,.86);
@@ -133,10 +133,9 @@
     }
     .card:hover .bio{opacity:1;transform:translateY(0)}
 
-    /* Hide LinkedIn for now */
     .linkedin{display:none}
 
-    /* Footer (shared) */
+    /* Footer  */
     footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
     .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
     .foot-brand{display:flex;gap:.8rem;align-items:center}
@@ -211,7 +210,6 @@
       </article>
     </section>
 
-    <!-- Row of three with column-local headers -->
     <section class="row-3" style="margin-top:2.2rem">
       <div class="subhead">Clinical Advisor</div>
       <div class="subhead">Regulatory Advisor</div>
