@@ -19,7 +19,7 @@
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
 
-    /* Nav (shared) */
+    /* Nav */
     nav{
       position:sticky;top:0;z-index:1000;
       display:flex;align-items:center;justify-content:space-between;
@@ -46,7 +46,7 @@
     .page-hero p{font-size:1.1rem;color:var(--ink-dim);max-width:820px;margin:0 auto}
 
     /* Main */
-    main{max-width:860px;margin:0 auto;padding:3rem 4vw;display:grid;place-items:center}
+    main{max-width:860px;margin:0 auto;padding:3rem 4vw;display:grid;place-items:center;gap:2rem}
     .job{
       width:100%;
       background:linear-gradient(180deg, rgba(7,51,80,.95), rgba(7,51,80,.88));
@@ -73,20 +73,23 @@
       box-shadow:0 8px 24px -12px var(--ring);
     }
 
-    /* Notice card */
+    /* Notice box  */
     .notice{
-      margin:1.8rem auto 0 auto;max-width:680px;
+      max-width:600px;text-align:center;
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.14);
-      border-radius:14px;
+      border-radius:12px;
       padding:1rem 1.2rem;
-    }
-    .notice h3{
-      margin:.1rem 0 .5rem 0;font-size:1.05rem;color:#eaf5fb;font-weight:700
+      font-size:.9rem;
+      color:#dfeaf4;
     }
     .notice a{
-      display:inline-block;margin-top:.25rem;
-      color:#cfe9ff;text-decoration:underline;font-weight:600
+      display:block;
+      margin-top:.5rem;
+      color:#9dd3ff;
+      text-decoration:underline;
+      font-weight:500;
+      font-size:.9rem;
     }
 
     /* Footer */
@@ -149,12 +152,12 @@
       <div class="actions">
         <button class="btn" id="copyEmailBtn" type="button">Copy email to apply</button>
       </div>
-
-      <div class="notice">
-        <h3>NOTICE OF THE FILING OF A LABOR CONDITION APPLICATION WITH THE DEPARTMENT OF LABOR</h3>
-        <a href="NoticeForFiling.pdf" target="_blank" rel="noopener">View official notice (PDF)</a>
-      </div>
     </article>
+
+    <div class="notice">
+      NOTICE OF THE FILING OF A LABOR CONDITION APPLICATION WITH THE DEPARTMENT OF LABOR  
+      <a href="NoticeForFiling.pdf" target="_blank" rel="noopener">View official notice (PDF)</a>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -181,7 +184,7 @@
   </footer>
 
   <script>
-    // One-click copy (no email text shown elsewhere)
+    // copy email
     const btn = document.getElementById('copyEmailBtn');
     btn?.addEventListener('click', async () => {
       try{
