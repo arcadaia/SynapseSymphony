@@ -19,7 +19,7 @@
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
 
-    /* Nav */
+    /* Nav (shared) */
     nav{
       position:sticky;top:0;z-index:1000;
       display:flex;align-items:center;justify-content:space-between;
@@ -37,40 +37,57 @@
     /* Hero */
     header.page-hero{
       min-height:40vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
+      position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08);
       background:
         linear-gradient(180deg, rgba(3,43,71,.88), rgba(3,43,71,.92)),
         url('bg.jpg') center/cover no-repeat;
-      border-bottom:1px solid rgba(255,255,255,.08);
     }
     .page-hero h1{font-family:"Playfair Display",serif;font-size:2.6rem;margin:.2rem 0 .6rem}
-    .page-hero p{font-size:1.1rem;color:var(--ink-dim);max-width:800px;margin:0 auto}
+    .page-hero p{font-size:1.1rem;color:var(--ink-dim);max-width:820px;margin:0 auto}
 
     /* Main */
-    main{max-width:900px;margin:0 auto;padding:3rem 4vw}
+    main{max-width:860px;margin:0 auto;padding:3rem 4vw;display:grid;place-items:center}
     .job{
-      background:linear-gradient(180deg, rgba(7,51,80,.95), rgba(7,51,80,.85));
+      width:100%;
+      background:linear-gradient(180deg, rgba(7,51,80,.95), rgba(7,51,80,.88));
       border:1px solid rgba(255,255,255,.12);
       border-radius:16px;
-      padding:2rem;
+      padding:2rem 2.2rem;
       box-shadow:0 10px 24px -16px var(--ring);
     }
-    .job h2{margin-top:0;font-size:1.5rem}
-    .job p{line-height:1.65;margin:.5rem 0}
-    .apply{margin-top:1.5rem}
+    .job header h2{
+      margin:0 0 .75rem 0;
+      font-size:1.7rem;
+      font-family:"Playfair Display",serif;
+      text-align:center;
+    }
+    .job .summary{
+      max-width:680px;margin:0 auto 1.2rem auto;line-height:1.65;color:#eaf5fb;
+      text-align:justify;
+    }
+    .job .actions{display:flex;justify-content:center;margin-top:1.2rem}
     .btn{
-      display:inline-block;
-      padding:.8rem 1.2rem;
+      padding:.85rem 1.15rem;border:1px solid rgba(255,255,255,.18);border-radius:12px;
+      color:#fff;text-decoration:none;font-weight:800;cursor:pointer;
       background:linear-gradient(90deg, var(--acc), var(--acc-2));
-      border:none;border-radius:12px;
-      color:#fff;font-weight:700;text-decoration:none;
+      box-shadow:0 8px 24px -12px var(--ring);
     }
+
+    /* Notice card */
     .notice{
-      margin-top:2rem;padding:1rem 1.2rem;border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
+      margin:1.8rem auto 0 auto;max-width:680px;
       background:rgba(255,255,255,.05);
-      font-size:.95rem;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px;
+      padding:1rem 1.2rem;
     }
-    .notice a{color:#bfe6ff;text-decoration:underline}
+    .notice h3{
+      margin:.1rem 0 .5rem 0;font-size:1.05rem;color:#eaf5fb;font-weight:700
+    }
+    .notice a{
+      display:inline-block;margin-top:.25rem;
+      color:#cfe9ff;text-decoration:underline;font-weight:600
+    }
 
     /* Footer */
     footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
@@ -116,21 +133,28 @@
     </div>
   </header>
 
-  <!-- Job Posting -->
   <main>
-    <div class="job">
-      <h2>Biomedical Engineer – Synapse Symphony</h2>
-      <p>Join Synapse Symphony in building breakthrough neuromodulation technology. We are looking for a Biomedical Engineer to help fabricate stimulation electrode arrays, develop custom caps and helmets, and integrate EMG into our systems.</p>
-      <p>Ideal candidates have a background in biomedical, electrical, or mechanical engineering, with hands-on prototyping skills and interest in bioelectronic devices.</p>
-      <div class="apply">
-        <a class="btn" href="mailto:info.synapsesymphony@gmail.com">Apply via Email</a>
+    <article class="job">
+      <header>
+        <h2>Biomedical Engineer – Synapse Symphony</h2>
+      </header>
+
+      <p class="summary">
+        Join Synapse Symphony in building breakthrough neuromodulation technology. We are looking for a Biomedical Engineer to help fabricate stimulation electrode arrays, develop custom caps and helmets, and integrate EMG into our systems.
+      </p>
+      <p class="summary">
+        Ideal candidates have a background in biomedical, electrical, or mechanical engineering, with hands-on prototyping skills and interest in bioelectronic devices.
+      </p>
+
+      <div class="actions">
+        <button class="btn" id="copyEmailBtn" type="button">Copy email to apply</button>
       </div>
-      <p class="muted">📩 Apply with your CV at <strong>info.synapsesymphony@gmail.com</strong></p>
+
       <div class="notice">
-        NOTICE OF THE FILING OF A LABOR CONDITION APPLICATION WITH THE DEPARTMENT OF LABOR.<br/>
-        <a href="NoticeForFiling.pdf" target="_blank">View official notice (PDF)</a>
+        <h3>NOTICE OF THE FILING OF A LABOR CONDITION APPLICATION WITH THE DEPARTMENT OF LABOR</h3>
+        <a href="NoticeForFiling.pdf" target="_blank" rel="noopener">View official notice (PDF)</a>
       </div>
-    </div>
+    </article>
   </main>
 
   <!-- Footer -->
@@ -155,5 +179,21 @@
       <small>Home • About • Research • Team • Contact • Careers</small>
     </div>
   </footer>
+
+  <script>
+    // One-click copy (no email text shown elsewhere)
+    const btn = document.getElementById('copyEmailBtn');
+    btn?.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText('info.synapsesymphony@gmail.com');
+        const orig = btn.textContent;
+        btn.textContent = 'Copied to clipboard';
+        setTimeout(()=> btn.textContent = orig, 1400);
+      }catch(e){
+        btn.textContent = 'Press Ctrl/Cmd+C to copy: info.synapsesymphony@gmail.com';
+        setTimeout(()=> btn.textContent = 'Copy email to apply', 2400);
+      }
+    });
+  </script>
 </body>
 </html>
