@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Synapse Symphony | Careers</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#ffffff;
+      --ink-dim:#dfeaf4;
+      --bg:#032B47;
+      --bg-2:#021a2c;
+      --acc:#1486B6;
+      --acc-2:#4bb0da;
+      --ring: rgba(20,134,182,0.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+
+    /* Nav */
+    nav{
+      position:sticky;top:0;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:1rem 2rem;
+      background:linear-gradient(180deg, rgba(2,26,44,.96), rgba(2,26,44,.85));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .logo-wrap{display:flex;align-items:center;gap:.7rem}
+    .logo-wrap img{height:30px;width:auto}
+    .brand{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}
+    nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
+    nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
+    nav a:hover{color:#fff}
+
+    /* Hero */
+    header.page-hero{
+      min-height:40vh;display:grid;place-items:center;text-align:center;padding:0 6vw;
+      background:
+        linear-gradient(180deg, rgba(3,43,71,.88), rgba(3,43,71,.92)),
+        url('bg.jpg') center/cover no-repeat;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .page-hero h1{font-family:"Playfair Display",serif;font-size:2.6rem;margin:.2rem 0 .6rem}
+    .page-hero p{font-size:1.1rem;color:var(--ink-dim);max-width:800px;margin:0 auto}
+
+    /* Main */
+    main{max-width:900px;margin:0 auto;padding:3rem 4vw}
+    .job{
+      background:linear-gradient(180deg, rgba(7,51,80,.95), rgba(7,51,80,.85));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      padding:2rem;
+      box-shadow:0 10px 24px -16px var(--ring);
+    }
+    .job h2{margin-top:0;font-size:1.5rem}
+    .job p{line-height:1.65;margin:.5rem 0}
+    .apply{margin-top:1.5rem}
+    .btn{
+      display:inline-block;
+      padding:.8rem 1.2rem;
+      background:linear-gradient(90deg, var(--acc), var(--acc-2));
+      border:none;border-radius:12px;
+      color:#fff;font-weight:700;text-decoration:none;
+    }
+    .notice{
+      margin-top:2rem;padding:1rem 1.2rem;border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      font-size:.95rem;
+    }
+    .notice a{color:#bfe6ff;text-decoration:underline}
+
+    /* Footer */
+    footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
+    .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
+    .foot-brand{display:flex;gap:.8rem;align-items:center}
+    .foot-brand img{height:28px;width:auto;opacity:.95}
+    .foot-title{font-family:"Playfair Display",serif;font-size:1.15rem;margin:0}
+    .foot-tagline{margin:.35rem 0 0;color:#bcd1df;font-size:.95rem}
+    .foot-contact{justify-self:end;text-align:right}
+    .foot-contact h4{margin:0 0 .6rem;font-size:1rem;color:#e7f1f8}
+    .foot-contact p{margin:.2rem 0;color:#9ec2d9;font-size:.95rem}
+    .foot-line{border-top:1px solid rgba(255,255,255,.08);margin:0 4vw}
+    .foot-bottom{max-width:1200px;margin:0 auto;padding:1rem 4vw;display:flex;justify-content:space-between;align-items:center;color:#9ec2d9;font-size:.9rem}
+    @media (max-width:900px){
+      .footer-wrap{grid-template-columns:1fr}
+      .foot-contact{text-align:left}
+      .foot-bottom{flex-direction:column;gap:.4rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav>
+    <div class="logo-wrap">
+      <img src="LogoIcon.png" alt="Logo" />
+      <span class="brand">SYNAPSE SYMPHONY</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="career.html">Careers</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="page-hero">
+    <div>
+      <h1>Careers</h1>
+      <p>Help us engineer the future of noninvasive neuromodulation.</p>
+    </div>
+  </header>
+
+  <!-- Job Posting -->
+  <main>
+    <div class="job">
+      <h2>Biomedical Engineer – Synapse Symphony</h2>
+      <p>Join Synapse Symphony in building breakthrough neuromodulation technology. We are looking for a Biomedical Engineer to help fabricate stimulation electrode arrays, develop custom caps and helmets, and integrate EMG into our systems.</p>
+      <p>Ideal candidates have a background in biomedical, electrical, or mechanical engineering, with hands-on prototyping skills and interest in bioelectronic devices.</p>
+      <div class="apply">
+        <a class="btn" href="mailto:info.synapsesymphony@gmail.com">Apply via Email</a>
+      </div>
+      <p class="muted">📩 Apply with your CV at <strong>info.synapsesymphony@gmail.com</strong></p>
+      <div class="notice">
+        NOTICE OF THE FILING OF A LABOR CONDITION APPLICATION WITH THE DEPARTMENT OF LABOR.<br/>
+        <a href="NoticeForFiling.pdf" target="_blank">View official notice (PDF)</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-wrap">
+      <div>
+        <div class="foot-brand">
+          <img src="LogoIcon.png" alt="Synapse Symphony">
+          <h3 class="foot-title">Synapse Symphony</h3>
+        </div>
+        <p class="foot-tagline">Engineering the future of neurotechnology</p>
+      </div>
+      <div class="foot-contact">
+        <h4>Contact</h4>
+        <p>Email: info.synapsesymphony@gmail.com</p>
+        <p>Synapse Symphony Inc.<br/>4740 Wallingford St.<br/>Pittsburgh, PA 15213</p>
+      </div>
+    </div>
+    <div class="foot-line"></div>
+    <div class="foot-bottom">
+      <small>&copy; 2025 Synapse Symphony. All rights reserved.</small>
+      <small>Home • About • Research • Team • Contact • Careers</small>
+    </div>
+  </footer>
+</body>
+</html>
