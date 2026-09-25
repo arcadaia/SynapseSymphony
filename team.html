@@ -7,300 +7,44 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --ink:#ffffff;
-      --ink-dim:#dfeaf4;
-      --bg:#032B47;
-      --bg-2:#021a2c;
-      --acc:#1486B6;
-      --acc-2:#4bb0da;
-      --ring: rgba(20,134,182,0.35);
-      --card:#082f49;
-      --card-border: rgba(79,203,255,.28);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-
-    /* Nav (shared) */
-    nav{
-      position:sticky;top:0;z-index:1000;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:1rem 2rem;
-      background:linear-gradient(180deg, rgba(2,26,44,.96), rgba(2,26,44,.85));
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .brand{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}
-    .logo-wrap{display:flex;align-items:center;gap:.7rem}
-    .logo-wrap img{height:30px;width:auto}
-    nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
-    nav a{color:#cfdbe6;text-decoration:none;font-weight:600}
-    nav a:hover{color:#fff}
-
-    /* Hero */
-    header.page-hero{
-      min-height:46vh;
-      display:grid;place-items:center;text-align:center;padding:0 6vw;
-      position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08);
-      background:
-        linear-gradient(180deg, rgba(3,43,71,.88), rgba(3,43,71,.92)),
-        url('bg.jpg') center/cover no-repeat;
-    }
-    .hero-shape{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;pointer-events:none}
-    .hero-a{width:420px;height:420px;left:-140px;top:-60px;background:radial-gradient(circle at 40% 40%, var(--acc-2), transparent 60%)}
-    .hero-b{width:520px;height:520px;right:-160px;bottom:-100px;background:radial-gradient(circle at 60% 60%, var(--acc), transparent 60%)}
-    .kicker{display:inline-block;font-size:.9rem;color:#cfe2f1;letter-spacing:.06em;padding:.4rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.14);margin-bottom:1rem}
-    .page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.3rem,4.4vw,3.2rem);margin:.2rem 0 1rem}
-    .page-hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-dim);max-width:880px;margin:0 auto 1rem;line-height:1.6}
-
-    main{max-width:1300px;margin:0 auto;padding:3rem 4vw}
-
-    /* Big centered group header */
-    .group{
-      margin:2.6rem 0 1.4rem;display:flex;align-items:center;gap:1rem;justify-content:center
-    }
-    .group::before,.group::after{
-      content:"";flex:1;height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,.28), transparent);
-    }
-    .group span{font-family:"Playfair Display",serif;font-weight:600;letter-spacing:.02em;color:#eaf5fb}
-
-    /* Column/row headers that DO NOT span other columns */
-    .row-3{display:grid;grid-template-columns:repeat(3, minmax(240px, 1fr));gap:2rem;align-items:start;justify-items:center}
-    .subhead{
-      grid-column:auto / span 1;
-      text-align:center;color:#eaf5fb;font-family:"Playfair Display",serif;font-weight:600;
-      padding-bottom:.4rem;margin-bottom:.4rem;position:relative;width:100%;
-    }
-    .subhead::after{
-      content:"";position:absolute;left:15%;right:15%;bottom:0;height:2px;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
-      border-radius:2px;
-    }
-    .subhead.span2{grid-column:1 / span 2}
-
-    /* Grids */
-    .grid{display:grid;gap:2rem;justify-items:center}
-    .grid.two{grid-template-columns:repeat(2, minmax(300px, 560px))}
-    .grid.one{grid-template-columns:minmax(260px, 420px)}
-    @media (max-width:1100px){.grid.two{grid-template-columns:repeat(2, minmax(240px, 1fr))}}
-    @media (max-width:720px){
-      .grid.two{grid-template-columns:1fr}
-      .row-3{grid-template-columns:1fr}
-      .subhead.span2{grid-column:auto}
-    }
-
-    /* Card */
-    .card{
-      width:100%;
-      border-radius:16px;
-      overflow:hidden;
-      background:var(--card);
-      border:1px solid var(--card-border);
-      box-shadow:0 10px 28px -16px var(--ring);
-      position:relative;
-    }
-
-    /* Photo areas */
-    .photo{
-      position:relative;width:100%;
-      aspect-ratio: 2 / 3; /* shared portrait size */
-      overflow:hidden;background:#06354f;
-    }
-    .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-
-    .photo.contain-blue{background:#073350}
-    .photo.contain-blue img{object-fit:contain;padding:10px}
-
-    /* Name band */
-    .band{
-      background:linear-gradient(180deg, rgba(2,26,44,.96), rgba(2,26,44,.88));
-      padding:14px 16px;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-    .name{font-family:"Playfair Display",serif;font-size:1.08rem;margin:0 0 .2rem}
-    .title{margin:0;color:#cfe1ef;font-size:.96rem}
-
-    /* Hover bio overlay  */
-    .bio{
-      position:absolute;left:12px;right:12px;bottom:88px;
-      background:rgba(2,26,44,.86);
-      backdrop-filter: blur(2px);
-      border:1px solid rgba(111,208,255,.35);
-      border-radius:12px;padding:12px 14px;color:#eaf4fc;font-size:.94rem;line-height:1.55;
-      transform:translateY(16px);opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease;
-      max-height:40vh;overflow:auto;
-    }
-    .card:hover .bio{opacity:1;transform:translateY(0)}
-
-    .linkedin{display:none}
-
-    /* Footer  */
-    footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}
-    .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
-    .foot-brand{display:flex;gap:.8rem;align-items:center}
-    .foot-brand img{height:28px;width:auto;opacity:.95}
-    .foot-title{font-family:"Playfair Display",serif;font-size:1.15rem;margin:0}
-    .foot-tagline{margin:.35rem 0 0;color:#bcd1df;font-size:.95rem}
-    .foot-contact{justify-self:end;text-align:right}
-    .foot-contact h4{margin:0 0 .6rem;font-size:1rem;letter-spacing:.03em;color:#e7f1f8}
-    .foot-contact p{margin:.2rem 0;color:#9ec2d9;font-size:.95rem}
-    .foot-line{border-top:1px solid rgba(255,255,255,.08);margin:0 4vw}
-    .foot-bottom{max-width:1200px;margin:0 auto;padding:1rem 4vw;display:flex;justify-content:space-between;align-items:center;color:#9ec2d9;font-size:.9rem}
-    .foot-bottom small{opacity:.9}
-    @media (max-width:900px){
-      .footer-wrap{grid-template-columns:1fr}
-      .foot-contact{justify-self:start;text-align:left}
-      .foot-bottom{flex-direction:column;gap:.4rem}
-    }
+    :root{--ink:#ffffff;--ink-dim:#dfeaf4;--bg:#032B47;--bg-2:#021a2c;--acc:#1486B6;--acc-2:#4bb0da;--ring:rgba(20,134,182,0.35);--card:#082f49;--card-border:rgba(79,203,255,.28)}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+    nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:linear-gradient(180deg,rgba(2,26,44,.96),rgba(2,26,44,.85));border-bottom:1px solid rgba(255,255,255,.08)}
+    .brand{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}.logo-wrap{display:flex;align-items:center;gap:.7rem}.logo-wrap img{height:30px;width:auto}nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}nav a{color:#cfdbe6;text-decoration:none;font-weight:600}nav a:hover{color:#fff}
+    header.page-hero{min-height:46vh;display:grid;place-items:center;text-align:center;padding:0 6vw;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(3,43,71,.88),rgba(3,43,71,.92)),url('bg.jpg') center/cover no-repeat}
+    .hero-shape{position:absolute;border-radius:50%;filter:blur(80px);opacity:.42;pointer-events:none}.hero-a{width:420px;height:420px;left:-140px;top:-60px;background:radial-gradient(circle at 40% 40%,var(--acc-2),transparent 60%)}.hero-b{width:520px;height:520px;right:-160px;bottom:-100px;background:radial-gradient(circle at 60% 60%,var(--acc),transparent 60%)}.kicker{display:inline-block;font-size:.9rem;color:#cfe2f1;letter-spacing:.06em;padding:.4rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.14);margin-bottom:1rem}.page-hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.3rem,4.4vw,3.2rem);margin:.2rem 0 1rem}.page-hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--ink-dim);max-width:880px;margin:0 auto 1rem;line-height:1.6}
+    main{max-width:1300px;margin:0 auto;padding:3rem 4vw}.group{margin:2.6rem 0 1.4rem;display:flex;align-items:center;gap:1rem;justify-content:center}.group::before,.group::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent)}.group span{font-family:"Playfair Display",serif;font-weight:600;letter-spacing:.02em;color:#eaf5fb}
+    .row-3{display:grid;grid-template-columns:repeat(3,minmax(240px,1fr));gap:2rem;align-items:start;justify-items:center}.subhead{grid-column:auto / span 1;text-align:center;color:#eaf5fb;font-family:"Playfair Display",serif;font-weight:600;padding-bottom:.4rem;margin-bottom:.4rem;position:relative;width:100%}.subhead::after{content:"";position:absolute;left:15%;right:15%;bottom:0;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);border-radius:2px}.subhead.span2{grid-column:1 / span 2}.subhead.empty::after{display:none}
+    .grid{display:grid;gap:2rem;justify-items:center}.grid.two{grid-template-columns:repeat(2,minmax(300px,560px))}.grid.one{grid-template-columns:minmax(260px,420px)}
+    @media (max-width:1100px){.grid.two{grid-template-columns:repeat(2,minmax(240px,1fr))}}@media (max-width:720px){.grid.two{grid-template-columns:1fr}.row-3{grid-template-columns:1fr}.subhead.span2{grid-column:auto}}
+    .card{width:100%;border-radius:16px;overflow:hidden;background:var(--card);border:1px solid var(--card-border);box-shadow:0 10px 28px -16px var(--ring);position:relative}.photo{position:relative;width:100%;aspect-ratio:2 / 3;overflow:hidden;background:#06354f}.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}.photo.contain-blue{background:#073350}.photo.contain-blue img{object-fit:contain;padding:10px}.band{background:linear-gradient(180deg,rgba(2,26,44,.96),rgba(2,26,44,.88));padding:14px 16px;border-top:1px solid rgba(255,255,255,.08)}.name{font-family:"Playfair Display",serif;font-size:1.08rem;margin:0 0 .2rem}.title{margin:0;color:#cfe1ef;font-size:.96rem}.bio{position:absolute;left:12px;right:12px;bottom:88px;background:rgba(2,26,44,.86);backdrop-filter:blur(2px);border:1px solid rgba(111,208,255,.35);border-radius:12px;padding:12px 14px;color:#eaf4fc;font-size:.94rem;line-height:1.55;transform:translateY(16px);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;max-height:40vh;overflow:auto}.card:hover .bio{opacity:1;transform:translateY(0)}.linkedin{display:none}
+    footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28);margin-top:3rem}.footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}.foot-brand{display:flex;gap:.8rem;align-items:center}.foot-brand img{height:28px;width:auto;opacity:.95}.foot-title{font-family:"Playfair Display",serif;font-size:1.15rem;margin:0}.foot-tagline{margin:.35rem 0 0;color:#bcd1df;font-size:.95rem}.foot-contact{justify-self:end;text-align:right}.foot-contact h4{margin:0 0 .6rem;font-size:1rem;letter-spacing:.03em;color:#e7f1f8}.foot-contact p{margin:.2rem 0;color:#9ec2d9;font-size:.95rem}.foot-line{border-top:1px solid rgba(255,255,255,.08);margin:0 4vw}.foot-bottom{max-width:1200px;margin:0 auto;padding:1rem 4vw;display:flex;justify-content:space-between;align-items:center;color:#9ec2d9;font-size:.9rem}.foot-bottom small{opacity:.9}@media (max-width:900px){.footer-wrap{grid-template-columns:1fr}.foot-contact{justify-self:start;text-align:left}.foot-bottom{flex-direction:column;gap:.4rem}}
   </style>
 </head>
 <body>
-  <!-- Nav -->
-  <nav>
-    <div class="logo-wrap">
-      <img src="LogoIcon.png" alt="Logo" />
-      <span class="brand">SYNAPSE SYMPHONY</span>
-    </div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="career.html">Careers</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero -->
-  <header class="page-hero">
-    <div class="hero-a hero-shape"></div>
-    <div class="hero-b hero-shape"></div>
-    <div>
-      <span class="kicker">Team</span>
-      <h1>Meet the Team</h1>
-      <p>Engineering, clinical insight, and product execution united to deliver comfortable, personalized neuromodulation.</p>
-    </div>
-  </header>
-
+  <nav><div class="logo-wrap"><img src="LogoIcon.png" alt="Logo" /><span class="brand">SYNAPSE SYMPHONY</span></div><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="research.html">Research</a></li><li><a href="team.html">Team</a></li><li><a href="contact.html">Contact</a></li><li><a href="career.html">Careers</a></li></ul></nav>
+  <header class="page-hero"><div class="hero-a hero-shape"></div><div class="hero-b hero-shape"></div><div><span class="kicker">Team</span><h1>Meet the Team</h1><p>Engineering, clinical insight, and product execution united to deliver comfortable, personalized neuromodulation.</p></div></header>
   <main>
-
-    <!-- Leadership -->
-    <div class="group"><span>Leadership</span></div>
+    <div class="group"><span>Leadership &amp; Clinical Advisor</span></div>
     <section class="row-3 leadership">
-
-      <article class="card">
-        <div class="photo"><img src="Vishal_profile_pic_1.jpeg" alt="Vishal Jain, Ph.D."></div>
-        <div class="band">
-          <h3 class="name">Vishal Jain, Ph.D.</h3>
-          <p class="title">CEO/COO</p>
-        </div>
-        <div class="bio">
-          Dr. Vishal Jain (Co-Founder & CEO) is a Research Scientist with a strong track record in Translaational Neuroscience, system integration, and clinical validation. He leads clinical operations.
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="photo"><img src="Pulkit.png" alt="Pulkit Grover, Ph.D."></div>
-        <div class="band">
-          <h3 class="name">Pulkit Grover, Ph.D.</h3>
-          <p class="title">CSO</p>
-        </div>
-        <div class="bio">
-          Dr. Pulkit Grover (Co-Founder & CSO) is a Professor of Electrical and Computer Engineering at Carnegie Mellon University, specializing in brain stimulation, artificial intelligence, and machine learning.
-        </div>
-      </article>
-
+      <article class="card"><div class="photo"><img src="Vishal_profile_pic_1.jpeg" alt="Vishal Jain, Ph.D."></div><div class="band"><h3 class="name">Vishal Jain, Ph.D.</h3><p class="title">CEO/COO</p></div><div class="bio">Dr. Vishal Jain (Co-Founder &amp; CEO) is a Research Scientist with a strong track record in Translaational Neuroscience, system integration, and clinical validation. He leads clinical operations.</div></article>
+      <article class="card"><div class="photo"><img src="Pulkit.png" alt="Pulkit Grover, Ph.D."></div><div class="band"><h3 class="name">Pulkit Grover, Ph.D.</h3><p class="title">CSO</p></div><div class="bio">Dr. Pulkit Grover (Co-Founder &amp; CSO) is a Professor of Electrical and Computer Engineering at Carnegie Mellon University, specializing in brain stimulation, artificial intelligence, and machine learning.</div></article>
+      <article class="card"><div class="photo"><img src="benedict_alter.png" alt="Benedict Alter, MD, Ph.D."></div><div class="band"><h3 class="name">Benedict Alter, MD, Ph.D.</h3><p class="title">Clinical Advisor</p></div><div class="bio">Dr. Benedict Alter (Clinical Advisor) is an MD/PhD in anesthesiology and pain medicine at the University of Pittsburgh. He oversees our ongoing pilot trials in fibromyalgia and osteoarthritis.</div></article>
     </section>
 
     <section class="row-3" style="margin-top:2.2rem">
-      <div class="subhead">Clinical Advisor</div>
-      <div class="subhead">Regulatory Advisor</div>
-      <div class="subhead">Technical Lead</div>
-
-      <article class="card">
-        <div class="photo"><img src="benedict_alter.png" alt="Benedict Alter, MD, Ph.D."></div>
-        <div class="band">
-          <h3 class="name">Benedict Alter, MD, Ph.D.</h3>
-          <p class="title">Clinical Advisor</p>
-        </div>
-        <div class="bio">
-          Dr. Benedict Alter (Clinical Advisor) is an MD/PhD in anesthesiology and pain medicine at the University of Pittsburgh. He oversees our ongoing pilot trials in fibromyalgia and osteoarthritis.
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="photo contain-blue">
-          <img src="Elora.png" alt="Elora Gupta, Ph.D. (padded)" />
-        </div>
-        <div class="band">
-          <h3 class="name">Elora Gupta, Ph.D.</h3>
-          <p class="title">Regulatory Advisor</p>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="photo"><img src="matts_for.png" alt="Mats Forssell, Ph.D."></div>
-        <div class="band">
-          <h3 class="name">Mats Forssell, Ph.D.</h3>
-          <p class="title">Neurostimulation Expert</p>
-        </div>
-        <div class="bio">
-          Mats Forssell (Co-Founder & Lead Engineer) is a Research Scientist with deep expertise in neurostimulation hardware development and testing. He leads device engineering, electrical safety, and testing.
-        </div>
-      </article>
+      <div class="subhead">Regulatory Advisor</div><div class="subhead">Technical Lead</div><div class="subhead">Embedded Entrepreneur</div>
+      <article class="card"><div class="photo contain-blue"><img src="Elora.png" alt="Elora Gupta, Ph.D. (padded)" /></div><div class="band"><h3 class="name">Elora Gupta, Ph.D.</h3><p class="title">Regulatory Advisor</p></div></article>
+      <article class="card"><div class="photo"><img src="matts_for.png" alt="Mats Forssell, Ph.D."></div><div class="band"><h3 class="name">Mats Forssell, Ph.D.</h3><p class="title">Neurostimulation Expert</p></div><div class="bio">Mats Forssell (Co-Founder &amp; Lead Engineer) is a Research Scientist with deep expertise in neurostimulation hardware development and testing. He leads device engineering, electrical safety, and testing.</div></article>
+      <article class="card"><div class="photo"><img src="kwasa.jpg" alt="Jasmine Kwasa, Ph.D."></div><div class="band"><h3 class="name">Jasmine Kwasa, Ph.D.</h3><p class="title">Embedded Entrepreneur</p></div></article>
     </section>
 
-    <!-- Bottom row -->
     <section class="row-3" style="margin-top:2.6rem">
-      <div class="subhead span2">Scientific Advisors</div>
-      <div class="subhead">Embedded Entrepreneur</div>
-
-      <article class="card" style="grid-column:1">
-        <div class="photo"><img src="chamanzar.png" alt="Maysam Chamanzar, Ph.D."></div>
-        <div class="band">
-          <h3 class="name">Maysam Chamanzar, Ph.D.</h3>
-          <p class="title">Professor, ECE at CMU</p>
-        </div>
-      </article>
-
-      <article class="card" style="grid-column:2">
-        <div class="photo"><img src="weber.png" alt="Douglas Weber, Ph.D."></div>
-        <div class="band">
-          <h3 class="name">Douglas Weber, Ph.D.</h3>
-          <p class="title">Professor, Mechanical Engineering at CMU</p>
-        </div>
-      </article>
-
-      <article class="card" style="grid-column:3">
-        <div class="photo"><img src="kwasa.jpg" alt="Jasmine Kwasa, Ph.D."></div>
-        <div class="band">
-          <h3 class="name">Jasmine Kwasa, Ph.D.</h3>
-          <p class="title">Embedded Entrepreneur</p>
-        </div>
-      </article>
+      <div class="subhead span2">Scientific Advisors</div><div class="subhead empty" aria-hidden="true"></div>
+      <article class="card" style="grid-column:1"><div class="photo"><img src="chamanzar.png" alt="Maysam Chamanzar, Ph.D."></div><div class="band"><h3 class="name">Maysam Chamanzar, Ph.D.</h3><p class="title">Professor, ECE at CMU</p></div></article>
+      <article class="card" style="grid-column:2"><div class="photo"><img src="weber.png" alt="Douglas Weber, Ph.D."></div><div class="band"><h3 class="name">Douglas Weber, Ph.D.</h3><p class="title">Professor, Mechanical Engineering at CMU</p></div></article>
     </section>
   </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-wrap">
-      <div>
-        <div class="foot-brand">
-          <img src="LogoIcon.png" alt="Synapse Symphony">
-          <h3 class="foot-title">Synapse Symphony</h3>
-        </div>
-        <p class="foot-tagline">Engineering the future of neurotechnology</p>
-      </div>
-      <div class="foot-contact">
-        <h4>Contact</h4>
-        <p>Email: info.synapsesymphony@gmail.com</p>
-        <p>Synapse Symphony Inc.<br>4740 Wallingford St.<br>Pittsburgh, PA 15213</p>
-      </div>
-    </div>
-    <div class="foot-line"></div>
-    <div class="foot-bottom">
-      <small>&copy; 2025 Synapse Symphony. All rights reserved.</small>
-      <small>Home • About • Research • Team • Contact</small>
-    </div>
-  </footer>
+  <footer><div class="footer-wrap"><div><div class="foot-brand"><img src="LogoIcon.png" alt="Synapse Symphony"><h3 class="foot-title">Synapse Symphony</h3></div><p class="foot-tagline">Engineering the future of neurotechnology</p></div><div class="foot-contact"><h4>Contact</h4><p>Email: info.synapsesymphony@gmail.com</p><p>Synapse Symphony Inc.<br>4740 Wallingford St.<br>Pittsburgh, PA 15213</p></div></div><div class="foot-line"></div><div class="foot-bottom"><small>&copy; 2025 Synapse Symphony. All rights reserved.</small><small>Home • About • Research • Team • Contact</small></div></footer>
 </body>
 </html>
