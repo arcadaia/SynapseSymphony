@@ -102,11 +102,9 @@
     /* Photo areas */
     .photo{
       position:relative;width:100%;
-      aspect-ratio: 2 / 3; /* tall portrait */
+      aspect-ratio: 2 / 3; /* shared portrait size */
       overflow:hidden;background:#06354f;
     }
-    /* Leadership: even taller */
-    .board .photo{aspect-ratio: 1.95 / 3}
     .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 
     .photo.contain-blue{background:#073350}
@@ -170,7 +168,7 @@
       <li><a href="contact.html">Contact</a></li>
       <li><a href="career.html">Careers</a></li>
     </ul>
-  </nav> 
+  </nav>
 
   <!-- Hero -->
   <header class="page-hero">
@@ -187,8 +185,8 @@
 
     <!-- Leadership -->
     <div class="group"><span>Leadership</span></div>
-    <section class="grid two board">
-      
+    <section class="row-3 leadership">
+
       <article class="card">
         <div class="photo"><img src="Vishal_profile_pic_1.jpeg" alt="Vishal Jain, Ph.D."></div>
         <div class="band">
@@ -196,10 +194,10 @@
           <p class="title">CEO/COO</p>
         </div>
         <div class="bio">
-          Dr. Vishal Jain (Co-Founder & CEO) is a Research Scientist with a strong track record in Translaational Neuroscience, system integration, and clinical validation. He leads clinical operations, regulatory planning, and hardware-software translation, including coordination of IRB-approved pilot studies.
+          Dr. Vishal Jain (Co-Founder & CEO) is a Research Scientist with a strong track record in Translaational Neuroscience, system integration, and clinical validation. He leads clinical operations.
         </div>
       </article>
-      
+
       <article class="card">
         <div class="photo"><img src="Pulkit.png" alt="Pulkit Grover, Ph.D."></div>
         <div class="band">
@@ -207,11 +205,9 @@
           <p class="title">CSO</p>
         </div>
         <div class="bio">
-          Dr. Pulkit Grover (Co-Founder & CSO) is a Professor of Electrical and Computer Engineering at Carnegie Mellon University, specializing in brain stimulation, artificial intelligence, machine learning, and systems theory. He leads the company’s vision, product strategy, and algorithm development, drawing on a decade of pioneering research in non-invasive neuromodulation.
+          Dr. Pulkit Grover (Co-Founder & CSO) is a Professor of Electrical and Computer Engineering at Carnegie Mellon University, specializing in brain stimulation, artificial intelligence, and machine learning.
         </div>
       </article>
-
-      
 
     </section>
 
@@ -227,7 +223,7 @@
           <p class="title">Clinical Advisor</p>
         </div>
         <div class="bio">
-          Dr. Benedict Alter (Clinical Advisor) is an MD/PhD in anesthesiology and pain medicine at the University of Pittsburgh. He oversees our ongoing pilot trials in fibromyalgia and osteoarthritis patients, providing clinical insights into protocol design, patient selection, and therapeutic response.
+          Dr. Benedict Alter (Clinical Advisor) is an MD/PhD in anesthesiology and pain medicine at the University of Pittsburgh. He oversees our ongoing pilot trials in fibromyalgia and osteoarthritis.
         </div>
       </article>
 
@@ -248,7 +244,7 @@
           <p class="title">Neurostimulation Expert</p>
         </div>
         <div class="bio">
-          Mats Forssell (Co-Founder & Lead Engineer) is a Research Scientist with deep expertise in neurostimulation hardware development and testing. He leads device engineering, electrical safety, and manufacturability optimization for our stimulation platform.
+          Mats Forssell (Co-Founder & Lead Engineer) is a Research Scientist with deep expertise in neurostimulation hardware development and testing. He leads device engineering, electrical safety, and testing.
         </div>
       </article>
     </section>
@@ -275,18 +271,15 @@
       </article>
 
       <article class="card" style="grid-column:3">
-      <div class="photo"><img src="kwasa.jpg" alt="Jasmine Kwasa, Ph.D."></div>
-       <div class="band">
-       <h3 class="name">Jasmine Kwasa, Ph.D.</h3>
-         <p class="title">Embedded Entrepreneur</p>
+        <div class="photo"><img src="kwasa.jpg" alt="Jasmine Kwasa, Ph.D."></div>
+        <div class="band">
+          <h3 class="name">Jasmine Kwasa, Ph.D.</h3>
+          <p class="title">Embedded Entrepreneur</p>
         </div>
       </article>
     </section>
   </main>
-        </div>
-      </article>
-    </section>
-  </main>
+
   <!-- Footer -->
   <footer>
     <div class="footer-wrap">
