@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Synapse Symphony | News & Press</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#ffffff;
+      --ink-dim:#dfeaf4;
+      --bg:#032B47;
+      --bg-2:#021a2c;
+      --acc:#1486B6;
+      --acc-2:#4bb0da;
+      --accent-3:#6fd0ff;
+      --muted:#9ec2d9;
+      --ring: rgba(20,134,182,0.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);scroll-behavior:smooth}
+
+    /* Nav */
+    nav{
+      position:sticky;top:0;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:.9rem 2rem;
+      background:linear-gradient(180deg, rgba(2,26,44,.92), rgba(2,26,44,.7));
+      border-bottom:1px solid rgba(20,134,182,.25);
+    }
+    .logo-wrap{display:flex;align-items:center;gap:.7rem}
+    .logo-wrap img{height:30px;width:auto}
+    .brand{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.08em}
+    nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0}
+    nav a{color:#cfdbe6;text-decoration:none;font-weight:500}
+    nav a:hover{color:#fff}
+    nav a.active{color:#fff;border-bottom:2px solid var(--acc);padding-bottom:.25rem}
+
+    section{padding:5rem 4vw;position:relative;overflow:hidden}
+
+    .page-title{text-align:center;font-family:"Playfair Display",serif;font-size:2.1rem;margin:0 0 1rem}
+    .lede{text-align:center;color:var(--ink-dim);max-width:900px;margin:0 auto 2.2rem}
+
+    .news-list{max-width:1100px;margin:2rem auto;display:grid;gap:1.2rem}
+    .news-item{display:grid;grid-template-columns:120px 1fr;gap:1rem;align-items:center;background:linear-gradient(180deg, rgba(6,43,67,.6), rgba(6,43,67,.35));border:1px solid rgba(20,134,182,.18);padding:1rem;border-radius:12px}
+    .news-item img{width:120px;height:88px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,.06)}
+    .news-item h3{margin:0 0 .25rem;font-size:1.05rem;color:var(--accent-3)}
+    .news-item time{display:block;color:var(--muted);font-size:.9rem;margin-bottom:.35rem}
+    .news-item p{margin:0;color:#eaf5fb;line-height:1.45}
+    .news-actions{margin-top:.6rem;display:flex;gap:.6rem;flex-wrap:wrap}
+    .btn{padding:.5rem .75rem;border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;text-decoration:none;font-weight:600;background:transparent}
+    .btn-download{background:linear-gradient(90deg,var(--acc),var(--acc-2));border-color:transparent}
+
+    .press-kit{max-width:1100px;margin:3rem auto;padding:1.6rem;border-radius:12px;background:linear-gradient(180deg, rgba(6,43,67,.35), rgba(6,43,67,.2));border:1px solid rgba(20,134,182,.12)}
+    .press-kit h4{margin:0 0 .6rem;color:var(--accent-3)}
+    .press-grid{display:grid;grid-template-columns:1fr 320px;gap:1rem;align-items:start}
+    .press-grid img{width:100%;height:auto;border-radius:8px}
+
+    footer{background:var(--bg-2);border-top:1px solid rgba(20,134,182,.28)}
+    .footer-wrap{max-width:1200px;margin:0 auto;padding:2.6rem 4vw;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:start}
+    .foot-brand{display:flex;gap:.8rem;align-items:center}
+    .foot-brand img{height:28px;width:auto;opacity:.95}
+    .foot-title{font-family:"Playfair Display",serif;font-size:1.15rem;margin:0}
+    .foot-tagline{margin:.35rem 0 0;color:#bcd1df;font-size:.95rem}
+    .foot-contact{justify-self:end;text-align:right}
+    .foot-contact h4{margin:0 0 .6rem;font-size:1rem;letter-spacing:.03em;color:#e7f1f8}
+    .foot-contact p{margin:.2rem 0;color:#9ec2d9;font-size:.95rem}
+    .foot-line{border-top:1px solid rgba(255,255,255,.08);margin:0 4vw}
+    .foot-bottom{max-width:1200px;margin:0 auto;padding:1rem 4vw;display:flex;justify-content:space-between;align-items:center;color:#9ec2d9;font-size:.9rem}
+    .foot-bottom small{opacity:.9}
+    @media (max-width:900px){
+      .press-grid{grid-template-columns:1fr}
+      .news-item{grid-template-columns:1fr}
+      nav ul{display:none}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo-wrap">
+      <img src="LogoIcon.png" alt="Logo" />
+      <span class="brand">SYNAPSE SYMPHONY</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="career.html">Careers</a></li>
+      <li><a class="active" href="news.html">News</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h1 class="page-title">News & Press</h1>
+    <p class="lede">Latest company announcements, awards, funding and press resources. If you're a member of the press and need imagery, high-res logos or interviews, contact our press team below.</p>
+
+    <div class="news-list" aria-live="polite">
+
+      <article class="news-item">
+        <img src="womenspain.jpg" alt="Magee-Women's Pain Challenge" />
+        <div>
+          <time datetime="2024-11-01">Nov 2024</time>
+          <h3>Winner — Magee-Women’s Pain Challenge (Fibromyalgia)</h3>
+          <p>Synapse Symphony won the 2024 Magee-Women’s Pain Challenge with an award of $75,000 to advance our fibromyalgia-focused neurostimulation research and clinical prototyping.</p>
+          <div class="news-actions">
+            <a class="btn" href="NoticeForFiling.pdf" download>View award notice (PDF)</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <img src="kaufmanpain.jpg" alt="Virginia Kaufman Pain Challenge" />
+        <div>
+          <time datetime="2025-05-01">May 2025</time>
+          <h3>Winner — Virginia Kaufman Pain Challenge</h3>
+          <p>Awarded $50,000 for our knee osteoarthritis pain program — supporting expanded validation and a pilot usability study.</p>
+          <div class="news-actions">
+            <a class="btn" href="#">Read more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <img src="DARPA2.png" alt="DARPA funding" />
+        <div>
+          <time datetime="2025-05-01">May 2025</time>
+          <h3>Seed Funding — DARPA Embedded Entrepreneur Initiative</h3>
+          <p>Secured $315,000 in seed funding through DARPA's Embedded Entrepreneur Initiative to accelerate hardware-software integration and clinical testing.</p>
+          <div class="news-actions">
+            <a class="btn" href="#">Program details</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-item">
+        <img src="VB LOgo.png" alt="Venture Bridge CMU" />
+        <div>
+          <time datetime="2025-03-01">Mar 2025</time>
+          <h3>Venture Bridge CMU — Team Grant</h3>
+          <p>Synapse Symphony received $50,000 in Venture Bridge funding to support product-market fit work and early pilot deployments.</p>
+          <div class="news-actions">
+            <a class="btn" href="#">Program details</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <section class="press-kit" aria-labelledby="presskit">
+      <h4 id="presskit">Press kit & media assets</h4>
+      <div class="press-grid">
+        <div>
+          <p>Download logos, product imagery and a short company fact sheet. For interview requests, press briefings, or embargoed materials, email: <strong>press.synapsesymphony@gmail.com</strong>.</p>
+          <p><a class="btn btn-download" href="LogoIcon.png" download>Download Logo</a> <a class="btn" href="NoticeForFiling.pdf" download>Download PDF</a></p>
+        </div>
+        <div>
+          <img src="placeholder.jpg" alt="Product imagery placeholder" />
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <footer>
+    <div class="footer-wrap">
+      <div>
+        <div class="foot-brand">
+          <img src="LogoIcon.png" alt="Synapse Symphony">
+          <h3 class="foot-title">Synapse Symphony</h3>
+        </div>
+        <p class="foot-tagline">Engineering the future of neurotechnology</p>
+      </div>
+      <div class="foot-contact">
+        <h4>Contact</h4>
+        <p>Email: info.synapsesymphony@gmail.com</p>
+        <p>Synapse Symphony Inc.<br>4740 Wallingford St.<br>Pittsburgh, PA 15213</p>
+      </div>
+    </div>
+    <div class="foot-line"></div>
+    <div class="foot-bottom">
+      <small>&copy; 2025 Synapse Symphony. All rights reserved.</small>
+      <small>Home • About • Research • Team • Contact • News</small>
+    </div>
+  </footer>
+</body>
+</html>
