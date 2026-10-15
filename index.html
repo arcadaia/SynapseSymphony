@@ -111,6 +111,8 @@
       display:flex; gap:2.2rem; align-items:center;
       animation:marquee 42s linear infinite;
       will-change:transform;
+      white-space:nowrap; /* ensure items don't wrap onto new lines */
+      flex-wrap:nowrap;   /* prevent flex items from wrapping */
     }
     .ticker:hover .ticker-track{ animation-play-state:paused; }
 
@@ -124,11 +126,15 @@
       border:1px solid rgba(255,255,255,.18);
       background:rgba(255,255,255,.06);
       border-radius:12px; white-space:nowrap; color:#eaf5fb; font-weight:600;
+      flex: 0 0 auto; /* don't let chips shrink or grow */
     }
     .news-img{
-      height:96px; width:auto; display:block;
+      height:96px; width:auto; display:inline-block;
       border-radius:10px; border:1px solid rgba(255,255,255,.12);
       box-shadow:0 8px 22px -14px var(--ring);
+      object-fit:cover;
+      flex: 0 0 auto; /* prevent growing in flex container */
+      max-height:96px;
     }
 
 
